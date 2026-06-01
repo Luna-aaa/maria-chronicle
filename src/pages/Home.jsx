@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const FACTS = [
   { label: '出生',     value: '1992.01.31', sub: '茨城县土浦市' },
-  { label: '艺名',     value: 'MARiA',      sub: '美依礼芽 · 水桥舞' },
+  { label: '艺名',     value: <>MAR<span className="brand-mark">i</span>A</>, sub: '美依礼芽 · 水桥舞' },
   { label: '主流出道', value: '2014.03.05', sub: 'GARNiDELiA《ambiguous》' },
   { label: '在华破圈', value: '2023',       sub: '《乘风2023》断层一位' },
   { label: '组合停摆', value: '2025.09.02', sub: 'GARNiDELiA 无限期停止' }
@@ -19,7 +19,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          ✦ A CHRONICLE OF MARiA ✦
+          ✦ A CHRONICLE OF MAR<span className="brand-mark">i</span>A ✦
         </motion.div>
         <motion.h1
           className="hero-title"
@@ -35,7 +35,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.3 }}
         >
-          M A R i A
+          M A R <span className="brand-mark">i</span> A
         </motion.div>
         <motion.p
           className="hero-subtitle"
@@ -43,7 +43,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.45 }}
         >
-          从茨城少女，到 GARNiDELiA 的紫红女王，再到中国乐迷心中的「芽芽」——
+          从茨城少女，到 GARNiDELiA 的紫红女王，再到中国乐迷心中的「小美」——
           <br />本站按时间顺序记录她走过的每一段路。
         </motion.p>
         <motion.div

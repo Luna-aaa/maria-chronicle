@@ -152,6 +152,11 @@ img { max-width: 100%; display: block; }
   margin-bottom: 28px;
   padding-left: 14px; /* compensate trailing letter-spacing */
 }
+/* Cinzel 是全大写字形字体，借此 span 让品牌名里的小写 i 真正显示为小写 */
+.brand-mark {
+  font-family: 'Noto Serif SC', Georgia, serif;
+  font-weight: inherit;
+}
 .hero-subtitle {
   color: var(--text-soft);
   font-size: 17px;
