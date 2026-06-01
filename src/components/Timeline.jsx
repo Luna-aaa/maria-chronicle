@@ -1,14 +1,18 @@
 import { motion } from 'framer-motion'
-import { Fragment } from 'react'
 
 export default function Timeline({ events }) {
+  // events 由 Biography 页面用 enrichBiography 预处理，era 项带 eraId
   return (
     <div className="timeline">
       {events.map((ev, i) => {
         if (ev.era) {
           return (
-            <div key={`era-${i}`} className="timeline-era">
-              <span>{ev.era}</span>
+            <div
+              key={`era-${i}`}
+              id={ev.eraId}
+              className="timeline-era"
+            >
+              <span className="timeline-era-label">{ev.era}</span>
             </div>
           )
         }

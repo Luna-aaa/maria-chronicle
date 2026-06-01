@@ -16,6 +16,12 @@
   --card-shadow: 0 8px 24px rgba(255, 93, 158, 0.12);
   --timeline-line: linear-gradient(180deg, #ffa3c7, #ff5d9e, #ffa3c7);
   --logo-grad: linear-gradient(135deg, #ff5d9e, #ff9bbf);
+  /* 作品分类色 */
+  --type-single: #ff5d9e;
+  --type-album:  #b061d3;
+  --type-tieup:  #6aa9ff;
+  --type-cover:  #ff8a3d;
+  --type-event:  #4cc9a0;
 }
 
 /* 深色主题 — GARNiDELiA 风（紫红 + 金 + 黑） */
@@ -35,4 +41,10 @@
   --card-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
   --timeline-line: linear-gradient(180deg, #b13b6a, #d4af37, #b13b6a);
   --logo-grad: linear-gradient(135deg, #d4af37, #b13b6a);
+  /* 作品分类色（深色主题：饱和度略提，更亮一些） */
+  --type-single: #ffb84d;
+  --type-album:  #d678ff;
+  --type-tieup:  #6cc7ff;
+  --type-cover:  #ff7892;
+  --type-event:  #5ee3a7;
 }

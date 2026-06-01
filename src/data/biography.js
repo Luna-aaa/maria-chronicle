@@ -1,11 +1,41 @@
 // 美依礼芽（MARiA）生平时间线
 // 字段：
-//   { era: '...' }                — 时期分隔
-//   { date, title, body?, tags? } — 事件
+//   { era: '...' }                              — 时期分隔
+//   { date, title, body?, tags?, highlight? }   — 事件
+//     highlight: true 标记为首页亮点轮播条目
 //
 // 资料来源：用户提供的微博粉丝长文人物志（info.txt）
 // + 公开访谈、维基百科、官方资料。
 // 当前覆盖至 2018 年；2019 之后逐步补充。
+
+// 从 biography 数组提取 era 列表（供导航使用）
+// 返回 [{ id, label, eventCount, firstEventDate }]
+export function extractEras(events) {
+  const eras = []
+  let current = null
+  events.forEach((ev, i) => {
+    if (ev.era) {
+      current = { id: `era-${eras.length}`, label: ev.era, eventCount: 0, firstEventDate: null, sourceIndex: i }
+      eras.push(current)
+    } else if (current) {
+      current.eventCount += 1
+      if (!current.firstEventDate) current.firstEventDate = ev.date
+    }
+  })
+  return eras
+}
+
+// 为每个 era 事件项预先打上 eraId，避免渲染时再算
+export function enrichBiography(events) {
+  let eraIdx = -1
+  return events.map(ev => {
+    if (ev.era) {
+      eraIdx += 1
+      return { ...ev, eraId: `era-${eraIdx}` }
+    }
+    return ev
+  })
+}
 
 export const biography = [
   { era: '少女时代 · 茨城' },
@@ -45,7 +75,8 @@ export const biography = [
     date: '2010 年 4 月 29 日',
     title: '首次以「MARiA」名义投稿 niconico',
     body: '上传翻唱 toku（とくP）原创 VOCALOID 曲《ARiA》的版本，标题为「★.｡･「ARiA」歌ってみた ver.MARiA ☆」。投稿即登热门，迅速走红。艺名 MARiA = 本名首字母 M + 首支投稿曲 ARiA。',
-    tags: ['MARiA', 'niconico', 'ARiA']
+    tags: ['MARiA', 'niconico', 'ARiA'],
+    highlight: true
   },
   {
     date: '2010 年 7 月 27 日',
@@ -97,7 +128,8 @@ export const biography = [
     date: '2014 年 3 月 5 日',
     title: '主流出道单曲《ambiguous》',
     body: '在索尼 Defstar Records 旗下正式出道。主打曲为电视动画《Kill la Kill（斩服少女）》第二期片头曲，凭借激烈的吉他摇滚与小美强大的歌声打入主流动画歌市场。Oricon 周榜最高第 15 位。',
-    tags: ['主流出道', 'Kill la Kill', '动画歌']
+    tags: ['主流出道', 'Kill la Kill', '动画歌'],
+    highlight: true
   },
   {
     date: '2014 年 7 月 30 日',
@@ -197,7 +229,8 @@ export const biography = [
     date: '2016 年 4 月 25 日',
     title: '舞见系列第四弹《極楽浄土》上传 niconico',
     body: 'みうめ・メイリア・217 三人和服舞蹈版投稿，配合精心编排的「净土舞」，MV 在中国 B 站等平台疯传，引爆华人圈出圈热潮，「極楽浄土」自此成为 MARiA 海外人气的最大引擎。',
-    tags: ['極楽浄土', '舞见', '出圈']
+    tags: ['極楽浄土', '舞见', '出圈'],
+    highlight: true
   },
   {
     date: '2016 年 5 月 3 日',
@@ -253,7 +286,8 @@ export const biography = [
     date: '2017 年 4 月 16 日 起',
     title: '首次正式巡演「stellacage TOUR 2017 ~Cry Out~」',
     body: '六场：东京 / 名古屋 / 大阪 / 福冈 / 仙台 + 上海。是 GARNiDELiA 真正意义上的第一次巡回演唱会，上海场是 5 月 20 日（BANDAINAMCO 上海梦想剧场），首次海外独立专场。',
-    tags: ['巡演', '上海']
+    tags: ['巡演', '上海'],
+    highlight: true
   },
   {
     date: '2017 年 6 月 14 日',
@@ -321,7 +355,8 @@ export const biography = [
     date: '2018 年 3 月 28 日',
     title: '第三张原创合辑《G.R.N.D.》',
     body: 'GARNiDELiA 自身的缩写，13 首歌。主打曲《G.R.N.D.》成为日本电视台《ウチのガヤがすみません!》3 月片尾曲。同收录《红叶爱唄》（《王者荣耀》公孙离主题曲，舞见系列第七弹）等鹅厂合作作品。',
-    tags: ['G.R.N.D.', '合辑', '王者荣耀']
+    tags: ['G.R.N.D.', '合辑', '王者荣耀'],
+    highlight: true
   },
   {
     date: '2018 年 4 月 7—29 日 / 5 月 5 日',
@@ -387,7 +422,8 @@ export const biography = [
     date: '2023 年 5 月',
     title: '人气断层第一 · 票数过半',
     body: '人气与得票数迅速领跑全员，单人票数超过其余 32 位「姐姐」的总和，成为节目史上罕见的「断层第一」级流量。',
-    tags: ['断层第一']
+    tags: ['断层第一'],
+    highlight: true
   },
   {
     date: '2023 年 5 月 — 6 月',
@@ -425,7 +461,8 @@ export const biography = [
     date: '2025 年 9 月 2 日',
     title: 'GARNiDELiA 宣布无限期停止活动',
     body: '官方网站突然发布无限期停止所有活动的公告，年内已确定的巡演（含台北场等）全数取消。公告仅由 toku（阿部尚德）一人署名，主唱 MARiA 并未参与。',
-    tags: ['停止活动', '官网公告']
+    tags: ['停止活动', '官网公告'],
+    highlight: true
   },
   {
     date: '2025 年 9 月 2 日 · 同日',

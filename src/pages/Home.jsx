@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import HighlightsCarousel from '../components/HighlightsCarousel.jsx'
 
 const FACTS = [
   { label: '出生',     value: '1992.01.31', sub: '茨城县土浦市' },
@@ -72,6 +73,8 @@ export default function Home() {
           </motion.div>
         ))}
       </section>
+
+      <HighlightsCarousel />
     </>
   )
 }

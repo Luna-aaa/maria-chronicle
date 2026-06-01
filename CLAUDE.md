@@ -38,10 +38,14 @@ npm run preview    # 本地预览生产构建
 所有内容都是手写的纯 JS 数组，**没有 CMS、没有 fetch、没有 markdown**：
 
 - **`src/data/biography.js`** — `biography` 数组按时间顺序排列，元素是两种之一：
-  - `{ era: '...' }` — 时期分隔条（在 Timeline 中渲染为粗体横条）
-  - `{ date, title, body?, tags? }` — 事件卡片
+  - `{ era: '...' }` — 时期分隔条（在 Timeline 中渲染为章节标题胶囊）
+  - `{ date, title, body?, tags?, highlight? }` — 事件卡片。`highlight: true` 表示该事件会出现在首页「命运节点」轮播中
   - 顺序即展示顺序，**不要重排**。新增条目时插入到对应时间位置。
-- **`src/data/works.js`** — `works` 数组（无序，按 year desc 在 `Works.jsx` 里排）+ `WORK_TYPES` 映射。每条 `{ year, type, title, meta }`，`type` 必须是 `WORK_TYPES` 的 key（`single` / `album` / `tieup` / `cover` / `event`）。新增类型时同步更新 `WORK_TYPES`，否则筛选 chip 不会出现。
+  - 同文件导出两个工具函数：
+    - `enrichBiography(events)` — 给每个 era 项打上 `eraId`（`era-0`、`era-1`...）
+    - `extractEras(events)` — 提取章节列表 `[{ id, label, eventCount, firstEventDate, sourceIndex }]`，供 `TimelineNav` 和首页轮播跳转使用
+  - 章节 id 由数组顺序生成（`era-N`），**重排 era 项会让所有锚点 id 偏移**——首页轮播、TimelineNav scroll spy 都依赖这套 id。
+- **`src/data/works.js`** — `works` 数组（无序，按 year desc 在 `Works.jsx` 里排）+ `WORK_TYPES` 映射。每条 `{ year, type, title, meta }`，`type` 必须是 `WORK_TYPES` 的 key（`single` / `album` / `tieup` / `cover` / `event`）。新增类型时同步更新 `WORK_TYPES`，同时在 `themes.css` 里加 `--type-XXX` 配色变量、在 `index.css` 里补 `.chart-bar-XXX` / `.work-cover-XXX` / `.filter-chip-XXX` 三组样式，否则筛选 chip、堆叠图、卡片 cover 都会出问题。
 
 两个数据文件头部注释都标明：资料来源是仓库根目录的 **`info.txt`**（约 320KB 的粉丝长文人物志），当前覆盖**到 2018 年**，2019 之后的事件/作品仍需补充。补内容时优先回查 `info.txt`，公共资料（维基/官网）作为补充。
 
@@ -63,7 +67,18 @@ npm run preview    # 本地预览生产构建
 
 ### 动画
 
-`framer-motion` 用于入场动画（Hero、fact cards、Timeline 事件 `whileInView`）。Timeline 事件按索引交替左右（`i % 2`），改 Timeline 渲染顺序会影响布局对称。
+`framer-motion` 用于入场动画（Hero、fact cards、Timeline 事件 `whileInView`、Works 卡片、首页轮播）。Timeline 事件按其在 `biography` 数组中的索引交替左右（`i % 2`，包含 era 项），改 Timeline 渲染顺序会影响布局对称。
+
+### 关键组件
+
+- `components/Timeline.jsx` — 渲染左右交替的时间线。`era` 项渲染为 `#eraId` 锚点（id 来自 `enrichBiography`）。
+- `components/TimelineNav.jsx` — Biography 页面的章节导航。**PC（≥1280px）** 固定在视口右侧，**移动端**为 sticky 顶部 chip bar；用 `IntersectionObserver` 做 scroll spy。
+- `components/HighlightsCarousel.jsx` — 首页「命运节点」横向 scroll-snap 轮播。从 `biography` 中筛 `highlight: true` 条目，每张卡片用 `<Link state={{ scrollToEra }}>` 跳转到对应章节；`Biography.jsx` 用 `useLocation().state` 接收并滚动。
+- `components/WorksChart.jsx` — 纯 SVG 堆叠条形图，无图表库依赖。按年份 × type 统计 `works`。配色来自 `--type-XXX` CSS 变量。
+
+### 跨页面跳转 + HashRouter 注意
+
+HashRouter 的 URL 形如 `#/biography`，**不能再附加第二个 `#anchor`**（会被吃掉）。因此首页 → Biography 章节跳转用 `<Link to="/biography" state={{ scrollToEra: 'era-N' }}>` 传 state，Biography 页面用 `useEffect` + `useLocation().state` 在 mount 后 `scrollIntoView`。需要从外部链接深链到某章节时，须改造为 query string 方案（如 `?era=N`）。
 
 ## 部署
 
