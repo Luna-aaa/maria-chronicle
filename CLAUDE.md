@@ -57,7 +57,11 @@ npm run preview    # 本地预览生产构建
 
 - `src/context/ThemeContext.jsx`：Provider + `useTheme()` hook，状态写入 `localStorage` 的 `maria-chronicle-theme`，初始默认 `dark`。
 - 切换时把 `document.documentElement.dataset.theme = theme`，所有主题色都通过 `[data-theme="light"]` / `[data-theme="dark"]` 选择器在 `src/styles/themes.css` 里用 CSS 变量定义。新增主题色优先加 CSS 变量，不要硬编码。
-- `BackgroundFX` 会根据当前主题渲染完全不同的两套装饰层（浅色：飘落樱花 + blob；深色：星点 + 网格 + blob），都是纯 CSS + DOM，无图片依赖。
+- `BackgroundFX` 会根据当前主题渲染完全不同的两套装饰层，都是纯 CSS + DOM，无图片依赖：
+  - **浅色**：飘落樱花（14 朵，部分使用**负值 `animation-delay`** 预滚动，让加载瞬间就有樱花在画面中）+ 双 blob 漂移
+  - **深色**：60 颗闪烁星点 + 网格 + 5 颗错峰流星（duration 12–15s、可见窗口仅 ~20% 形成「偶发划过」节奏）+ 双 blob
+  - 流星几何：head 在元素 right + `transform-origin: 100% 50%` + **正值 angle**（顺时针）+ `translateX(120vmax)`，保证 head 领跑、向右下方斜飞。改方向时四个变量要一起改。
+  - `index.css` 末尾有 `@media (prefers-reduced-motion: reduce)`，会禁用流星 / 樱花 / 星闪 / blob 漂移。
 
 ### 样式
 
