@@ -4,7 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-`maria-chronicle` — 美依礼芽（MARiA）人物志。一个按时间顺序记录其生平、作品与重要事件的静态站点，Vite + React 18 SPA，目标部署 Vercel。
+`maria-chronicle` — 美依礼芽（MARiA）人物志。一个按时间顺序记录其生平、作品与重要事件的静态站点，Vite + React 18 SPA。
+
+**已上线（2026-06-01）**:
+
+- 生产地址: https://maria-chronicle.vercel.app
+- 仓库: https://github.com/Luna-aaa/maria-chronicle (Public)
+- 工作流: `git push origin main` → Vercel 自动构建（约 30 秒）
+- 国内访问 `*.vercel.app` 不稳定且未备案。如果未来要面向大陆用户，需自定义域名 + Cloudflare 或迁移到国内备案托管。
+
+项目处于**长期迭代阶段**：内容、UI、功能都会持续变动，不要把现状当成最终态。
 
 ## Commands
 
@@ -36,6 +45,10 @@ npm run preview    # 本地预览生产构建
 
 两个数据文件头部注释都标明：资料来源是仓库根目录的 **`info.txt`**（约 320KB 的粉丝长文人物志），当前覆盖**到 2018 年**，2019 之后的事件/作品仍需补充。补内容时优先回查 `info.txt`，公共资料（维基/官网）作为补充。
 
+**注意 `info.txt` 已在 `.gitignore` 里**——它只存在于本地，不会推到 GitHub。所以 Vercel 构建环境、克隆下来的开发者都看不到这个文件。如果在新机器上开发或在 CI 里需要它，要单独同步过去。
+
+待补的主要节点（用户已点名）：2019 年开始的事件 / 作品、《乘风2023》断层一位、GARNiDELiA 2025-09-02 无限期停摆、舞见后续弹。
+
 ### 主题系统
 
 - `src/context/ThemeContext.jsx`：Provider + `useTheme()` hook，状态写入 `localStorage` 的 `maria-chronicle-theme`，初始默认 `dark`。
@@ -55,3 +68,14 @@ npm run preview    # 本地预览生产构建
 ## 部署
 
 `vercel.json` 已配置：framework=vite，rewrites 全部回 `index.html`（HashRouter 其实不依赖这条 rewrite，但保留以兼容未来切到 BrowserRouter）。`vite.config.js` 的 `base: './'` 让构建产物可放在任意子路径。
+
+**部署工作流**（已生效）：
+
+1. 本地改完代码 → `npm run build` 自测通过（可选）
+2. `git add` + `git commit` + `git push origin main`
+3. Vercel 监听到 push，自动跑 `npm install` + `npm run build`，约 30 秒后上线
+4. 失败时去 Vercel dashboard 看构建日志
+
+本地 git 身份已配置（仅本仓库）：`Galaxia <3179697545@qq.com>`。
+
+推送破坏性改动前先确认——线上随时可能有访客。
