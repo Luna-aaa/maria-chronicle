@@ -16,7 +16,8 @@ export default function BackgroundFX() {
             className="petal"
             style={{
               left: `${(i * 7.3) % 100}%`,
-              animationDelay: `${(i * 1.7) % 12}s`,
+              // 负值 delay：让一部分樱花在页面加载时已经飘到中途，避免「白屏几秒才下雪」
+              animationDelay: `${((i * 1.7) % 12) - 5}s`,
               animationDuration: `${10 + (i % 5) * 2}s`
             }}
           />
