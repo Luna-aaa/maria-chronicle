@@ -971,6 +971,55 @@ img { max-width: 100%; display: block; }
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
 }
 
+/* Dark theme · 流星 — 偶发划过，duration 长但可见窗口短 */
+.meteor {
+  position: absolute;
+  top: var(--meteor-top, -10vh);
+  left: var(--meteor-left, 50%);
+  width: var(--meteor-length, 200px);
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(212, 175, 55, 0.55) 30%,
+    transparent 100%);
+  border-radius: 999px;
+  transform-origin: 0 50%;
+  transform: rotate(var(--meteor-angle, -45deg)) translateX(0);
+  opacity: 0;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.7));
+  animation: meteor var(--meteor-duration, 16s) linear var(--meteor-delay, 0s) infinite;
+  pointer-events: none;
+}
+.meteor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 8px 2px rgba(255, 255, 255, 0.9),
+    0 0 18px 4px rgba(212, 175, 55, 0.55);
+}
+@keyframes meteor {
+  0%   { opacity: 0; transform: rotate(var(--meteor-angle, -45deg)) translateX(0); }
+  3%   { opacity: 1; }
+  18%  { opacity: 1; }
+  22%  { opacity: 0; transform: rotate(var(--meteor-angle, -45deg)) translateX(120vmax); }
+  100% { opacity: 0; transform: rotate(var(--meteor-angle, -45deg)) translateX(120vmax); }
+}
+
+/* 尊重系统的「减少动画」偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .meteor { display: none; }
+  .star { animation: none; }
+  .petal { animation: none; display: none; }
+  .bg-blob { animation: none; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
   .timeline::before { left: 18px; }

@@ -42,6 +42,29 @@ export default function BackgroundFX() {
           }}
         />
       ))}
+      {METEORS.map((m, i) => (
+        <span
+          key={`meteor-${i}`}
+          className="meteor"
+          style={{
+            '--meteor-left': m.left,
+            '--meteor-top': m.top,
+            '--meteor-angle': `${m.angle}deg`,
+            '--meteor-delay': `${m.delay}s`,
+            '--meteor-duration': `${m.duration}s`,
+            '--meteor-length': m.length
+          }}
+        />
+      ))}
     </div>
   )
 }
+
+// 流星错峰配置：长 duration + 短可见区间形成「偶尔划过」的节奏
+const METEORS = [
+  { left: '12%', top: '-6vh',  angle: -38, delay: 0,    duration: 16, length: '180px' },
+  { left: '38%', top: '4vh',   angle: -42, delay: 3.6,  duration: 15, length: '220px' },
+  { left: '62%', top: '-10vh', angle: -48, delay: 7.4,  duration: 18, length: '160px' },
+  { left: '82%', top: '6vh',   angle: -34, delay: 11.2, duration: 14, length: '200px' },
+  { left: '50%', top: '-4vh',  angle: -45, delay: 14.5, duration: 17, length: '240px' }
+]
