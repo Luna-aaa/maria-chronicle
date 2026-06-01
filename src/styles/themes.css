@@ -1,0 +1,38 @@
+/* 浅色主题 — 清新粉色系（少女感） */
+:root,
+:root[data-theme='light'] {
+  --bg: #fff7fb;
+  --bg-elev: #ffffff;
+  --bg-soft: #ffe9f2;
+  --text: #2a1a24;
+  --text-soft: #6b4a5c;
+  --text-muted: #9a7d8c;
+  --accent: #ff5d9e;
+  --accent-2: #ffa3c7;
+  --accent-glow: rgba(255, 93, 158, 0.35);
+  --border: #ffd0e1;
+  --line: #ffb3d1;
+  --card: #ffffff;
+  --card-shadow: 0 8px 24px rgba(255, 93, 158, 0.12);
+  --timeline-line: linear-gradient(180deg, #ffa3c7, #ff5d9e, #ffa3c7);
+  --logo-grad: linear-gradient(135deg, #ff5d9e, #ff9bbf);
+}
+
+/* 深色主题 — GARNiDELiA 风（紫红 + 金 + 黑） */
+:root[data-theme='dark'] {
+  --bg: #0a0610;
+  --bg-elev: #14101c;
+  --bg-soft: #1c1428;
+  --text: #f4eef7;
+  --text-soft: #c9b9d6;
+  --text-muted: #847593;
+  --accent: #d4af37;          /* 金色 */
+  --accent-2: #b13b6a;        /* 紫红 */
+  --accent-glow: rgba(212, 175, 55, 0.35);
+  --border: #2a1f3a;
+  --line: #4a2d52;
+  --card: #18122a;
+  --card-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+  --timeline-line: linear-gradient(180deg, #b13b6a, #d4af37, #b13b6a);
+  --logo-grad: linear-gradient(135deg, #d4af37, #b13b6a);
+}

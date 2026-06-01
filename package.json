@@ -1,0 +1,22 @@
+{
+  "name": "maria-chronicle",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "美依礼芽（MARiA）人物志 — 按时间顺序记录她的生平、作品与重要事件",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0",
+    "framer-motion": "^11.11.17"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "vite": "^5.4.10"
+  }
+}

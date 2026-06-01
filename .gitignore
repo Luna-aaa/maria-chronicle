@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+.vite
+.DS_Store
+*.local
+.env
+.env.*
+!.env.example
+
+# 内容资料源(本地参考,不公开)
+info.txt
