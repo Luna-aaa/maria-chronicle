@@ -61,10 +61,11 @@ export default function BackgroundFX() {
 }
 
 // 流星错峰配置：长 duration + 短可见区间形成「偶尔划过」的节奏
+// angle 必须为正：正值 = 顺时针旋转 = 向右下方向飞（流星该有的方向）
 const METEORS = [
-  { left: '12%', top: '-6vh',  angle: -38, delay: 0,    duration: 16, length: '180px' },
-  { left: '38%', top: '4vh',   angle: -42, delay: 3.6,  duration: 15, length: '220px' },
-  { left: '62%', top: '-10vh', angle: -48, delay: 7.4,  duration: 18, length: '160px' },
-  { left: '82%', top: '6vh',   angle: -34, delay: 11.2, duration: 14, length: '200px' },
-  { left: '50%', top: '-4vh',  angle: -45, delay: 14.5, duration: 17, length: '240px' }
+  { left: '5%',  top: '-8vh',  angle: 38, delay: 0,    duration: 14, length: '180px' },
+  { left: '28%', top: '-4vh',  angle: 42, delay: 3.0,  duration: 13, length: '220px' },
+  { left: '52%', top: '-10vh', angle: 48, delay: 6.2,  duration: 15, length: '160px' },
+  { left: '72%', top: '-6vh',  angle: 34, delay: 9.4,  duration: 12, length: '200px' },
+  { left: '40%', top: '-12vh', angle: 45, delay: 12.5, duration: 14, length: '240px' }
 ]

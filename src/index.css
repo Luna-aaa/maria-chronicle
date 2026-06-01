@@ -971,7 +971,10 @@ img { max-width: 100%; display: block; }
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
 }
 
-/* Dark theme · 流星 — 偶发划过，duration 长但可见窗口短 */
+/* Dark theme · 流星 — 偶发划过，duration 长但可见窗口短
+   设计：head（白点 + 金光晕）在元素 RIGHT，tail（金渐变 → 透明）在 LEFT
+        pivot 放在 head（100% 50%），rotate 正角度 = 向右下倾斜
+        translateX 正值 = 沿 head 方向（右下）平移 = head 领跑 ✓ */
 .meteor {
   position: absolute;
   top: var(--meteor-top, -10vh);
@@ -979,12 +982,12 @@ img { max-width: 100%; display: block; }
   width: var(--meteor-length, 200px);
   height: 2px;
   background: linear-gradient(90deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(212, 175, 55, 0.55) 30%,
-    transparent 100%);
+    transparent 0%,
+    rgba(212, 175, 55, 0.55) 70%,
+    rgba(255, 255, 255, 0.95) 100%);
   border-radius: 999px;
-  transform-origin: 0 50%;
-  transform: rotate(var(--meteor-angle, -45deg)) translateX(0);
+  transform-origin: 100% 50%;
+  transform: rotate(var(--meteor-angle, 40deg)) translateX(0);
   opacity: 0;
   filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.7));
   animation: meteor var(--meteor-duration, 16s) linear var(--meteor-delay, 0s) infinite;
@@ -994,22 +997,22 @@ img { max-width: 100%; display: block; }
   content: '';
   position: absolute;
   top: 50%;
-  left: 0;
+  right: 0;
   width: 5px;
   height: 5px;
   border-radius: 50%;
   background: #fff;
-  transform: translate(-50%, -50%);
+  transform: translate(50%, -50%);
   box-shadow:
     0 0 8px 2px rgba(255, 255, 255, 0.9),
     0 0 18px 4px rgba(212, 175, 55, 0.55);
 }
 @keyframes meteor {
-  0%   { opacity: 0; transform: rotate(var(--meteor-angle, -45deg)) translateX(0); }
+  0%   { opacity: 0; transform: rotate(var(--meteor-angle, 40deg)) translateX(0); }
   3%   { opacity: 1; }
   18%  { opacity: 1; }
-  22%  { opacity: 0; transform: rotate(var(--meteor-angle, -45deg)) translateX(120vmax); }
-  100% { opacity: 0; transform: rotate(var(--meteor-angle, -45deg)) translateX(120vmax); }
+  22%  { opacity: 0; transform: rotate(var(--meteor-angle, 40deg)) translateX(120vmax); }
+  100% { opacity: 0; transform: rotate(var(--meteor-angle, 40deg)) translateX(120vmax); }
 }
 
 /* 尊重系统的「减少动画」偏好 */
