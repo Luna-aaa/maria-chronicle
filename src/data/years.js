@@ -19,18 +19,20 @@
 
 // 大类 + 小类
 export const MAJORS = {
-  music: { label: '音乐',       subs: { album: '专辑', single: '单曲', collab: '合作曲' } },
-  dance: { label: '舞见',       subs: {} },
-  live:  { label: '演出',       subs: { concert: '演唱会', festival: '音乐节' } },
-  exp:   { label: '综艺与经历', subs: { variety: '综艺', life: '经历' } }
+  music:   { label: '音乐', subs: { album: '专辑', single: '单曲', collab: '合作曲' } },
+  dance:   { label: '舞见', subs: {} },
+  live:    { label: '演出', subs: { concert: '演唱会', festival: '音乐节' } },
+  variety: { label: '综艺', subs: {} },
+  life:    { label: '经历', subs: {} }
 }
 
 // 兼容旧引用：仅保留 label
 export const CATEGORIES = {
-  music: { label: '音乐' },
-  dance: { label: '舞见' },
-  live:  { label: '演出' },
-  exp:   { label: '综艺与经历' }
+  music:   { label: '音乐' },
+  dance:   { label: '舞见' },
+  live:    { label: '演出' },
+  variety: { label: '综艺' },
+  life:    { label: '经历' }
 }
 
 export const years = [
@@ -39,8 +41,8 @@ export const years = [
     title: '美依礼芽诞生',
     summary: '出生于茨城县土浦市，本名水桥舞。',
     events: [
-      { id: '1992-1', date: '01-31', cat: 'exp', sub: 'life', title: '出生于日本茨城县土浦市', body: '本名水桥舞（みずはし まい），日本女歌手，身高 152cm，血型 O 型。', tags: ['出生', '茨城'] },
-      { id: '1992-2', date: '小学四年级 起', cat: 'exp', sub: 'life', title: '进入演艺私塾学习演技、舞蹈、歌唱', body: '从小学四年级开始就在一所综合培养表演、舞蹈与歌唱的私塾学习，为日后的全能型舞台表现打下基础。', tags: ['童年'] }
+      { id: '1992-1', date: '01-31', cat: 'life', title: '出生于日本茨城县土浦市', body: '本名水桥舞（みずはし まい），和族。1992 年 1 月 31 日出生于日本茨城县土浦市。身高 152cm，血型 O 型。', tags: ['出生', '茨城', '和族'], media: { photos: ['/photos/1992/1.jpg'] } },
+      { id: '1992-2', date: '幼年 起', cat: 'life', title: '自幼学习音乐与舞蹈 · 受二次元文化熏陶', body: '自幼学习音乐和舞蹈，并受到日本二次元（ACG）文化的熏陶，从此长期围绕 ACG 圈进行创作。自小学四年级起在一所综合培养表演、舞蹈与歌唱的私塾系统学习，为日后的全能型舞台表现打下基础。', tags: ['童年', 'ACG'], media: { photos: ['/photos/1992/2.jpg'] } }
     ]
   },
   {
@@ -48,7 +50,7 @@ export const years = [
     title: '11 岁童星出道',
     summary: '以 4 人组合 New man co., Ltd. 主唱身份出道。',
     events: [
-      { id: '2003-1', date: '2003 年', cat: 'exp', sub: 'life', title: '4 人组合 New man co., Ltd. 出道', body: '以 11 岁的年纪担任组合主唱，演唱动画《おもいっきり科学アドベンチャー そーなんだ!》的片头曲《Birthday Heart》。同期演唱《真夏のスクーター》，成为茨城地区节目《发现！茨城大陆》的片尾曲。', tags: ['童星出道'] }
+      { id: '2003-1', date: '2003 年', cat: 'life', title: '4 人组合 New man co., Ltd. 出道', body: '以 11 岁的年纪担任组合主唱，演唱动画《おもいっきり科学アドベンチャー そーなんだ!》的片头曲《Birthday Heart》。同期演唱《真夏のスクーター》，成为茨城地区节目《发现！茨城大陆》的片尾曲。', tags: ['童星出道'] }
     ]
   },
   {
@@ -56,7 +58,7 @@ export const years = [
     title: '加入「原宿 BJ Girls」',
     summary: '13 岁起以最年少成员身份活动，后改名 CHIX CHICKS。',
     events: [
-      { id: '2005-1', date: '2005 年', cat: 'exp', sub: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '13 岁起以组合最年少成员身份活动，后组合改名为「CHIX CHICKS」，在制作人松尾潔的带领下翻唱爵士乐与 70-80 年代西洋流行曲。', tags: ['Chix Chicks'] }
+      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '13 岁起以组合最年少成员身份活动，后组合改名为「CHIX CHICKS」，在制作人松尾潔的带领下翻唱爵士乐与 70-80 年代西洋流行曲。', tags: ['Chix Chicks'] }
     ]
   },
   {
@@ -73,9 +75,9 @@ export const years = [
     summary: '以「MARiA」名义在 niconico 走红，并组成 GARNiDELiA。',
     highlight: true,
     events: [
-      { id: '2010-1', date: '04-29', cat: 'exp', sub: 'life', title: '首次以「MARiA」名义投稿 niconico', body: '上传翻唱 toku（とくP）原创 VOCALOID 曲《ARiA》的版本，投稿即登热门，迅速走红。艺名 MARiA = 本名首字母 M + 首支投稿曲 ARiA。', tags: ['MARiA', 'niconico'], highlight: true },
-      { id: '2010-2', date: '07-27', cat: 'exp', sub: 'life', title: 'CHIX CHICKS 解散 · 与「水桥舞」身份告别', body: '组合宣告解散，成员各自独立。她也结束了「水桥舞」名义的演艺活动。', tags: ['解散'] },
-      { id: '2010-3', date: '09-11', cat: 'exp', sub: 'life', title: '与 toku 组成「GARNiDELiA」', body: '与编曲家 toku（阿部尚徳）成立音乐组合 GARNiDELiA（ガルニデリア）。组合名意为「美依礼芽歌唱的地方」。', tags: ['GARNiDELiA', '组建'] },
+      { id: '2010-1', date: '04-29', cat: 'life', title: '首次以「MARiA」名义投稿 niconico', body: '上传翻唱 toku（とくP）原创 VOCALOID 曲《ARiA》的版本，投稿即登热门，迅速走红。艺名 MARiA = 本名首字母 M + 首支投稿曲 ARiA。', tags: ['MARiA', 'niconico'], highlight: true },
+      { id: '2010-2', date: '07-27', cat: 'life', title: 'CHIX CHICKS 解散 · 与「水桥舞」身份告别', body: '组合宣告解散，成员各自独立。她也结束了「水桥舞」名义的演艺活动。', tags: ['解散'] },
+      { id: '2010-3', date: '09-11', cat: 'life', title: '与 toku 组成「GARNiDELiA」', body: '与编曲家 toku（阿部尚徳）成立音乐组合 GARNiDELiA（ガルニデリア）。组合名意为「美依礼芽歌唱的地方」。', tags: ['GARNiDELiA', '组建'] },
       { id: '2010-4', date: '12-31', cat: 'music', sub: 'album', title: '同人迷你专辑《ONE》', body: 'GARNiDELiA 首张作品，于 Comic Market 79 颁布。', tags: ['同人'] }
     ]
   },
@@ -127,9 +129,9 @@ export const years = [
       { id: '2015-1', date: '01-21', cat: 'music', sub: 'album', title: '第一张原创合辑《Linkage Ring》', body: '13 首歌，其中 7 首全新。Oricon 周榜最高第 11 位。', tags: ['Linkage Ring'] },
       { id: '2015-2', date: '02-11', cat: 'live', sub: 'concert', title: 'stellacage vol.II（东京 LIQUIDROOM）', body: '现场公开下一张专辑将是「首张民谣」。', tags: ['stellacage'] },
       { id: '2015-3', date: '05-13', cat: 'music', sub: 'single', title: '第四张单曲《MIRAI》', body: '动画《ガンスリンガー ストラトス》片尾曲，G 团首次正式尝试民谣编曲。后成为 MARiA 与粉丝双向奔赴的象征曲。', tags: ['MIRAI', '民谣'] },
-      { id: '2015-4', date: '06-01', cat: 'exp', sub: 'life', title: '唱片公司从 Defstar Records 转至 SME Records', body: '随 Defstar Records 厂牌废止，转至索尼旗下 SME Records 继续主流活动。', tags: ['唱片公司'] },
+      { id: '2015-4', date: '06-01', cat: 'life', title: '唱片公司从 Defstar Records 转至 SME Records', body: '随 Defstar Records 厂牌废止，转至索尼旗下 SME Records 继续主流活动。', tags: ['唱片公司'] },
       { id: '2015-5', date: '07 月 起', cat: 'live', sub: 'concert', title: '免费迷你巡演（茨城/广岛/兵库/福冈）', body: '为庆祝《BiRTHiA》发售开启的小规模路演。', tags: ['巡演'] },
-      { id: '2015-6', date: '08-18', cat: 'exp', sub: 'life', title: '开设官方粉丝俱乐部「galaxia」', body: '官方爱好者俱乐部成立（现已废止）。', tags: ['粉丝俱乐部'] },
+      { id: '2015-6', date: '08-18', cat: 'life', title: '开设官方粉丝俱乐部「galaxia」', body: '官方爱好者俱乐部成立（现已废止）。', tags: ['粉丝俱乐部'] },
       { id: '2015-7', date: '08-26', cat: 'music', sub: 'album', title: '精选辑《BiRTHiA》', body: '收录独立音乐时代 15 首歌，全曲重录，含新曲《Birth》。', tags: ['精选辑'] },
       { id: '2015-8', date: '08-29', cat: 'live', sub: 'festival', title: 'Animelo Summer Live 2015 -THE GATE-', body: '在埼玉超级竞技场首登日本年度最大动画音乐节 anisama 舞台。', tags: ['anisama'] },
       { id: '2015-9', date: '11-07', cat: 'live', sub: 'concert', title: 'stellacage vol.III（东京 ToyosuPIT）', body: '本年 stellacage 系列首场万人级场地演出。', tags: ['stellacage'] },
@@ -191,7 +193,7 @@ export const years = [
     summary: '最后一张正式单曲，年底约满离开 SACRA MUSIC。',
     events: [
       { id: '2019-1', date: '01-12 / 03-13', cat: 'music', sub: 'single', title: '第十张单曲《REBEL FLAG》', body: '动画《魔法少女特殊战明日香》片尾曲。这也是 GARNiDELiA 至今为止的最后一张正式单曲专辑。', tags: ['REBEL FLAG'] },
-      { id: '2019-2', date: '08-28', cat: 'exp', sub: 'life', title: '与 SACRA MUSIC 合约月底到期', body: '索尼旗下动漫向厂牌 SACRA MUSIC 的合约结束，进入厂牌动荡期。', tags: ['厂牌'] },
+      { id: '2019-2', date: '08-28', cat: 'life', title: '与 SACRA MUSIC 合约月底到期', body: '索尼旗下动漫向厂牌 SACRA MUSIC 的合约结束，进入厂牌动荡期。', tags: ['厂牌'] },
       { id: '2019-3', date: '12-04', cat: 'music', sub: 'album', title: '第二张精选集《GARNiDELiA BEST》', body: 'SACRA MUSIC 时代的收尾精选集。', tags: ['精选集'] }
     ]
   },
@@ -210,7 +212,7 @@ export const years = [
     summary: 'MARiA 发行出道后首张个人专辑《うたものがたり》。',
     highlight: true,
     events: [
-      { id: '2021-1', date: '03-22', cat: 'exp', sub: 'life', title: '环球音乐合约终止 · 转籍波丽佳音', body: 'GARNiDELiA 组合与二人 SOLO 活动一同移籍 Pony Canyon（波丽佳音）。', tags: ['波丽佳音'] },
+      { id: '2021-1', date: '03-22', cat: 'life', title: '环球音乐合约终止 · 转籍波丽佳音', body: 'GARNiDELiA 组合与二人 SOLO 活动一同移籍 Pony Canyon（波丽佳音）。', tags: ['波丽佳音'] },
       { id: '2021-2', date: '05-26', cat: 'music', sub: 'album', title: 'MARiA 个人首张专辑《うたものがたり》', body: '出道以来首张个人名义专辑，收录 10 首情歌，词曲提供阵容含 山下穂尊、橋口洋平、じん、草野華余子、TAKUYA、山崎将义 等。', tags: ['うたものがたり', 'SOLO'], highlight: true },
       { id: '2021-3', date: '09-17', cat: 'music', sub: 'single', title: '数字单曲《春がきたよ》', body: '日剧《反正你也逃不掉》片头曲。', tags: ['日剧'] },
       { id: '2021-4', date: '11-17', cat: 'music', sub: 'album', title: '第五张原创专辑《Duality Code》', body: '收录《オトメの心得》（动画《大正处女御伽话》OP）等曲。', tags: ['Duality Code'] }
@@ -225,7 +227,7 @@ export const years = [
       { id: '2022-2', date: '06-22', cat: 'music', sub: 'album', title: 'MARiA 第二张个人专辑《Moments》', body: '继《うたものがたり》后的第二张个人名义专辑。', tags: ['Moments', 'SOLO'] },
       { id: '2022-3', date: '09 月', cat: 'music', sub: 'single', title: '数字单曲《蒼天》', body: 'Switch 游戏主题曲。', tags: ['游戏'] },
       { id: '2022-4', date: '10-16', cat: 'music', sub: 'single', title: 'MARiA《Trust On Me -Theme of E.T.E-》', body: '手游《代号：艾塔（艾塔纪元）》主题歌，MARiA 个人名义。', tags: ['游戏', 'SOLO'] },
-      { id: '2022-5', date: '11-01', cat: 'exp', sub: 'life', title: '公开与摇滚乐手「ぽにきんぐだむ」结婚', body: 'MARiA 通过 Twitter 公开与乐队「オメでたい頭でなにより」吉他手 ぽにきんぐだむ 的婚讯，受到中日歌迷广泛祝福。', tags: ['婚讯', '私生活'] }
+      { id: '2022-5', date: '11-01', cat: 'life', title: '公开与摇滚乐手「ぽにきんぐだむ」结婚', body: 'MARiA 通过 Twitter 公开与乐队「オメでたい頭でなにより」吉他手 ぽにきんぐだむ 的婚讯，受到中日歌迷广泛祝福。', tags: ['婚讯', '私生活'] }
     ]
   },
   {
@@ -235,10 +237,10 @@ export const years = [
     highlight: true,
     events: [
       { id: '2023-1', date: '03-22', cat: 'music', sub: 'album', title: '翻唱集《GARNiDELiA COVER COLLECTiON》', body: '收录翻唱歌曲与 LIVE 影像。', tags: ['翻唱'] },
-      { id: '2023-2', date: '04 月', cat: 'exp', sub: 'variety', title: '加入芒果 TV《乘风 2023》', body: '作为节目首位日本籍参赛者亮相。凭借真挚的中文学习态度、可爱的「小美」形象与舞台爆发力，迅速成为节目的最大流量担当。', tags: ['乘风2023', '出圈'] },
+      { id: '2023-2', date: '04 月', cat: 'variety', title: '加入芒果 TV《乘风 2023》', body: '作为节目首位日本籍参赛者亮相。凭借真挚的中文学习态度、可爱的「小美」形象与舞台爆发力，迅速成为节目的最大流量担当。', tags: ['乘风2023', '出圈'] },
       { id: '2023-3', date: '04-20', cat: 'music', sub: 'single', title: '数字单曲《ONLY》', body: '动画《献祭公主与兽王》片尾曲。', tags: ['动画歌'] },
-      { id: '2023-4', date: '05—07 月', cat: 'exp', sub: 'variety', title: '节目期间人气一度断层第一 · 总决赛获第三名', body: '节目期间人气与得票数一度领跑全员，单人票数超过其余 32 位「姐姐」的总和；总决赛最终获得第三名，并由此获得大量在中国的演出机会。', tags: ['断层第一', '总决赛第三名'], highlight: true },
-      { id: '2023-5', date: '07-21', cat: 'exp', sub: 'variety', title: '乘风之夜 · 登上年度席位', body: '在节目「乘风之夜」与 Ella、谢娜、刘惜君、A-Lin、龚琳娜、贾静雯等共 11 人同登「乘风年度席位」。', tags: ['乘风之夜'] },
+      { id: '2023-4', date: '05—07 月', cat: 'variety', title: '节目期间人气一度断层第一 · 总决赛获第三名', body: '节目期间人气与得票数一度领跑全员，单人票数超过其余 32 位「姐姐」的总和；总决赛最终获得第三名，并由此获得大量在中国的演出机会。', tags: ['断层第一', '总决赛第三名'], highlight: true },
+      { id: '2023-5', date: '07-21', cat: 'variety', title: '乘风之夜 · 登上年度席位', body: '在节目「乘风之夜」与 Ella、谢娜、刘惜君、A-Lin、龚琳娜、贾静雯等共 11 人同登「乘风年度席位」。', tags: ['乘风之夜'] },
       { id: '2023-6', date: '07-26', cat: 'music', sub: 'collab', title: '与周深合唱《夏日妄想》', body: '《王者荣耀》2023 夏日主题曲。此后她持续承接中国影视、游戏主题曲，成为中日音乐交流的代表面孔之一。', tags: ['周深', '中国合作'] },
       { id: '2023-7', date: '07-29', cat: 'music', sub: 'single', title: '《MIRAI》发布 8 年后首登 MORA 榜首', body: '《乘风 2023》带来的流量令 2015 年的旧作《MIRAI》在日本 mora 平台首次登上榜首。', tags: ['MIRAI', 'mora'] },
       { id: '2023-8', date: '08-14', cat: 'live', sub: 'concert', title: '迄今最大演唱会 · 粉丝齐唱《MIRAI》', body: '全场粉丝合唱《MIRAI》献给她，「双向奔赴」成为这一年最常提及的关键词。', tags: ['演唱会'] },
@@ -269,12 +271,12 @@ export const years = [
       { id: '2025-1', date: '01-11', cat: 'music', sub: 'single', title: '数字单曲《罪人》', body: '动画《魔域英雄传说》片头曲。', tags: ['动画歌'] },
       { id: '2025-2', date: '02-20', cat: 'music', sub: 'single', title: '《命运之风》', body: '《晶核》一周年主题曲日语翻唱版。', tags: ['游戏', '中国合作'] },
       { id: '2025-3', date: '02-26', cat: 'music', sub: 'album', title: '全时期精选《GRND THE BEST PROGRESS》', body: '横跨全时期的精选专辑，收录《极乐净土》《桃源恋歌》《响喜乱舞》等代表作的 [PROGRESS] 重制版。', tags: ['精选集', 'PROGRESS'] },
-      { id: '2025-4', date: '03-12', cat: 'exp', sub: 'life', title: 'MARiA 首部自传随笔《I am MARiA》', body: '讲述自己的成长与在中国爆红的历程，并收录宫原梦画拍摄的照片。', tags: ['I am MARiA', '自传'] },
+      { id: '2025-4', date: '03-12', cat: 'life', title: 'MARiA 首部自传随笔《I am MARiA》', body: '讲述自己的成长与在中国爆红的历程，并收录宫原梦画拍摄的照片。', tags: ['I am MARiA', '自传'] },
       { id: '2025-5', date: '08-12', cat: 'music', sub: 'single', title: '《爆爆派对》', body: '《冒险岛：枫之传说》2 周年主题曲。', tags: ['游戏', '中国合作'] },
-      { id: '2025-6', date: '09-02', cat: 'exp', sub: 'life', title: 'GARNiDELiA 宣布无限期停止活动', body: '官方网站突然发布无限期停止所有活动的公告，年内已确定的巡演全数取消。公告仅由 toku 一人署名，主唱 MARiA 并未参与。', tags: ['停止活动', '官网公告'], highlight: true },
-      { id: '2025-7', date: '09-02 · 同日', cat: 'exp', sub: 'life', title: 'MARiA 公开表态：「诶！？」', body: '在转发停止活动消息时，MARiA 仅回复一句「诶！？」表明事先并不知情，并向引起混乱的粉丝致歉。', tags: ['诶！？'] },
-      { id: '2025-8', date: '09 月（随后）', cat: 'exp', sub: 'life', title: '长文公开事务所欠薪与霸凌', body: 'MARiA 发布长文，公开所属事务所 SUPER DIRECTION INC. 长期欠付演出报酬、部分工作完全未结算、并多次遭受社长言语霸凌的经历。她同时表示，今后不再以个人身份演唱 GARNiDELiA 时期的任何曲目。', tags: ['事务所纠纷', '欠薪'] },
-      { id: '2025-9', date: '— 进行中 —', cat: 'exp', sub: 'life', title: '后续：解约与未来', body: '事件后续仍在发展。MARiA 解除事务所合约、开启全新阶段的活动方向是中日两地粉丝关注的焦点。', tags: ['进行中'] }
+      { id: '2025-6', date: '09-02', cat: 'life', title: 'GARNiDELiA 宣布无限期停止活动', body: '官方网站突然发布无限期停止所有活动的公告，年内已确定的巡演全数取消。公告仅由 toku 一人署名，主唱 MARiA 并未参与。', tags: ['停止活动', '官网公告'], highlight: true },
+      { id: '2025-7', date: '09-02 · 同日', cat: 'life', title: 'MARiA 公开表态：「诶！？」', body: '在转发停止活动消息时，MARiA 仅回复一句「诶！？」表明事先并不知情，并向引起混乱的粉丝致歉。', tags: ['诶！？'] },
+      { id: '2025-8', date: '09 月（随后）', cat: 'life', title: '长文公开事务所欠薪与霸凌', body: 'MARiA 发布长文，公开所属事务所 SUPER DIRECTION INC. 长期欠付演出报酬、部分工作完全未结算、并多次遭受社长言语霸凌的经历。她同时表示，今后不再以个人身份演唱 GARNiDELiA 时期的任何曲目。', tags: ['事务所纠纷', '欠薪'] },
+      { id: '2025-9', date: '— 进行中 —', cat: 'life', title: '后续：解约与未来', body: '事件后续仍在发展。MARiA 解除事务所合约、开启全新阶段的活动方向是中日两地粉丝关注的焦点。', tags: ['进行中'] }
     ]
   }
 ]

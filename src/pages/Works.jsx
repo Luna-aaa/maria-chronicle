@@ -10,9 +10,9 @@ const MotionLink = motion(Link)
 const CAT_ICON = { music: '♪', dance: '舞', live: '✶', exp: '◈' }
 
 export default function Works() {
-  // 作品页排除「私人经历」(sub:'life')；综艺等其余照常收录。生平页不受影响。
+  // 作品页排除「经历」(cat:'life')；综艺等其余照常收录。生平页不受影响。
   const allItems = useMemo(
-    () => getAllItems().filter(it => it.sub !== 'life').sort((a, b) => b.year - a.year),
+    () => getAllItems().filter(it => it.cat !== 'life').sort((a, b) => b.year - a.year),
     []
   )
   const [major, setMajor] = useState('all')   // 大类
@@ -61,7 +61,7 @@ export default function Works() {
         <button className={`major-tab${major === 'all' ? ' active' : ''}`} onClick={() => pickMajor('all')}>
           全部 <span className="filter-chip-count">{majorCounts.all}</span>
         </button>
-        {Object.entries(MAJORS).map(([key, m]) => (
+        {Object.entries(MAJORS).filter(([key]) => key !== 'life').map(([key, m]) => (
           <button
             key={key}
             className={`major-tab cat-${key}${major === key ? ' active' : ''}`}

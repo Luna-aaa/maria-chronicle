@@ -1,12 +1,12 @@
 import { useMemo } from 'react'
 import { getAllItems, MAJORS } from '../data/years.js'
 
-const CAT_ORDER = ['music', 'dance', 'live', 'exp']
+const CAT_ORDER = ['music', 'dance', 'live', 'variety']
 
 export default function WorksChart() {
   const { years, byYearCat, maxCount, total } = useMemo(() => {
-    // 与作品页一致：排除私人经历(sub:'life')
-    const items = getAllItems().filter(w => w.sub !== 'life')
+    // 与作品页一致：排除经历(cat:'life')
+    const items = getAllItems().filter(w => w.cat !== 'life')
     const minYear = Math.min(...items.map(w => w.year))
     const maxYear = Math.max(...items.map(w => w.year))
     const years = []
