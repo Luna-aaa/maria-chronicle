@@ -31,21 +31,20 @@ npm run preview    # 本地预览生产构建
 ### 路由 / 入口
 
 - `src/main.jsx` 用 **HashRouter**（而不是 BrowserRouter）包裹 App。这是有意的：搭配 `vite.config.js` 的 `base: './'` 和 `vercel.json` 的全路径 rewrites，可以在 Vercel 以及任意子路径下直接部署。改路由方式前先确认部署目标。
-- `src/App.jsx` 是路由表 + 全局布局壳（Header / BackgroundFX / ScrollProgress / main / Footer / BackToTop）。四条路由：`/`、`/biography`、`/works`、`/about`。
+- `src/App.jsx` 是路由表 + 全局布局壳（Header / BackgroundFX / ScrollProgress / main / Footer / BackToTop）。五条路由：`/`、`/biography`（年份轴）、`/biography/:year`（年份详情）、`/works`、`/about`。
 
 ### 数据层（这是项目的核心）
 
 所有内容都是手写的纯 JS 数组，**没有 CMS、没有 fetch、没有 markdown**：
 
-- **`src/data/biography.js`** — `biography` 数组按时间顺序排列，元素是两种之一：
-  - `{ era: '...' }` — 时期分隔条（在 Timeline 中渲染为章节标题胶囊）
-  - `{ date, title, body?, tags?, highlight? }` — 事件卡片。`highlight: true` 有双重作用：① 该事件出现在首页「命运节点」轮播中；② 在 Timeline 里被渲染为「重要节点」——`Timeline.jsx` 给其外层加 `.major` 类并插入「★ 重要节点」徽章，对应样式在 `index.css`（更大的渐变发光圆点 + 描边卡片，含移动端圆点对齐）。新增/取消 highlight 会同时影响轮播与时间线强调，注意别让轮播过载。
-  - 顺序即展示顺序，**不要重排**。新增条目时插入到对应时间位置。
-  - 同文件导出两个工具函数：
-    - `enrichBiography(events)` — 给每个 era 项打上 `eraId`（`era-0`、`era-1`...）
-    - `extractEras(events)` — 提取章节列表 `[{ id, label, eventCount, firstEventDate, sourceIndex }]`，供 `TimelineNav` 和首页轮播跳转使用
-  - 章节 id 由数组顺序生成（`era-N`），**重排 era 项会让所有锚点 id 偏移**——首页轮播、TimelineNav scroll spy 都依赖这套 id。
+- **`src/data/years.js`（生平的新数据源，核心）** — 「一年一个对象」的数组，`/biography` 年份轴与 `/biography/:year` 详情页都读它。
+  - 每个年份对象：`{ year, title?, summary?, highlight?, events: [...] }`。`title` 为该年代表事件（轴上展示；为空则该年显示「待补充」并淡化）；`highlight: true` 标记「重要一年」——① 轴上 `.year-row.major` 特效（更大脉冲圆点 + 描边渐变卡片 + ★徽章）；② 进入首页「命运节点」轮播（`highlightYears()` 导出）。
+  - `events` 数组**按时间顺序手写**，详情页按数组顺序渲染（不再解析日期排序）。每条：`{ date, category, title, body?, highlight? }`。
+  - `category` 必须是 `CATEGORIES` 的 key：`life 经历 / music 音乐 / dance 舞见 / live 演出 / other 其他`。配色用 `themes.css` 的 `--cat-XXX` 变量，`index.css` 里 `.cat-XXX { --c: var(--cat-XXX) }` 统一驱动 chip / 色标 / 边框。新增分类要同步这两处。
+  - 补内容的方式：找到对应年份对象，往 `events` 里按时间插条目即可；**各年互相独立**，不存在锚点 id 偏移问题（旧 era 方案已弃用）。
+- **`src/data/biography.js`（旧版，已弃用/备份）** — 旧的扁平 era + 事件数组，连同 `Timeline.jsx` / `TimelineNav.jsx` 已无人 import，仅作迁移源与备份保留。确认新版稳定后可删除。新内容请写进 `years.js`，不要再改这里。
 - **`src/data/works.js`** — `works` 数组（无序，按 year desc 在 `Works.jsx` 里排）+ `WORK_TYPES` 映射。每条 `{ year, type, title, meta }`，`type` 必须是 `WORK_TYPES` 的 key（`single` / `album` / `tieup` / `cover` / `event`）。新增类型时同步更新 `WORK_TYPES`，同时在 `themes.css` 里加 `--type-XXX` 配色变量、在 `index.css` 里补 `.chart-bar-XXX` / `.work-cover-XXX` / `.filter-chip-XXX` 三组样式，否则筛选 chip、堆叠图、卡片 cover 都会出问题。
+  - ⚠️ **规划中**：作品栏将改为「大小分类 + 标签」体系（大类 音乐{专辑/单曲/合作曲} · 舞见 · 演出{演唱会/音乐节} · 综艺与经历{综艺/经历}），并与 `years.js` 生平打通（作品能在对应年份找到）。架构尚未定稿，改动前先和用户确认是「统一数据源」还是「双数据源交叉引用」。
 
 资料来源：仓库根目录的 **`info.txt`**（约 320KB 的粉丝长文人物志，覆盖到 2018）+ 维基百科原文 **`wiki-GARNiDELiA.txt` / `wiki-MARiA.txt`** + 整理对照稿 **`wiki-research.md`**（含发售日/tie-up 全表与若干「待核实」标注）。补内容时优先回查这些本地资料，公共资料（维基/官网）作为补充。
 
@@ -75,18 +74,19 @@ npm run preview    # 本地预览生产构建
 
 ### 动画
 
-`framer-motion` 用于入场动画（Hero、fact cards、Timeline 事件 `whileInView`、Works 卡片、首页轮播）。Timeline 事件按其在 `biography` 数组中的索引交替左右（`i % 2`，包含 era 项），改 Timeline 渲染顺序会影响布局对称。
+`framer-motion` 用于入场动画（Hero、fact cards、YearAxis 年份行 `whileInView`、YearDetail 事件、Works 卡片、首页轮播）。
 
 ### 关键组件
 
-- `components/Timeline.jsx` — 渲染左右交替的时间线。`era` 项渲染为 `#eraId` 锚点（id 来自 `enrichBiography`）。
-- `components/TimelineNav.jsx` — Biography 页面的章节导航。**PC（≥1280px）** 固定在视口右侧，**移动端**为 sticky 顶部 chip bar；用 `IntersectionObserver` 做 scroll spy。
-- `components/HighlightsCarousel.jsx` — 首页「命运节点」横向 scroll-snap 轮播。从 `biography` 中筛 `highlight: true` 条目，每张卡片用 `<Link state={{ scrollToEra }}>` 跳转到对应章节；`Biography.jsx` 用 `useLocation().state` 接收并滚动。
+- `components/YearAxis.jsx` — 生平主轴：垂直年份轨，每年一张代表卡（年号 + 标题 + 概述 + 该年各分类条数 + ★）。读 `years.js`，每行 `<Link to="/biography/:year">` 进详情。`.year-row.major` 为重要一年特效。
+- `pages/YearDetail.jsx` — 年份详情页（路由 `/biography/:year`）：年号大标题 + 概述 + **分类筛选 chip** + 按时间排列的事件流（分类色标 + ★大事件）+ **上/下一年导航** + 空状态。切换年份时 `window.scrollTo(0)` 并重置筛选。
+- `components/HighlightsCarousel.jsx` — 首页「命运节点」横向 scroll-snap 轮播。改为从 `years.js` 的 `highlightYears()` 取重要年份，每张卡 `<Link to="/biography/:year">` 直达年份详情（不再用 `scrollToEra` state）。
 - `components/WorksChart.jsx` — 纯 SVG 堆叠条形图，无图表库依赖。按年份 × type 统计 `works`。配色来自 `--type-XXX` CSS 变量。
+- `components/Timeline.jsx` / `components/TimelineNav.jsx` — 旧版生平时间线与章节导航，**已弃用**（无人 import），保留备份。
 
 ### 跨页面跳转 + HashRouter 注意
 
-HashRouter 的 URL 形如 `#/biography`，**不能再附加第二个 `#anchor`**（会被吃掉）。因此首页 → Biography 章节跳转用 `<Link to="/biography" state={{ scrollToEra: 'era-N' }}>` 传 state，Biography 页面用 `useEffect` + `useLocation().state` 在 mount 后 `scrollIntoView`。需要从外部链接深链到某章节时，须改造为 query string 方案（如 `?era=N`）。
+HashRouter 的 URL 形如 `#/biography`，**不能再附加第二个 `#anchor`**（会被吃掉）。但路径参数没问题：`#/biography/2016` 是合法的 route（年份是 path 段，不是 anchor），所以生平深链直接用 `/biography/:year` 即可，无需再走 state 传参。旧的「首页轮播 → `scrollToEra` state → Biography `scrollIntoView`」方案已随 era 时间线一起退役。
 
 ## 部署
 

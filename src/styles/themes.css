@@ -22,6 +22,12 @@
   --type-tieup:  #6aa9ff;
   --type-cover:  #ff8a3d;
   --type-event:  #4cc9a0;
+  /* 生平/作品分类色（5 类彼此明显区分） */
+  --cat-music: #ff5d9e;   /* 音乐 — 玫红 */
+  --cat-dance: #9b5de5;   /* 舞见 — 紫 */
+  --cat-live:  #1fb89b;   /* 演出 — 青绿 */
+  --cat-life:  #ff8a3d;   /* 经历 — 橙 */
+  --cat-other: #6aa9ff;   /* 其他 — 蓝 */
 }
 
 /* 深色主题 — GARNiDELiA 风（紫红 + 金 + 黑） */
@@ -47,4 +53,10 @@
   --type-tieup:  #6cc7ff;
   --type-cover:  #ff7892;
   --type-event:  #5ee3a7;
+  /* 生平/作品分类色（深色主题：更亮一些） */
+  --cat-music: #ff7ab0;   /* 音乐 — 玫红 */
+  --cat-dance: #c792ff;   /* 舞见 — 紫 */
+  --cat-live:  #5ee3a7;   /* 演出 — 青绿 */
+  --cat-life:  #ffb84d;   /* 经历 — 橙 */
+  --cat-other: #6cc7ff;   /* 其他 — 蓝 */
 }
