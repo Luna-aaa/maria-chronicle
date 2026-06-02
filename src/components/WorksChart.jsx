@@ -1,35 +1,30 @@
 import { useMemo } from 'react'
-import { works, WORK_TYPES } from '../data/works.js'
+import { getAllItems, MAJORS } from '../data/years.js'
 
-const TYPE_ORDER = ['single', 'album', 'tieup', 'cover', 'event']
+const CAT_ORDER = ['music', 'dance', 'live', 'exp']
 
 export default function WorksChart() {
-  const { years, byYearType, maxCount } = useMemo(() => {
-    const minYear = Math.min(...works.map(w => w.year))
-    const maxYear = Math.max(...works.map(w => w.year))
+  const { years, byYearCat, maxCount, total } = useMemo(() => {
+    const items = getAllItems()
+    const minYear = Math.min(...items.map(w => w.year))
+    const maxYear = Math.max(...items.map(w => w.year))
     const years = []
     for (let y = minYear; y <= maxYear; y++) years.push(y)
-    const byYearType = {}
+    const byYearCat = {}
     years.forEach(y => {
-      byYearType[y] = {}
-      TYPE_ORDER.forEach(t => { byYearType[y][t] = 0 })
+      byYearCat[y] = {}
+      CAT_ORDER.forEach(c => { byYearCat[y][c] = 0 })
     })
-    works.forEach(w => {
-      if (byYearType[w.year]) byYearType[w.year][w.type] += 1
+    items.forEach(w => {
+      if (byYearCat[w.year] && byYearCat[w.year][w.cat] !== undefined) byYearCat[w.year][w.cat] += 1
     })
     const maxCount = Math.max(
-      ...years.map(y => TYPE_ORDER.reduce((s, t) => s + byYearType[y][t], 0))
+      ...years.map(y => CAT_ORDER.reduce((s, c) => s + byYearCat[y][c], 0))
     )
-    return { years, byYearType, maxCount }
+    return { years, byYearCat, maxCount, total: items.length }
   }, [])
 
-  // SVG 布局参数
-  const W = 800
-  const H = 220
-  const padL = 32
-  const padR = 12
-  const padT = 16
-  const padB = 32
+  const W = 800, H = 220, padL = 32, padR = 12, padT = 16, padB = 32
   const chartW = W - padL - padR
   const chartH = H - padT - padB
   const barGap = 4
@@ -41,7 +36,7 @@ export default function WorksChart() {
       <div className="works-chart-head">
         <h3>作品 / 事件年度分布</h3>
         <span className="works-chart-sub">
-          {works.length} 项 · {years[0]}–{years[years.length - 1]}
+          {total} 项 · {years[0]}–{years[years.length - 1]}
         </span>
       </div>
       <svg
@@ -51,57 +46,42 @@ export default function WorksChart() {
         role="img"
         aria-label="按年份的作品/事件数量堆叠图"
       >
-        {/* Y 轴刻度线 */}
         {[0, 0.5, 1].map(r => {
           const y = padT + chartH * (1 - r)
           const v = Math.round(maxCount * r)
           return (
             <g key={r}>
-              <line
-                x1={padL}
-                x2={W - padR}
-                y1={y}
-                y2={y}
-                className="chart-gridline"
-              />
-              <text
-                x={padL - 6}
-                y={y + 4}
-                className="chart-axis-text"
-                textAnchor="end"
-              >
-                {v}
-              </text>
+              <line x1={padL} x2={W - padR} y1={y} y2={y} className="chart-gridline" />
+              <text x={padL - 6} y={y + 4} className="chart-axis-text" textAnchor="end">{v}</text>
             </g>
           )
         })}
-        {/* 柱子 */}
         {years.map((y, i) => {
           const x = padL + i * slotW + barGap / 2
           let acc = 0
-          const total = TYPE_ORDER.reduce((s, t) => s + byYearType[y][t], 0)
+          const total = CAT_ORDER.reduce((s, c) => s + byYearCat[y][c], 0)
           return (
             <g key={y}>
-              {TYPE_ORDER.map(t => {
-                const count = byYearType[y][t]
+              {CAT_ORDER.map(c => {
+                const count = byYearCat[y][c]
                 if (!count) return null
                 const h = (count / maxCount) * chartH
                 const yPos = padT + chartH - acc - h
                 acc += h
                 return (
                   <rect
-                    key={t}
+                    key={c}
                     x={x}
                     y={yPos}
                     width={barW}
                     height={h}
-                    className={`chart-bar chart-bar-${t}`}
+                    className="chart-bar"
+                    style={{ fill: `var(--cat-${c})` }}
                   >
-                    <title>{y} · {WORK_TYPES[t]}: {count}</title>
+                    <title>{y} · {MAJORS[c].label}: {count}</title>
                   </rect>
                 )
               })}
-              {/* 总数标在柱顶（仅 >0 时） */}
               {total > 0 && (
                 <text
                   x={x + barW / 2}
@@ -112,14 +92,8 @@ export default function WorksChart() {
                   {total}
                 </text>
               )}
-              {/* X 轴年份（隔一年显示一次以防重叠） */}
               {(i % 2 === 0 || i === years.length - 1) && (
-                <text
-                  x={x + barW / 2}
-                  y={H - padB + 16}
-                  className="chart-axis-text"
-                  textAnchor="middle"
-                >
+                <text x={x + barW / 2} y={H - padB + 16} className="chart-axis-text" textAnchor="middle">
                   {y}
                 </text>
               )}
@@ -128,10 +102,10 @@ export default function WorksChart() {
         })}
       </svg>
       <div className="works-chart-legend">
-        {TYPE_ORDER.map(t => (
-          <span key={t} className="chart-legend-item">
-            <span className={`chart-legend-dot chart-bar-${t}`} />
-            {WORK_TYPES[t]}
+        {CAT_ORDER.map(c => (
+          <span key={c} className="chart-legend-item">
+            <span className="chart-legend-dot" style={{ background: `var(--cat-${c})` }} />
+            {MAJORS[c].label}
           </span>
         ))}
       </div>

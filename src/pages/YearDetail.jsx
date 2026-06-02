@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { years, CATEGORIES } from '../data/years.js'
 
+const MotionLink = motion(Link)
+
 export default function YearDetail() {
   const { year } = useParams()
   const yNum = Number(year)
@@ -22,7 +24,7 @@ export default function YearDetail() {
   // 该年出现过的分类（用于筛选 chip）
   const presentCats = useMemo(() => {
     if (!data) return []
-    const set = new Set((data.events || []).map(e => e.category))
+    const set = new Set((data.events || []).map(e => e.cat))
     return Object.keys(CATEGORIES).filter(c => set.has(c))
   }, [data])
 
@@ -35,7 +37,7 @@ export default function YearDetail() {
     )
   }
 
-  const events = (data.events || []).filter(e => filter === 'all' || e.category === filter)
+  const events = (data.events || []).filter(e => filter === 'all' || e.cat === filter)
 
   return (
     <section className="year-detail">
@@ -61,7 +63,7 @@ export default function YearDetail() {
               className={`year-filter-chip cat-${c}${filter === c ? ' active' : ''}`}
               onClick={() => setFilter(c)}
             >
-              {CATEGORIES[c].label} {data.events.filter(e => e.category === c).length}
+              {CATEGORIES[c].label} {data.events.filter(e => e.cat === c).length}
             </button>
           ))}
         </div>
@@ -72,9 +74,10 @@ export default function YearDetail() {
           <div className="year-empty">这一年的详细记录还在补充中。</div>
         )}
         {events.map((e, i) => (
-          <motion.div
-            key={i}
-            className={`year-event cat-${e.category}${e.highlight ? ' major' : ''}`}
+          <MotionLink
+            key={e.id || i}
+            to={`/item/${e.id}`}
+            className={`year-event cat-${e.cat}${e.highlight ? ' major' : ''}`}
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
@@ -82,7 +85,7 @@ export default function YearDetail() {
           >
             <div className="year-event-side">
               <span className="year-event-date">{e.date}</span>
-              <span className="year-event-cat">{CATEGORIES[e.category]?.label || e.category}</span>
+              <span className="year-event-cat">{CATEGORIES[e.cat]?.label || e.cat}</span>
             </div>
             <div className="year-event-body">
               <div className="year-event-title">
@@ -90,8 +93,13 @@ export default function YearDetail() {
                 {e.title}
               </div>
               {e.body && <p>{e.body}</p>}
+              {e.tags && e.tags.length > 0 && (
+                <div className="year-event-tags">
+                  {e.tags.map(t => <span key={t} className="year-event-tag">#{t}</span>)}
+                </div>
+              )}
             </div>
-          </motion.div>
+          </MotionLink>
         ))}
       </div>
 

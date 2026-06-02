@@ -11,7 +11,7 @@ export default function YearAxis({ years }) {
         // 该年各分类的数量，用于卡片底部的小标记
         const counts = {}
         ;(y.events || []).forEach(e => {
-          counts[e.category] = (counts[e.category] || 0) + 1
+          counts[e.cat] = (counts[e.cat] || 0) + 1
         })
         return (
           <motion.div

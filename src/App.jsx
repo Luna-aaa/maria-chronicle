@@ -7,6 +7,7 @@ import BackToTop from './components/BackToTop.jsx'
 import Home from './pages/Home.jsx'
 import Biography from './pages/Biography.jsx'
 import YearDetail from './pages/YearDetail.jsx'
+import ItemDetail from './pages/ItemDetail.jsx'
 import Works from './pages/Works.jsx'
 import About from './pages/About.jsx'
 
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/biography" element={<Biography />} />
           <Route path="/biography/:year" element={<YearDetail />} />
+          <Route path="/item/:id" element={<ItemDetail />} />
           <Route path="/works" element={<Works />} />
           <Route path="/about" element={<About />} />
         </Routes>
