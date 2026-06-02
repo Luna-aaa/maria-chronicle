@@ -48,9 +48,10 @@ export const years = [
   {
     year: 2003,
     title: '11 岁童星出道',
-    summary: '以 4 人组合 New man co., Ltd. 主唱身份出道。',
+    summary: '以本名水桥舞加入 New man co., Ltd.，演唱《神秘智慧石》OP/ED 出道。',
     events: [
-      { id: '2003-1', date: '2003 年', cat: 'life', title: '4 人组合 New man co., Ltd. 出道', body: '以 11 岁的年纪担任组合主唱，演唱动画《おもいっきり科学アドベンチャー そーなんだ!》的片头曲《Birthday Heart》。同期演唱《真夏のスクーター》，成为茨城地区节目《发现！茨城大陆》的片尾曲。', tags: ['童星出道'] }
+      { id: '2003-1', date: '2003 年', cat: 'life', title: '以本名「水桥舞」加入 New man co., Ltd. 出道', body: '以本名「水桥舞」加入 4 人音乐组合「New man co., Ltd.」，演唱电视动画《神秘智慧石》（そーなんだ!）的片头曲与片尾曲，正式以歌手身份出道，时年 11 岁。', tags: ['童星出道', 'New man co.'], media: { photos: ['/photos/2003/3.jpg'] } },
+      { id: '2003-2', date: '2003 年', cat: 'music', sub: 'single', title: '出道曲《Birthday Heart》', body: '电视动画《神秘智慧石》（そーなんだ!）片头曲，是她以歌手身份的出道曲。', tags: ['神秘智慧石', '出道曲'] }
     ]
   },
   {
