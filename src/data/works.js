@@ -1,6 +1,6 @@
 // GARNiDELiA / 美依礼芽（MARiA） 作品年表
-// 资料来源：用户提供的粉丝长文（info.txt）+ 公开资料
-// 当前覆盖至 2018 年 G.R.N.D.
+// 资料来源：用户提供的粉丝长文（info.txt）+ 维基百科（wiki-GARNiDELiA.txt / wiki-MARiA.txt）+ 公开资料
+// 当前覆盖至 2025 年（活动休止）。早期偶像期个人单曲（2006—2008）暂未收录，留待按需补充。
 
 export const works = [
   // === 同人 / 独立时期 ===
@@ -60,7 +60,44 @@ export const works = [
   { year: 2017, type: 'event',  title: 'stellacage TOUR 2017 ~Cry Out~', meta: '首次正式巡演 · 6 城（含上海）' },
   { year: 2017, type: 'event',  title: 'stellacage Asia Tour 2017', meta: '北京/成都/台湾/深圳 · 亚洲巡演 4 场' },
   { year: 2018, type: 'event',  title: 'リスアニ！LIVE 2018 武道馆', meta: '2018.01.27 · 再登武道馆舞台' },
-  { year: 2018, type: 'event',  title: 'stellacage Tour 2018',      meta: '大阪 / 爱知 / 东京 / 香港 · 4 场' }
+  { year: 2018, type: 'event',  title: 'stellacage Tour 2018',      meta: '大阪 / 爱知 / 东京 / 香港 · 4 场' },
+
+  // === 2020—2021 厂牌变迁 ===
+  { year: 2020, type: 'album',  title: '起死回生',                   meta: '第四张原创专辑 · 签约环球后首张 · 2020.11.25' },
+  { year: 2021, type: 'tieup',  title: '春がきたよ',                  meta: '日剧《反正你也逃不掉》OP · 数字单曲 · 2021.09.17' },
+  { year: 2021, type: 'album',  title: 'うたものがたり',              meta: 'MARiA 个人首张专辑 · 10 首豪华词曲阵容 · 2021.05.26' },
+  { year: 2021, type: 'album',  title: 'Duality Code',              meta: '第五张原创专辑 · 收录《オトメの心得》· 2021.11.17' },
+
+  // === 2022 ===
+  { year: 2022, type: 'tieup',  title: 'オトメの心得',                meta: '动画《大正处女御伽话》OP · 数字单曲' },
+  { year: 2022, type: 'tieup',  title: 'Trust On Me',               meta: '手游《代号：艾塔（艾塔纪元）》主题歌 · MARiA 名义 · 2022.10.16' },
+  { year: 2022, type: 'tieup',  title: '幻愛遊戯',                    meta: '动画《我家师傅没有尾巴》OP · 后收录于《TEN》' },
+  { year: 2022, type: 'tieup',  title: '蒼天',                       meta: 'Switch 游戏主题曲 · 数字单曲' },
+  { year: 2022, type: 'album',  title: 'Moments',                   meta: 'MARiA 第二张个人专辑 · 2022.06.22' },
+
+  // === 2023 中国出圈 + 多产合作 ===
+  { year: 2023, type: 'cover',  title: 'GARNiDELiA COVER COLLECTiON', meta: '翻唱集 · 含 LIVE 影像 · 2023.03.22' },
+  { year: 2023, type: 'tieup',  title: 'ONLY',                      meta: '动画《献祭公主与兽王》ED · 数字单曲 · 2023.04.20' },
+  { year: 2023, type: 'tieup',  title: '夏日妄想',                    meta: '《王者荣耀》2023 夏日主题曲 · 与周深合唱 · 2023.07.26' },
+  { year: 2023, type: 'tieup',  title: 'Future Wing',               meta: '《原神》三周年应援曲 · 数字单曲 · 2023.10.02' },
+  { year: 2023, type: 'tieup',  title: '暁桜',                       meta: '《阴阳师》七周年纪念曲 · 数字单曲 · 2023.10.19' },
+
+  // === 2024 十周年 ===
+  { year: 2024, type: 'album',  title: 'TEN',                       meta: '第六张原创专辑 · 约两年打磨 · 含《幻愛遊戯》· 2024.01.17' },
+  { year: 2024, type: 'tieup',  title: '只若初见',                    meta: '电视剧《四海重明》宿命曲 · 2024.08.02' },
+  { year: 2024, type: 'tieup',  title: '智子',                       meta: '太合音乐《三体》音乐专辑收录 · 2024.12.16' },
+  { year: 2024, type: 'event',  title: '10th anniversary tour -Link The World-', meta: '出道十周年巡演 · 8.11 澳门首站 · 串联中日海外' },
+
+  // === 2025 ===
+  { year: 2025, type: 'tieup',  title: '罪人',                       meta: '动画《魔域英雄传说》OP · 数字单曲 · 2025.01.11' },
+  { year: 2025, type: 'album',  title: 'GRND THE BEST PROGRESS',    meta: '全时期精选 · 含极乐净土/桃源恋歌/响喜乱舞 [PROGRESS] 重制 · 2025.02.26' },
+  { year: 2025, type: 'tieup',  title: '命运之风',                    meta: '《晶核》一周年主题曲日语翻唱版 · 2025.02.20' },
+  { year: 2025, type: 'tieup',  title: '爆爆派对',                    meta: '《冒险岛：枫之传说》2 周年主题曲 · 2025.08.12' },
+
+  // === 跨年中日合作 ===
+  { year: 2023, type: 'tieup',  title: '霜雪千年',                    meta: '与洛天依合唱中日双语版' },
+  { year: 2024, type: 'tieup',  title: '猫の城',                      meta: '手游《猫之城》主题曲' },
+  { year: 2024, type: 'tieup',  title: 'スズラン',                    meta: '手游《铃兰之剑》合作曲' }
 ]
 
 export const WORK_TYPES = {

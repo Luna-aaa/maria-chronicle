@@ -39,7 +39,7 @@ npm run preview    # 本地预览生产构建
 
 - **`src/data/biography.js`** — `biography` 数组按时间顺序排列，元素是两种之一：
   - `{ era: '...' }` — 时期分隔条（在 Timeline 中渲染为章节标题胶囊）
-  - `{ date, title, body?, tags?, highlight? }` — 事件卡片。`highlight: true` 表示该事件会出现在首页「命运节点」轮播中
+  - `{ date, title, body?, tags?, highlight? }` — 事件卡片。`highlight: true` 有双重作用：① 该事件出现在首页「命运节点」轮播中；② 在 Timeline 里被渲染为「重要节点」——`Timeline.jsx` 给其外层加 `.major` 类并插入「★ 重要节点」徽章，对应样式在 `index.css`（更大的渐变发光圆点 + 描边卡片，含移动端圆点对齐）。新增/取消 highlight 会同时影响轮播与时间线强调，注意别让轮播过载。
   - 顺序即展示顺序，**不要重排**。新增条目时插入到对应时间位置。
   - 同文件导出两个工具函数：
     - `enrichBiography(events)` — 给每个 era 项打上 `eraId`（`era-0`、`era-1`...）
@@ -47,11 +47,15 @@ npm run preview    # 本地预览生产构建
   - 章节 id 由数组顺序生成（`era-N`），**重排 era 项会让所有锚点 id 偏移**——首页轮播、TimelineNav scroll spy 都依赖这套 id。
 - **`src/data/works.js`** — `works` 数组（无序，按 year desc 在 `Works.jsx` 里排）+ `WORK_TYPES` 映射。每条 `{ year, type, title, meta }`，`type` 必须是 `WORK_TYPES` 的 key（`single` / `album` / `tieup` / `cover` / `event`）。新增类型时同步更新 `WORK_TYPES`，同时在 `themes.css` 里加 `--type-XXX` 配色变量、在 `index.css` 里补 `.chart-bar-XXX` / `.work-cover-XXX` / `.filter-chip-XXX` 三组样式，否则筛选 chip、堆叠图、卡片 cover 都会出问题。
 
-两个数据文件头部注释都标明：资料来源是仓库根目录的 **`info.txt`**（约 320KB 的粉丝长文人物志），当前覆盖**到 2018 年**，2019 之后的事件/作品仍需补充。补内容时优先回查 `info.txt`，公共资料（维基/官网）作为补充。
+资料来源：仓库根目录的 **`info.txt`**（约 320KB 的粉丝长文人物志，覆盖到 2018）+ 维基百科原文 **`wiki-GARNiDELiA.txt` / `wiki-MARiA.txt`** + 整理对照稿 **`wiki-research.md`**（含发售日/tie-up 全表与若干「待核实」标注）。补内容时优先回查这些本地资料，公共资料（维基/官网）作为补充。
 
-**注意 `info.txt` 已在 `.gitignore` 里**——它只存在于本地，不会推到 GitHub。所以 Vercel 构建环境、克隆下来的开发者都看不到这个文件。如果在新机器上开发或在 CI 里需要它，要单独同步过去。
+数据现已覆盖**到 2025 年**（2019 单曲 REBEL FLAG → 2020《起死回生》→ 2021 移籍波丽佳音 +《うたものがたり》《Duality Code》→ 2022《Moments》+ 结婚 → 2023 乘风 + 多首中国合作 → 2024《TEN》+ 澳门十周年巡演 → 2025 精选/自传/无期限活动休止 + 事务所纠纷）。
 
-待补的主要节点（用户已点名）：2019 年开始的事件 / 作品、《乘风2023》断层一位、GARNiDELiA 2025-09-02 无限期停摆、舞见后续弹。
+**注意 `info.txt` 与 `wiki-GARNiDELiA.txt` / `wiki-MARiA.txt` 都在 `.gitignore` 里**——这些原始素材只存在于本地，不会推到 GitHub。整理稿 `wiki-research.md` 则纳入版本控制。如果在新机器上开发或在 CI 里需要这些原始素材，要单独同步过去。
+
+**已核实修正**：《乘风2023》并非「断层一位」夺冠——而是**节目期间人气一度断层第一、总决赛获第三名**（据中文维基），数据中已按此措辞修正。
+
+仍待补：舞见系列后续弹的细节、2006—2008 早期偶像期个人单曲（暂未录入 `works.js`，以免堆叠图横轴拉到 2006 且数据稀疏）。
 
 ### 主题系统
 

@@ -20,7 +20,7 @@ export default function Timeline({ events }) {
         return (
           <motion.div
             key={i}
-            className={`timeline-event ${side}`}
+            className={`timeline-event ${side}${ev.highlight ? ' major' : ''}`}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -28,6 +28,7 @@ export default function Timeline({ events }) {
           >
             <span className="timeline-dot" />
             <div className="timeline-card">
+              {ev.highlight && <span className="timeline-major-badge">★ 重要节点</span>}
               <div className="timeline-date">{ev.date}</div>
               <div className="timeline-title">{ev.title}</div>
               {ev.body && <div className="timeline-body">{ev.body}</div>}

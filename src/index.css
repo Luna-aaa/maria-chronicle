@@ -303,6 +303,35 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--border);
 }
 
+/* 大事件（highlight）— 醒目强调 */
+.timeline-event.major .timeline-dot {
+  width: 24px;
+  height: 24px;
+  background: var(--logo-grad);
+  box-shadow: 0 0 0 3px var(--accent), 0 0 30px var(--accent-glow);
+}
+.timeline-event.major.left .timeline-dot { right: -12px; }
+.timeline-event.major.right .timeline-dot { left: -12px; }
+.timeline-event.major .timeline-card {
+  border-color: var(--accent);
+  box-shadow: 0 10px 34px var(--accent-glow);
+}
+.timeline-event.major .timeline-card:hover {
+  box-shadow: 0 16px 44px var(--accent-glow);
+}
+.timeline-major-badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: var(--logo-grad);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
 /* Era divider — 章节化视觉 */
 .timeline-era {
   position: relative;
@@ -1030,6 +1059,8 @@ img { max-width: 100%; display: block; }
   .timeline-event.left, .timeline-event.right { left: 0; }
   .timeline-event.left .timeline-dot,
   .timeline-event.right .timeline-dot { left: 9px; right: auto; }
+  .timeline-event.major.left .timeline-dot,
+  .timeline-event.major.right .timeline-dot { left: 6px; right: auto; }
   .site-nav { gap: 12px; }
   .site-nav a { font-size: 14px; }
 }
