@@ -5,7 +5,8 @@ const CAT_ORDER = ['music', 'dance', 'live', 'exp']
 
 export default function WorksChart() {
   const { years, byYearCat, maxCount, total } = useMemo(() => {
-    const items = getAllItems()
+    // 与作品页一致：排除私人经历(sub:'life')
+    const items = getAllItems().filter(w => w.sub !== 'life')
     const minYear = Math.min(...items.map(w => w.year))
     const maxYear = Math.max(...items.map(w => w.year))
     const years = []

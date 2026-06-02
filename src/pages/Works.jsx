@@ -10,7 +10,11 @@ const MotionLink = motion(Link)
 const CAT_ICON = { music: '♪', dance: '舞', live: '✶', exp: '◈' }
 
 export default function Works() {
-  const allItems = useMemo(() => getAllItems().sort((a, b) => b.year - a.year), [])
+  // 作品页排除「私人经历」(sub:'life')；综艺等其余照常收录。生平页不受影响。
+  const allItems = useMemo(
+    () => getAllItems().filter(it => it.sub !== 'life').sort((a, b) => b.year - a.year),
+    []
+  )
   const [major, setMajor] = useState('all')   // 大类
   const [sub, setSub] = useState('all')        // 小类
 
