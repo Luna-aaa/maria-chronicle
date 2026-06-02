@@ -215,6 +215,34 @@ img { max-width: 100%; display: block; }
   color: var(--text-soft);
   margin-top: 8px;
 }
+.page-heading-stats {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--card) 80%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  font-size: 13.5px;
+  color: var(--text-soft);
+}
+.page-heading-stats strong {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 0 2px;
+}
+.page-heading-stats .phs-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--border);
+}
+.page-heading-stats .phs-major {
+  color: var(--accent);
+  font-weight: 700;
+}
 
 /* ---------- Timeline ---------- */
 .timeline {
@@ -231,6 +259,8 @@ img { max-width: 100%; display: block; }
   width: 3px;
   transform: translateX(-50%);
   background: var(--timeline-line);
+  -webkit-mask: linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+  mask: linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
   border-radius: 2px;
 }
 .timeline-event {
@@ -310,16 +340,39 @@ img { max-width: 100%; display: block; }
   background: var(--logo-grad);
   box-shadow: 0 0 0 3px var(--accent), 0 0 30px var(--accent-glow);
 }
+/* 圆点外的脉冲光环 */
+.timeline-event.major .timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: major-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
 .timeline-event.major.left .timeline-dot { right: -12px; }
 .timeline-event.major.right .timeline-dot { left: -12px; }
 .timeline-event.major .timeline-card {
+  position: relative;
   border-color: var(--accent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 9%, var(--card)), var(--card) 60%);
   box-shadow: 0 10px 34px var(--accent-glow);
+  overflow: hidden;
+}
+/* 卡片顶部渐变高光条 */
+.timeline-event.major .timeline-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--logo-grad);
 }
 .timeline-event.major .timeline-card:hover {
   box-shadow: 0 16px 44px var(--accent-glow);
 }
 .timeline-major-badge {
+  position: relative;
   display: inline-block;
   margin-bottom: 8px;
   padding: 3px 11px;
@@ -330,6 +383,29 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
   letter-spacing: 1.5px;
   box-shadow: 0 4px 14px var(--accent-glow);
+  overflow: hidden;
+}
+/* 徽章扫光 */
+.timeline-major-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg);
+  animation: badge-shine 3.6s ease-in-out infinite;
+}
+@keyframes major-pulse {
+  0%   { opacity: 0.7; transform: scale(0.75); }
+  70%  { opacity: 0;   transform: scale(1.5); }
+  100% { opacity: 0;   transform: scale(1.5); }
+}
+@keyframes badge-shine {
+  0%   { left: -60%; }
+  55%  { left: 130%; }
+  100% { left: 130%; }
 }
 
 /* Era divider — 章节化视觉 */
@@ -1050,6 +1126,8 @@ img { max-width: 100%; display: block; }
   .star { animation: none; }
   .petal { animation: none; display: none; }
   .bg-blob { animation: none; }
+  .timeline-event.major .timeline-dot::after { animation: none; display: none; }
+  .timeline-major-badge::after { animation: none; display: none; }
 }
 
 /* ---------- Responsive ---------- */
