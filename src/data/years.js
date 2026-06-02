@@ -42,16 +42,15 @@ export const years = [
     summary: '出生于茨城县土浦市，本名水桥舞。',
     events: [
       { id: '1992-1', date: '01-31', cat: 'life', title: '出生于日本茨城县土浦市', body: '本名水桥舞（みずはし まい），和族。1992 年 1 月 31 日出生于日本茨城县土浦市。身高 152cm，血型 O 型。', tags: ['出生', '茨城', '和族'], media: { photos: ['/photos/1992/1.jpg'] } },
-      { id: '1992-2', date: '幼年 起', cat: 'life', title: '自幼学习音乐与舞蹈 · 受二次元文化熏陶', body: '自幼学习音乐和舞蹈，并受到日本二次元（ACG）文化的熏陶，从此长期围绕 ACG 圈进行创作。自小学四年级起在一所综合培养表演、舞蹈与歌唱的私塾系统学习，为日后的全能型舞台表现打下基础。', tags: ['童年', 'ACG'], media: { photos: ['/photos/1992/2.jpg'] } }
+      { id: '1992-2', date: '幼年 起', cat: 'life', title: '自幼学习音乐与舞蹈 · 受二次元文化熏陶', body: '自幼学习音乐和舞蹈，并受到日本二次元（ACG）文化的熏陶，从此长期围绕 ACG 圈进行创作。自小学四年级起在一所综合培养表演、舞蹈与歌唱的私塾系统学习，为日后的全能型舞台表现打下基础。', tags: ['童年', 'ACG'] }
     ]
   },
   {
     year: 2003,
     title: '11 岁童星出道',
-    summary: '以本名水桥舞加入 New man co., Ltd.，演唱《神秘智慧石》OP/ED 出道。',
+    summary: '以本名水桥舞加入 New man co., Ltd.，演唱《神秘智慧石》主题曲《Birthday Heart》出道。',
     events: [
-      { id: '2003-1', date: '2003 年', cat: 'life', title: '以本名「水桥舞」加入 New man co., Ltd. 出道', body: '以本名「水桥舞」加入 4 人音乐组合「New man co., Ltd.」，演唱电视动画《神秘智慧石》（そーなんだ!）的片头曲与片尾曲，正式以歌手身份出道，时年 11 岁。', tags: ['童星出道', 'New man co.'], media: { photos: ['/photos/2003/3.jpg'] } },
-      { id: '2003-2', date: '2003 年', cat: 'music', sub: 'single', title: '出道曲《Birthday Heart》', body: '电视动画《神秘智慧石》（そーなんだ!）片头曲，是她以歌手身份的出道曲。', tags: ['神秘智慧石', '出道曲'] }
+      { id: '2003-1', date: '2003 年', cat: ['life', 'music'], sub: 'single', title: '以本名「水桥舞」加入 New man co., Ltd. 出道', body: '以本名「水桥舞」加入 4 人音乐组合「New man co., Ltd.」，演唱电视动画《神秘智慧石》（そーなんだ!）的主题曲《Birthday Heart》出道，时年 11 岁。', tags: ['童星出道', 'New man co.', '神秘智慧石', '出道曲'], media: { photos: ['/photos/2003/3.jpg'] } }
     ]
   },
   {
@@ -283,6 +282,13 @@ export const years = [
 ]
 
 // ===== 辅助函数 =====
+
+// 分类可为单个字符串或数组（一条同时属于多个大类，如出道=经历+音乐）
+export function catList(e) { return Array.isArray(e.cat) ? e.cat : [e.cat] }
+// 生平场景的主分类（取第一个，决定颜色/主色）
+export function primaryCat(e) { return catList(e)[0] }
+// 作品场景的分类（取第一个非「经历」的大类）
+export function worksCat(e) { return catList(e).find(c => c !== 'life') || catList(e)[0] }
 
 // 重要年份（首页轮播）
 export function highlightYears() {

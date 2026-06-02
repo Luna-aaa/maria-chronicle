@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { years, CATEGORIES } from '../data/years.js'
+import { years, CATEGORIES, catList, primaryCat } from '../data/years.js'
 
 const MotionLink = motion(Link)
 
@@ -24,7 +24,7 @@ export default function YearDetail() {
   // 该年出现过的分类（用于筛选 chip）
   const presentCats = useMemo(() => {
     if (!data) return []
-    const set = new Set((data.events || []).map(e => e.cat))
+    const set = new Set((data.events || []).flatMap(catList))
     return Object.keys(CATEGORIES).filter(c => set.has(c))
   }, [data])
 
@@ -37,7 +37,7 @@ export default function YearDetail() {
     )
   }
 
-  const events = (data.events || []).filter(e => filter === 'all' || e.cat === filter)
+  const events = (data.events || []).filter(e => filter === 'all' || catList(e).includes(filter))
 
   return (
     <section className="year-detail">
@@ -63,7 +63,7 @@ export default function YearDetail() {
               className={`year-filter-chip cat-${c}${filter === c ? ' active' : ''}`}
               onClick={() => setFilter(c)}
             >
-              {CATEGORIES[c].label} {data.events.filter(e => e.cat === c).length}
+              {CATEGORIES[c].label} {data.events.filter(e => catList(e).includes(c)).length}
             </button>
           ))}
         </div>
@@ -77,7 +77,7 @@ export default function YearDetail() {
           <MotionLink
             key={e.id || i}
             to={`/item/${e.id}`}
-            className={`year-event cat-${e.cat}${e.highlight ? ' major' : ''}`}
+            className={`year-event cat-${primaryCat(e)}${e.highlight ? ' major' : ''}`}
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-40px' }}
@@ -85,7 +85,7 @@ export default function YearDetail() {
           >
             <div className="year-event-side">
               <span className="year-event-date">{e.date}</span>
-              <span className="year-event-cat">{CATEGORIES[e.cat]?.label || e.cat}</span>
+              <span className="year-event-cat">{catList(e).map(c => CATEGORIES[c]?.label || c).join(' · ')}</span>
             </div>
             <div className="year-event-body">
               <div className="year-event-title">

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { getItemById, MAJORS } from '../data/years.js'
+import { getItemById, MAJORS, catList, primaryCat } from '../data/years.js'
 
 export default function ItemDetail() {
   const { id } = useParams()
@@ -17,12 +17,13 @@ export default function ItemDetail() {
     )
   }
 
-  const major = MAJORS[item.cat]
-  const subLabel = major?.subs?.[item.sub]
+  const cats = catList(item)
+  const subCat = cats.find(c => MAJORS[c]?.subs?.[item.sub])
+  const subLabel = subCat ? MAJORS[subCat].subs[item.sub] : null
   const media = item.media || {}
 
   return (
-    <section className={`item-detail cat-${item.cat}`}>
+    <section className={`item-detail cat-${primaryCat(item)}`}>
       <div className="item-detail-crumbs">
         <Link to="/biography" className="year-back">← 时间轴</Link>
         <Link to={`/biography/${item.year}`} className="year-back">{item.year} 年</Link>
@@ -30,8 +31,10 @@ export default function ItemDetail() {
 
       <div className="item-detail-head">
         <div className="item-detail-meta">
-          <span className="item-cat-chip">{major?.label || item.cat}</span>
-          {subLabel && <span className="item-sub-chip">{subLabel}</span>}
+          {cats.map(c => (
+            <span key={c} className={`item-cat-chip cat-${c}`}>{MAJORS[c]?.label || c}</span>
+          ))}
+          {subLabel && <span className={`item-sub-chip cat-${subCat}`}>{subLabel}</span>}
           <span className="item-detail-date">{item.year} · {item.date}</span>
         </div>
         <h1 className="item-detail-title">

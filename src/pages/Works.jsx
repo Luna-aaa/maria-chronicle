@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { getAllItems, MAJORS } from '../data/years.js'
+import { getAllItems, MAJORS, catList, worksCat } from '../data/years.js'
 import WorksChart from '../components/WorksChart.jsx'
 
 const MotionLink = motion(Link)
@@ -10,9 +10,9 @@ const MotionLink = motion(Link)
 const CAT_ICON = { music: '♪', dance: '舞', live: '✶', exp: '◈' }
 
 export default function Works() {
-  // 作品页排除「经历」(cat:'life')；综艺等其余照常收录。生平页不受影响。
+  // 作品页排除纯「经历」(cat 仅为 'life')；同时属于其它大类的（如出道=经历+音乐）保留。生平页不受影响。
   const allItems = useMemo(
-    () => getAllItems().filter(it => it.cat !== 'life').sort((a, b) => b.year - a.year),
+    () => getAllItems().filter(it => catList(it).some(c => c !== 'life')).sort((a, b) => b.year - a.year),
     []
   )
   const [major, setMajor] = useState('all')   // 大类
@@ -22,7 +22,7 @@ export default function Works() {
   const majorCounts = useMemo(() => {
     const c = { all: allItems.length }
     Object.keys(MAJORS).forEach(k => { c[k] = 0 })
-    allItems.forEach(it => { c[it.cat] = (c[it.cat] || 0) + 1 })
+    allItems.forEach(it => { catList(it).forEach(cc => { if (c[cc] !== undefined) c[cc] += 1 }) })
     return c
   }, [allItems])
 
@@ -33,13 +33,13 @@ export default function Works() {
     return Object.keys(subs).map(k => ({
       key: k,
       label: subs[k],
-      count: allItems.filter(it => it.cat === major && it.sub === k).length
+      count: allItems.filter(it => catList(it).includes(major) && it.sub === k).length
     })).filter(o => o.count > 0)
   }, [major, allItems])
 
   const list = useMemo(() => {
     return allItems.filter(it => {
-      if (major !== 'all' && it.cat !== major) return false
+      if (major !== 'all' && !catList(it).includes(major)) return false
       if (sub !== 'all' && it.sub !== sub) return false
       return true
     })
@@ -91,10 +91,12 @@ export default function Works() {
       )}
 
       <div className="works-grid">
-        {list.map((it, i) => (
+        {list.map((it, i) => {
+          const wcat = worksCat(it)
+          return (
           <MotionLink
             to={`/item/${it.id}`}
-            className={`work-card cat-${it.cat}`}
+            className={`work-card cat-${wcat}`}
             key={it.id}
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -102,14 +104,14 @@ export default function Works() {
             transition={{ duration: 0.4, delay: Math.min(i, 8) * 0.03 }}
           >
             <div className="work-cover">
-              <span className="work-cover-icon">{CAT_ICON[it.cat] || '◆'}</span>
+              <span className="work-cover-icon">{CAT_ICON[wcat] || '◆'}</span>
               <span className="work-cover-year">{it.year}</span>
             </div>
             <div className="work-body">
               <div className="work-cat-row">
-                <span className="work-cat-name">{MAJORS[it.cat]?.label}</span>
-                {MAJORS[it.cat]?.subs?.[it.sub] && (
-                  <span className="work-sub-name">{MAJORS[it.cat].subs[it.sub]}</span>
+                <span className="work-cat-name">{MAJORS[wcat]?.label}</span>
+                {MAJORS[wcat]?.subs?.[it.sub] && (
+                  <span className="work-sub-name">{MAJORS[wcat].subs[it.sub]}</span>
                 )}
               </div>
               <div className="work-title">{it.title}</div>
@@ -121,7 +123,8 @@ export default function Works() {
               )}
             </div>
           </MotionLink>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

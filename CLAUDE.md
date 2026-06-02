@@ -41,11 +41,12 @@ npm run preview    # 本地预览生产构建
   - 每个年份对象：`{ year, title?, summary?, highlight?, events: [...] }`。`title` 为该年代表事件（轴上展示；为空则该年显示「待补充」并淡化）；`highlight: true` 标记「重要一年」——① 轴上 `.year-row.major` 特效；② 进入首页「命运节点」轮播（`highlightYears()`）。
   - 每个 event 既是生平节点也是作品条目：`{ id, date, cat, sub?, title, body?, tags?, highlight?, media? }`。
     - `id` **全站唯一**（约定 `'年份-序号'`，如 `'2016-2'`），是 `/item/:id` 详情页的路由键，**不要重复或随意改动**（会断链）。
-    - `cat`（大类）必须是 `MAJORS` 的 key：`music 音乐 / dance 舞见 / live 演出 / variety 综艺 / life 经历`。`sub`（小类）必须是 `MAJORS[cat].subs` 的 key：音乐{`album`专辑 / `single`单曲 / `collab`合作曲}、演出{`concert`演唱会 / `festival`音乐节}；**舞见 / 综艺 / 经历均无小类**。
+    - `cat`（大类）是 `MAJORS` 的 key：`music 音乐 / dance 舞见 / live 演出 / variety 综艺 / life 经历`。**可为字符串或数组**——一条同时属于多个大类（如出道=`['life','music']`，既是经历里程碑又是出道曲）。统一用辅助函数处理：`catList(e)`（归一为数组）、`primaryCat(e)`（取 `cat[0]`，决定生平里的颜色/主色）、`worksCat(e)`（取首个非 `life` 大类，决定作品页里的颜色/归类）。新写组件涉及 `cat` 时务必走这三个函数，不要直接读 `e.cat`。
+    - `sub`（小类）必须是 `MAJORS[cat].subs` 的 key：音乐{`album`专辑 / `single`单曲 / `collab`合作曲}、演出{`concert`演唱会 / `festival`音乐节}；**舞见 / 综艺 / 经历均无小类**。
     - `tags` 卡片左下角标签（体系待逐步补充）；`media`（可选，`{ links?, audio?, video?, photos? }`）供 `/item/:id` 展示音乐/视频/照片。`photos` 为路径数组，图片放在 **`public/photos/<年份>/`**（随构建部署），如 `media: { photos: ['/photos/1992/1.jpg'] }`。
   - `events` **按时间顺序手写**，年份页/详情页按数组顺序渲染（不解析日期排序）。
   - 配色：`cat` 对应 `themes.css` 的 `--cat-XXX` 变量，`index.css` 里 `.cat-XXX { --c: var(--cat-XXX) }` 统一驱动 chip / 色标 / 卡片 cover / 图表。新增大类要同步这两处 + `MAJORS` + `WorksChart` 的 `CAT_ORDER`。
-  - 辅助导出：`MAJORS`（分类体系）、`highlightYears()`、`getAllItems()`（拍平为带 year 的条目）、`getItemById(id)`。
+  - 辅助导出：`MAJORS`（分类体系）、`catList/primaryCat/worksCat`（多分类处理）、`highlightYears()`、`getAllItems()`（拍平为带 year 的条目）、`getItemById(id)`。
   - 补内容：找到对应年份对象往 `events` 插条目即可；**各年互相独立**，无锚点 id 偏移问题。
 - **`src/data/biography.js` / `src/data/works.js`（旧版，已弃用/备份）** — 连同 `Timeline.jsx` / `TimelineNav.jsx` 均已无人 import，仅作迁移源与备份。确认新版稳定后可删除。**新内容一律写进 `years.js`**，不要再改这两个文件。
 
@@ -86,9 +87,9 @@ npm run preview    # 本地预览生产构建
 - `components/YearAxis.jsx` — 生平主轴：垂直年份轨，每年一张代表卡（年号 + 标题 + 概述 + 该年各分类条数 + ★）。读 `years.js`，每行 `<Link to="/biography/:year">` 进详情。`.year-row.major` 为重要一年特效。
 - `pages/YearDetail.jsx` — 年份详情页（路由 `/biography/:year`）：年号大标题 + 概述 + **分类筛选 chip** + 按时间排列的事件流（每条是 `<Link to="/item/:id">`，分类色标 + ★大事件 + 标签）+ **上/下一年导航** + 空状态。切换年份时 `window.scrollTo(0)` 并重置筛选。
 - `pages/ItemDetail.jsx` — **条目详情页（路由 `/item/:id`）**：生平里点事件、作品里点卡片都到这里（共享落点）。用 `getItemById` 取数，展示大类/小类 chip、日期、标题、正文、标签 + **媒体版位**（`media.audio/video/photos/links`，多为空时显示占位）。这是后续放音乐/视频/照片的地方。
-- `pages/Works.jsx` — 作品页：读 `getAllItems()`，**大类 Tab（`MAJORS`，但不含「经历」）+ 小类 chip 联动筛选**，卡片按 `cat` 着色、`<Link to="/item/:id">`，左下角标签。**作品页过滤掉 `cat:'life'`（经历，如出生/结婚/签约/停摆），生平页不受影响**；综艺等其余照常收录。`WorksChart` 同样排除 `cat:'life'` 以保持图表与列表一致。
+- `pages/Works.jsx` — 作品页：读 `getAllItems()`，**大类 Tab（`MAJORS`，但不含「经历」）+ 小类 chip 联动筛选**，卡片按 `cat` 着色、`<Link to="/item/:id">`，左下角标签。**作品页过滤掉纯经历（`cat` 仅为 `'life'`，如出生/结婚/签约/停摆），生平页不受影响**；同时属于其它大类的（如出道=经历+音乐）仍保留并按 `worksCat` 归类着色。`WorksChart` 同样规则、按 `worksCat` 统计，保持图表与列表一致。
 - `components/HighlightsCarousel.jsx` — 首页「命运节点」轮播。从 `years.js` 的 `highlightYears()` 取重要年份，每张卡 `<Link to="/biography/:year">` 直达年份详情（不再用 `scrollToEra` state）。
-- `components/WorksChart.jsx` — 纯 SVG 堆叠条形图，无图表库依赖。读 `getAllItems()`（同样排除 `cat:'life'`）按年份 × `cat`（大类）统计，配色用内联 `var(--cat-XXX)`。改大类需同步 `CAT_ORDER`。
+- `components/WorksChart.jsx` — 纯 SVG 堆叠条形图，无图表库依赖。读 `getAllItems()`（排除纯经历）按年份 × `worksCat`（大类）统计，配色用内联 `var(--cat-XXX)`。改大类需同步 `CAT_ORDER`。
 - `components/Timeline.jsx` / `components/TimelineNav.jsx` — 旧版生平时间线与章节导航，**已弃用**（无人 import），保留备份。
 
 ### 跨页面跳转 + HashRouter 注意

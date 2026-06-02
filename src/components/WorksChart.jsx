@@ -1,12 +1,12 @@
 import { useMemo } from 'react'
-import { getAllItems, MAJORS } from '../data/years.js'
+import { getAllItems, MAJORS, catList, worksCat } from '../data/years.js'
 
 const CAT_ORDER = ['music', 'dance', 'live', 'variety']
 
 export default function WorksChart() {
   const { years, byYearCat, maxCount, total } = useMemo(() => {
-    // 与作品页一致：排除经历(cat:'life')
-    const items = getAllItems().filter(w => w.cat !== 'life')
+    // 与作品页一致：排除纯经历(cat 仅为 'life')
+    const items = getAllItems().filter(w => catList(w).some(c => c !== 'life'))
     const minYear = Math.min(...items.map(w => w.year))
     const maxYear = Math.max(...items.map(w => w.year))
     const years = []
@@ -17,7 +17,8 @@ export default function WorksChart() {
       CAT_ORDER.forEach(c => { byYearCat[y][c] = 0 })
     })
     items.forEach(w => {
-      if (byYearCat[w.year] && byYearCat[w.year][w.cat] !== undefined) byYearCat[w.year][w.cat] += 1
+      const wc = worksCat(w)
+      if (byYearCat[w.year] && byYearCat[w.year][wc] !== undefined) byYearCat[w.year][wc] += 1
     })
     const maxCount = Math.max(
       ...years.map(y => CAT_ORDER.reduce((s, c) => s + byYearCat[y][c], 0))

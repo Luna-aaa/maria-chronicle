@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { CATEGORIES } from '../data/years.js'
+import { CATEGORIES, catList } from '../data/years.js'
 
 // 垂直年份轴：每年一个节点，点击进入该年详情页
 export default function YearAxis({ years }) {
@@ -11,7 +11,7 @@ export default function YearAxis({ years }) {
         // 该年各分类的数量，用于卡片底部的小标记
         const counts = {}
         ;(y.events || []).forEach(e => {
-          counts[e.cat] = (counts[e.cat] || 0) + 1
+          catList(e).forEach(c => { counts[c] = (counts[c] || 0) + 1 })
         })
         return (
           <motion.div
