@@ -84,9 +84,9 @@ npm run preview    # 本地预览生产构建
 - `components/YearAxis.jsx` — 生平主轴：垂直年份轨，每年一张代表卡（年号 + 标题 + 概述 + 该年各分类条数 + ★）。读 `years.js`，每行 `<Link to="/biography/:year">` 进详情。`.year-row.major` 为重要一年特效。
 - `pages/YearDetail.jsx` — 年份详情页（路由 `/biography/:year`）：年号大标题 + 概述 + **分类筛选 chip** + 按时间排列的事件流（每条是 `<Link to="/item/:id">`，分类色标 + ★大事件 + 标签）+ **上/下一年导航** + 空状态。切换年份时 `window.scrollTo(0)` 并重置筛选。
 - `pages/ItemDetail.jsx` — **条目详情页（路由 `/item/:id`）**：生平里点事件、作品里点卡片都到这里（共享落点）。用 `getItemById` 取数，展示大类/小类 chip、日期、标题、正文、标签 + **媒体版位**（`media.audio/video/photos/links`，多为空时显示占位）。这是后续放音乐/视频/照片的地方。
-- `pages/Works.jsx` — 作品页：读 `getAllItems()`，**大类 Tab（`MAJORS`）+ 小类 chip 联动筛选**，卡片按 `cat` 着色、`<Link to="/item/:id">`，左下角标签。
+- `pages/Works.jsx` — 作品页：读 `getAllItems()`，**大类 Tab（`MAJORS`）+ 小类 chip 联动筛选**，卡片按 `cat` 着色、`<Link to="/item/:id">`，左下角标签。**作品页过滤掉 `sub:'life'`（私人经历，如出生/结婚/签约/停摆），生平页不受影响**；综艺等其余照常收录。`WorksChart` 同样排除 `sub:'life'` 以保持图表与列表一致。
 - `components/HighlightsCarousel.jsx` — 首页「命运节点」轮播。从 `years.js` 的 `highlightYears()` 取重要年份，每张卡 `<Link to="/biography/:year">` 直达年份详情（不再用 `scrollToEra` state）。
-- `components/WorksChart.jsx` — 纯 SVG 堆叠条形图，无图表库依赖。读 `getAllItems()` 按年份 × `cat`（大类）统计，配色用内联 `var(--cat-XXX)`。改大类需同步 `CAT_ORDER`。
+- `components/WorksChart.jsx` — 纯 SVG 堆叠条形图，无图表库依赖。读 `getAllItems()`（同样排除 `sub:'life'`）按年份 × `cat`（大类）统计，配色用内联 `var(--cat-XXX)`。改大类需同步 `CAT_ORDER`。
 - `components/Timeline.jsx` / `components/TimelineNav.jsx` — 旧版生平时间线与章节导航，**已弃用**（无人 import），保留备份。
 
 ### 跨页面跳转 + HashRouter 注意
