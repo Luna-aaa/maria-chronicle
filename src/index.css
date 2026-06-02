@@ -413,7 +413,7 @@ img { max-width: 100%; display: block; }
 .cat-music { --c: var(--cat-music); }
 .cat-dance { --c: var(--cat-dance); }
 .cat-live  { --c: var(--cat-live); }
-.cat-exp   { --c: var(--cat-life); }   /* 综艺与经历 = 橙 */
+.cat-exp   { --c: var(--cat-exp); }    /* 综艺与经历 = 橙 */
 .cat-life  { --c: var(--cat-life); }   /* 兼容旧引用 */
 .cat-other { --c: var(--cat-other); }
 

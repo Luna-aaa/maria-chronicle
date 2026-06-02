@@ -27,6 +27,7 @@
   --cat-dance: #9b5de5;   /* 舞见 — 紫 */
   --cat-live:  #1fb89b;   /* 演出 — 青绿 */
   --cat-life:  #ff8a3d;   /* 经历 — 橙 */
+  --cat-exp:   #ff8a3d;   /* 综艺与经历 — 橙 */
   --cat-other: #6aa9ff;   /* 其他 — 蓝 */
 }
 
@@ -58,5 +59,6 @@
   --cat-dance: #c792ff;   /* 舞见 — 紫 */
   --cat-live:  #5ee3a7;   /* 演出 — 青绿 */
   --cat-life:  #ffb84d;   /* 经历 — 橙 */
+  --cat-exp:   #ffb84d;   /* 综艺与经历 — 橙 */
   --cat-other: #6cc7ff;   /* 其他 — 蓝 */
 }
