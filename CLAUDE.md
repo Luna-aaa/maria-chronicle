@@ -56,7 +56,17 @@ npm run preview    # 本地预览生产构建
 
 **注意 `info.txt`、`wiki-GARNiDELiA.txt` / `wiki-MARiA.txt`、以及 `素材/` 目录都在 `.gitignore` 里**——这些原始素材只存在于本地，不会推到 GitHub。整理稿 `wiki-research.md` 则纳入版本控制。如果在新机器上开发或在 CI 里需要这些原始素材，要单独同步过去。
 
-**逐年补充内容的工作流**：用户把某年文字资料填进 `素材/<年份>.txt`（本地、gitignore），图片放进 `public/photos/<年份>/`（会提交、随构建部署）；Claude 读 txt → 整理成 `years.js` 对应年份的 `events`，并把图片接到相关 event 的 `media.photos`。`素材/` 是 handoff 草稿，`public/photos/` 是要上线的资源。
+**逐年补充内容的工作流（更新模式，2026-06 定稿）**：三层结构对应 `years.js` 三处字段，Claude 与用户分工固定——
+
+1. **Claude 先建模板**：`素材/<年份>.txt`（本地、gitignore，handoff 草稿），图片由用户放进 `public/photos/<年份>/`（会提交、随构建部署）。
+2. **用户写「事件」**：在 txt 里逐条写该年发生的事件（每条一段，**空行分隔两个事件**），照片文件名写在所属事件文字后面，如 `（1.jpg,4.jpg）` 或 `(8.png)`——照片接到**那一条事件**的 `media.photos`，不是堆在年份上。
+3. **Claude 整理进 `years.js`**：
+   - **年份级**（时间轴 YearAxis 显示）：由 Claude **归纳** `title`（该年主要事件）和 `summary`（简介）。
+   - **事件级**（年份详情 YearDetail 显示）：每条事件 → 一个 event 的 `title` + `body`（介绍）+ `tags`（标签挂在事件上，事件卡左下角显示，由 Claude 按内容自动提）。
+   - **媒体级**（条目详情 ItemDetail 显示）：照片/音乐/视频接到对应 event 的 `media.{photos/audio/video/links}`。
+   - **忠于用户文本**：`body` 只用用户在 txt 里写的内容，**不补未考据的额外信息**（如身高/血型/本名等，除非用户写了）；txt 顶部 `#` 注释只是提示，**不作为内容来源**。
+   - 照片所属年份以**事件实际发生年份**为准：若某事件被判定属于别的年份，照片也随之移到该年份的 `public/photos/<年份>/`，并删掉旧图。
+4. **推送时机**：**用户明确说推送时才 `git push`**；多年调整期间先本地 `npm run build` 自测、攒着，等用户统一发话再一起提交推送（减少 Vercel 部署次数）。`素材/<年份>.txt` 在 gitignore 里不会进仓库。
 
 **已核实修正**：《乘风2023》并非「断层一位」夺冠——而是**节目期间人气一度断层第一、总决赛获第三名**（据中文维基），数据中已按此措辞修正。
 

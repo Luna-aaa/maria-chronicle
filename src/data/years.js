@@ -39,10 +39,10 @@ export const years = [
   {
     year: 1992,
     title: '美依礼芽诞生',
-    summary: '出生于茨城县土浦市，本名水桥舞。',
+    summary: '出生于茨城县土浦市，自幼习乐习舞、浸染二次元文化。',
     events: [
-      { id: '1992-1', date: '01-31', cat: 'life', title: '出生于日本茨城县土浦市', body: '本名水桥舞（みずはし まい），和族。1992 年 1 月 31 日出生于日本茨城县土浦市。身高 152cm，血型 O 型。', tags: ['出生', '茨城', '和族'], media: { photos: ['/photos/1992/1.jpg'] } },
-      { id: '1992-2', date: '幼年 起', cat: 'life', title: '自幼学习音乐与舞蹈 · 受二次元文化熏陶', body: '自幼学习音乐和舞蹈，并受到日本二次元（ACG）文化的熏陶，从此长期围绕 ACG 圈进行创作。自小学四年级起在一所综合培养表演、舞蹈与歌唱的私塾系统学习，为日后的全能型舞台表现打下基础。', tags: ['童年', 'ACG'] }
+      { id: '1992-1', date: '01-31', cat: 'life', title: '出生于日本茨城县土浦市', body: '本名水桥舞（みずはし まい），和族。1992 年 1 月 31 日出生于日本茨城县土浦市，身高 152cm。', tags: ['出生', '茨城', '和族'] },
+      { id: '1992-2', date: '幼年 起', cat: 'life', title: '自幼学习音乐与舞蹈 · 受二次元文化熏陶', body: '自幼学习音乐和舞蹈，受到日本二次元（ACG）文化熏陶，从此长期围绕 ACG 圈进行创作。', tags: ['童年', 'ACG'], media: { photos: ['/photos/1992/1.jpg', '/photos/1992/4.jpg'] } }
     ]
   },
   {
@@ -56,18 +56,20 @@ export const years = [
   {
     year: 2005,
     title: '加入「原宿 BJ Girls」再出道',
-    summary: '以最年少成员身份加入 6 人爵士声乐组合，后改名 CHIX CHICKS。',
+    summary: '以最年少成员身份加入爵士声乐组合，并为动画《神様家族》献唱片头曲。',
     events: [
-      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '以 6 人爵士声乐组合「原宿 BJ Girls」（原宿BJガールズ）再出道，是组合中年纪最小的一员；之后组合改名为「CHIX CHICKS」。', tags: ['Chix Chicks', '再出道'] }
+      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '以 6 人爵士声乐组合「原宿 BJ Girls」（原宿BJガールズ）再出道，是组合中年纪最小的一员；之后组合改名为「CHIX CHICKS」。', tags: ['Chix Chicks', '再出道'], media: { photos: ['/photos/2005/8.png'] } },
+      { id: '2005-2', date: '2005 年', cat: 'music', sub: 'single', title: '动画《神様家族》片头曲《Brand New Morning》', body: '为电视动画《神様家族》演唱片头曲《Brand New Morning》。', tags: ['动画歌', '神様家族', 'Brand New Morning'], media: { photos: ['/photos/2005/7.jpg'] } }
     ]
   },
   {
     year: 2006,
     title: '个人名义动画歌起步',
-    summary: '以个人名义演唱多部动画主题曲，并发行首张翻唱专辑。',
+    summary: '个人名义发行首张翻唱专辑，并密集推出动画相关单曲与专辑。',
     events: [
-      { id: '2006-1', date: '2006—2008', cat: 'music', sub: 'album', title: '个人名义动画歌与首张专辑《夢見るシャンソン人形》', body: '以「水桥舞 from 原宿BJ Girls」名义演唱《宝可梦 钻石&珍珠》ED《风的信息》等动画歌；并发布个人翻唱专辑《夢見るシャンソン人形》，仅在演出现场销售。', tags: ['动画歌', '个人名义'] },
-      { id: '2006-2', date: '2006 年', cat: 'music', sub: 'single', title: '动画《神様家族》片头曲《Brand New Morning》', body: '以「水桥舞 from 原宿BJ Girls」名义演唱电视动画《神様家族》片头曲《Brand New Morning》，是她以个人歌声参与动画作品的早期一例。', tags: ['动画歌', '神様家族', 'Brand New Morning'], media: { photos: ['/photos/2006/8.png'] } }
+      { id: '2006-1', date: '01-25', cat: 'music', sub: 'album', title: '首张翻唱专辑《夢見るシャンソン人形》发售', body: '以个人名义发售动画歌，并发行首张翻唱专辑《夢見るシャンソン人形》。', tags: ['翻唱专辑', '个人名义'] },
+      { id: '2006-2', date: '09-03', cat: 'music', sub: 'single', title: '《Brand New Morning》《不能在图书馆说的天使的秘密》发售', body: '《Brand New Morning》《不能在图书馆说的天使的秘密》发售。', tags: ['发售', 'Brand New Morning'] },
+      { id: '2006-3', date: '12-29', cat: 'music', sub: 'album', title: '动画《神様家族》原声迷你专辑《Kamisama Kazoku Mini Album》发行', body: '为动画《神様家族》演唱，原声迷你专辑《Kamisama Kazoku Mini Album》发行。', tags: ['神様家族', '原声专辑'], media: { photos: ['/photos/2006/9.png'] } }
     ]
   },
   {
