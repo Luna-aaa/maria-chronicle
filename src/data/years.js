@@ -56,9 +56,9 @@ export const years = [
   {
     year: 2005,
     title: '加入「原宿 BJ Girls」再出道',
-    summary: '13 岁起以最年少成员身份加入爵士声乐组合，后改名 CHIX CHICKS。',
+    summary: '以最年少成员身份加入 6 人爵士声乐组合，后改名 CHIX CHICKS。',
     events: [
-      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '13 岁起以组合最年少成员身份再出道，在制作人松尾潔的带领下翻唱爵士乐与 70-80 年代西洋流行曲。后组合改名为「CHIX CHICKS」。', tags: ['Chix Chicks', '再出道'] }
+      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '以 6 人爵士声乐组合「原宿 BJ Girls」（原宿BJガールズ）再出道，是组合中年纪最小的一员；之后组合改名为「CHIX CHICKS」。', tags: ['Chix Chicks', '再出道'] }
     ]
   },
   {
@@ -67,7 +67,7 @@ export const years = [
     summary: '以个人名义演唱多部动画主题曲，并发行首张翻唱专辑。',
     events: [
       { id: '2006-1', date: '2006—2008', cat: 'music', sub: 'album', title: '个人名义动画歌与首张专辑《夢見るシャンソン人形》', body: '以「水桥舞 from 原宿BJ Girls」名义演唱《宝可梦 钻石&珍珠》ED《风的信息》等动画歌；并发布个人翻唱专辑《夢見るシャンソン人形》，仅在演出现场销售。', tags: ['动画歌', '个人名义'] },
-      { id: '2006-2', date: '2006 年', cat: 'music', sub: 'single', title: '动画《神様家族》片头曲《Brand New Morning》', body: '以「水桥舞 from 原宿BJ Girls」名义演唱电视动画《神様家族》片头曲《Brand New Morning》，是她以个人歌声参与动画作品的早期一例。', tags: ['动画歌', '神様家族', 'Brand New Morning'], media: { photos: ['/photos/2006/7.jpg'] } }
+      { id: '2006-2', date: '2006 年', cat: 'music', sub: 'single', title: '动画《神様家族》片头曲《Brand New Morning》', body: '以「水桥舞 from 原宿BJ Girls」名义演唱电视动画《神様家族》片头曲《Brand New Morning》，是她以个人歌声参与动画作品的早期一例。', tags: ['动画歌', '神様家族', 'Brand New Morning'], media: { photos: ['/photos/2006/8.png'] } }
     ]
   },
   {
