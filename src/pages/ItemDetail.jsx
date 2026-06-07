@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { getItemById, MAJORS, catList, primaryCat } from '../data/years.js'
+import { getItemById, MAJORS, catList, primaryCat, normPhoto } from '../data/years.js'
 
 export default function ItemDetail() {
   const { id } = useParams()
@@ -67,8 +67,11 @@ export default function ItemDetail() {
         <div className="item-media">
           <h3>照片</h3>
           <div className="item-photos">
-            {media.photos.map((src, i) => (
-              <img key={i} src={src} alt={`${item.title} ${i + 1}`} loading="lazy" />
+            {media.photos.map(normPhoto).map((p, i) => (
+              <figure key={i} className="item-photo">
+                <img src={p.src} alt={p.caption || `${item.title} ${i + 1}`} loading="lazy" />
+                {p.caption && <figcaption>{p.caption}</figcaption>}
+              </figure>
             ))}
           </div>
         </div>

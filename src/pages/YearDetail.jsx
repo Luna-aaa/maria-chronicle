@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { years, CATEGORIES, catList, primaryCat } from '../data/years.js'
+import { years, CATEGORIES, catList, primaryCat, normPhoto } from '../data/years.js'
 
 const MotionLink = motion(Link)
 
@@ -102,6 +102,20 @@ export default function YearDetail() {
           </MotionLink>
         ))}
       </div>
+
+      {filter === 'all' && data.photos && data.photos.length > 0 && (
+        <div className="year-gallery">
+          <h3 className="year-gallery-title">这一年的影像</h3>
+          <div className="item-photos">
+            {data.photos.map(normPhoto).map((p, i) => (
+              <figure key={i} className="item-photo">
+                <img src={p.src} alt={p.caption || `${data.year} 年影像 ${i + 1}`} loading="lazy" />
+                {p.caption && <figcaption>{p.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="year-nav">
         {prev ? (

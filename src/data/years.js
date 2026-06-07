@@ -41,16 +41,17 @@ export const years = [
     title: '美依礼芽诞生',
     summary: '出生于茨城县土浦市，自幼习乐习舞、浸染二次元文化。',
     events: [
-      { id: '1992-1', date: '01-31', cat: 'life', title: '出生于日本茨城县土浦市', body: '本名水桥舞（みずはし まい），和族。1992 年 1 月 31 日出生于日本茨城县土浦市，身高 152cm。', tags: ['出生', '茨城', '和族'] },
-      { id: '1992-2', date: '幼年 起', cat: 'life', title: '自幼学习音乐与舞蹈 · 受二次元文化熏陶', body: '自幼学习音乐和舞蹈，受到日本二次元（ACG）文化熏陶，从此长期围绕 ACG 圈进行创作。', tags: ['童年', 'ACG'], media: { photos: ['/photos/1992/1.jpg', '/photos/1992/4.jpg'] } }
-    ]
+      { id: '1992-1', date: '01-31', cat: 'life', title: '出生于日本茨城县土浦市', body: '本名水桥舞（みずはし まい），和族，B 型血，水瓶座。1992 年 1 月 31 日出生于日本茨城县土浦市，身高 152cm。', tags: ['出生', '茨城', '和族', '水瓶座'] },
+      { id: '1992-2', date: '幼年 起', cat: 'life', title: '自幼学习音乐与舞蹈 · 受二次元文化熏陶', body: '自幼学习音乐和舞蹈，受到日本二次元（ACG）文化熏陶，从此长期围绕 ACG 圈进行创作。', tags: ['童年', 'ACG'] }
+    ],
+    photos: ['/photos/1992/1.jpg', '/photos/1992/4.jpg']
   },
   {
     year: 2003,
     title: '11 岁童星出道',
     summary: '以本名水桥舞加入 New man co., Ltd.，演唱《神秘智慧石》主题曲《Birthday Heart》出道。',
     events: [
-      { id: '2003-1', date: '2003 年', cat: ['life', 'music'], sub: 'single', title: '以本名「水桥舞」加入 New man co., Ltd. 出道', body: '以本名「水桥舞」加入 4 人音乐组合「New man co., Ltd.」，演唱电视动画《神秘智慧石》（そーなんだ!）的主题曲《Birthday Heart》出道，时年 11 岁。', tags: ['童星出道', 'New man co.', '神秘智慧石', '出道曲'], media: { photos: ['/photos/2003/3.jpg'] } }
+      { id: '2003-1', date: '2003 年', cat: ['life', 'music'], sub: 'single', title: '以本名「水桥舞」加入 New man co., Ltd. 出道', body: '以本名「水桥舞」加入 4 人音乐组合「New man co., Ltd.」，演唱电视动画《神秘智慧石》（そーなんだ!）的主题曲《Birthday Heart》出道，时年 11 岁。', tags: ['童星出道', 'New man co.', '神秘智慧石', '出道曲'], media: { photos: [{ src: '/photos/2003/3.jpg', caption: '组合照片' }] } }
     ]
   },
   {
@@ -58,8 +59,8 @@ export const years = [
     title: '加入「原宿 BJ Girls」再出道',
     summary: '以最年少成员身份加入爵士声乐组合，并为动画《神様家族》献唱片头曲。',
     events: [
-      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '以 6 人爵士声乐组合「原宿 BJ Girls」（原宿BJガールズ）再出道，是组合中年纪最小的一员；之后组合改名为「CHIX CHICKS」。', tags: ['Chix Chicks', '再出道'], media: { photos: ['/photos/2005/8.png'] } },
-      { id: '2005-2', date: '2005 年', cat: 'music', sub: 'single', title: '动画《神様家族》片头曲《Brand New Morning》', body: '为电视动画《神様家族》演唱片头曲《Brand New Morning》。', tags: ['动画歌', '神様家族', 'Brand New Morning'], media: { photos: ['/photos/2005/7.jpg'] } }
+      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '以 6 人爵士声乐组合「原宿 BJ Girls」（原宿BJガールズ）再出道，是组合中年纪最小的一员；之后组合改名为「CHIX CHICKS」。', tags: ['Chix Chicks', '再出道'], media: { photos: [{ src: '/photos/2005/8.png', caption: '组合照片' }] } },
+      { id: '2005-2', date: '2005 年', cat: 'music', sub: 'single', title: '动画《神様家族》片头曲《Brand New Morning》', body: '为电视动画《神様家族》演唱片头曲《Brand New Morning》。', tags: ['动画歌', '神様家族', 'Brand New Morning'], media: { photos: [{ src: '/photos/2005/11.jpg', caption: '神様家族' }, { src: '/photos/2005/7.jpg', caption: '演唱现场' }] } }
     ]
   },
   {
@@ -68,8 +69,36 @@ export const years = [
     summary: '个人名义发行首张翻唱专辑，并密集推出动画相关单曲与专辑。',
     events: [
       { id: '2006-1', date: '01-25', cat: 'music', sub: 'album', title: '首张翻唱专辑《夢見るシャンソン人形》发售', body: '以个人名义发售动画歌，并发行首张翻唱专辑《夢見るシャンソン人形》。', tags: ['翻唱专辑', '个人名义'] },
-      { id: '2006-2', date: '09-03', cat: 'music', sub: 'single', title: '《Brand New Morning》《不能在图书馆说的天使的秘密》发售', body: '《Brand New Morning》《不能在图书馆说的天使的秘密》发售。', tags: ['发售', 'Brand New Morning'] },
-      { id: '2006-3', date: '12-29', cat: 'music', sub: 'album', title: '动画《神様家族》原声迷你专辑《Kamisama Kazoku Mini Album》发行', body: '为动画《神様家族》演唱，原声迷你专辑《Kamisama Kazoku Mini Album》发行。', tags: ['神様家族', '原声专辑'], media: { photos: ['/photos/2006/9.png'] } }
+      { id: '2006-2', date: '09-03', cat: 'music', sub: 'single', title: '《Brand New Morning》《不能在图书馆说的天使的秘密》发售', body: '《Brand New Morning》《不能在图书馆说的天使的秘密》发售。', tags: ['发售', 'Brand New Morning'], media: { photos: [{ src: '/photos/2006/9.png', caption: '《不能在图书馆说的天使的秘密》演唱照片' }] } },
+      { id: '2006-3', date: '12-29', cat: 'music', sub: 'album', title: '动画《神様家族》原声迷你专辑《Kamisama Kazoku Mini Album》发行', body: '为动画《神様家族》演唱，原声迷你专辑《Kamisama Kazoku Mini Album》发行。', tags: ['神様家族', '原声专辑'] }
+    ]
+  },
+  {
+    year: 2007,
+    title: '动画《初瓣》片尾曲《スマイル》',
+    summary: '为电视动画《初瓣》演唱片尾曲《スマイル》。',
+    events: [
+      { id: '2007-1', date: '06-13', cat: 'music', sub: 'single', title: '动画《初瓣》片尾曲《スマイル》', body: '为电视动画《初瓣》演唱片尾曲《スマイル》。', tags: ['动画歌', '初瓣', 'スマイル'], media: { photos: [{ src: '/photos/2007/10.jpg', caption: '单曲封面' }] } }
+    ],
+    photos: [
+      { src: '/photos/2007/16.jpg', caption: 'CHIX CHICKS 2007 年第一次原宿 street live' },
+      { src: '/photos/2007/17.jpg', caption: 'CHIX CHICKS 2007 年第一次原宿 street live' }
+    ]
+  },
+  {
+    year: 2008,
+    title: '舞台剧《心は孤独なアトム》首演',
+    summary: '参演舞台剧《心は孤独なアトム》首演，并随 CHIX CHICKS 持续演出。',
+    events: [
+      { id: '2008-1', date: '03-20', cat: 'live', title: '舞台剧《心は孤独なアトム》首演', body: '参演的舞台剧《心は孤独なアトム》首演。', tags: ['舞台剧', '心は孤独なアトム'], media: { photos: [{ src: '/photos/2008/12.png', caption: '演出照片' }] } }
+    ],
+    photos: [
+      { src: '/photos/2008/18.jpg', caption: 'CHIX CHICKS「音符と昆布」开幕表演' },
+      { src: '/photos/2008/19.jpg', caption: 'CHIX CHICKS「音符と昆布」开幕表演' },
+      { src: '/photos/2008/20.jpg', caption: 'CHIX CHICKS「音符と昆布」开幕表演' },
+      '/photos/2008/13.jpg',
+      '/photos/2008/14.jpg',
+      '/photos/2008/15.jpg'
     ]
   },
   {
@@ -285,6 +314,10 @@ export const years = [
 ]
 
 // ===== 辅助函数 =====
+
+// 照片归一：字符串路径 → { src }，对象（带 caption）原样返回。
+// media.photos 与 year.photos 的每个元素都可为 '/x.jpg' 或 { src:'/x.jpg', caption:'描述' }。
+export function normPhoto(p) { return typeof p === 'string' ? { src: p } : p }
 
 // 分类可为单个字符串或数组（一条同时属于多个大类，如出道=经历+音乐）
 export function catList(e) { return Array.isArray(e.cat) ? e.cat : [e.cat] }

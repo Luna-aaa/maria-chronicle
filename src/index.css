@@ -1034,9 +1034,21 @@ img { max-width: 100%; display: block; }
   font-size: 15px; font-weight: 800; color: var(--text);
   margin-bottom: 12px; padding-left: 10px; border-left: 3px solid var(--c, var(--accent));
 }
-.item-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
-.item-photos img { width: 100%; border-radius: 10px; }
+.item-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+.item-photo { margin: 0; }
+.item-photo img { width: 100%; border-radius: 10px; display: block; }
+.item-photo figcaption {
+  margin-top: 6px; font-size: 12.5px; line-height: 1.5;
+  color: var(--text-muted); text-align: center;
+}
 .item-links a { color: var(--accent); }
+
+/* 年份级影像（不属于任何事件，单独成廊） */
+.year-gallery { margin-top: 34px; }
+.year-gallery-title {
+  font-size: 15px; font-weight: 800; color: var(--text);
+  margin-bottom: 14px; padding-left: 10px; border-left: 3px solid var(--accent);
+}
 .item-media-placeholder {
   margin-top: 30px; padding: 28px; text-align: center; color: var(--text-muted);
   border: 1px dashed var(--border); border-radius: 14px; font-size: 14px;

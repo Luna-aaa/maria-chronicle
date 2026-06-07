@@ -43,7 +43,8 @@ npm run preview    # 本地预览生产构建
     - `id` **全站唯一**（约定 `'年份-序号'`，如 `'2016-2'`），是 `/item/:id` 详情页的路由键，**不要重复或随意改动**（会断链）。
     - `cat`（大类）是 `MAJORS` 的 key：`music 音乐 / dance 舞见 / live 演出 / variety 综艺 / life 经历`。**可为字符串或数组**——一条同时属于多个大类（如出道=`['life','music']`，既是经历里程碑又是出道曲）。统一用辅助函数处理：`catList(e)`（归一为数组）、`primaryCat(e)`（取 `cat[0]`，决定生平里的颜色/主色）、`worksCat(e)`（取首个非 `life` 大类，决定作品页里的颜色/归类）。新写组件涉及 `cat` 时务必走这三个函数，不要直接读 `e.cat`。
     - `sub`（小类）必须是 `MAJORS[cat].subs` 的 key：音乐{`album`专辑 / `single`单曲 / `collab`合作曲}、演出{`concert`演唱会 / `festival`音乐节}；**舞见 / 综艺 / 经历均无小类**。
-    - `tags` 卡片左下角标签（体系待逐步补充）；`media`（可选，`{ links?, audio?, video?, photos? }`）供 `/item/:id` 展示音乐/视频/照片。`photos` 为路径数组，图片放在 **`public/photos/<年份>/`**（随构建部署），如 `media: { photos: ['/photos/1992/1.jpg'] }`。
+    - `tags` 卡片左下角标签（体系待逐步补充）；`media`（可选，`{ links?, audio?, video?, photos? }`）供 `/item/:id` 展示音乐/视频/照片。图片放在 **`public/photos/<年份>/`**（随构建部署）。`photos` 数组的**每个元素可为两种形态**：纯路径字符串 `'/photos/1992/1.jpg'`（无描述），或对象 `{ src:'/photos/2003/3.jpg', caption:'组合照片' }`（caption 在图片下方显示为注释）。统一用辅助函数 `normPhoto(p)` 归一为 `{ src, caption? }` 后再渲染，**不要直接读字符串/对象**。
+  - 每个年份对象还可有 **`photos: [...]`（年份级照片，可选）** — 与任何 event **都无关**、单独成廊的照片，元素同样是「字符串或 `{src,caption}`」两种形态。在 `/biography/:year` 年份详情页底部以「这一年的影像」画廊展示（仅 `filter==='all'` 时显示），不进 `/item/:id`。用于「这年还有些零散合影/演出照但挂不到具体事件」的情况。
   - `events` **按时间顺序手写**，年份页/详情页按数组顺序渲染（不解析日期排序）。
   - 配色：`cat` 对应 `themes.css` 的 `--cat-XXX` 变量，`index.css` 里 `.cat-XXX { --c: var(--cat-XXX) }` 统一驱动 chip / 色标 / 卡片 cover / 图表。新增大类要同步这两处 + `MAJORS` + `WorksChart` 的 `CAT_ORDER`。
   - 辅助导出：`MAJORS`（分类体系）、`catList/primaryCat/worksCat`（多分类处理）、`highlightYears()`、`getAllItems()`（拍平为带 year 的条目）、`getItemById(id)`。
@@ -52,18 +53,20 @@ npm run preview    # 本地预览生产构建
 
 资料来源：仓库根目录的 **`info.txt`**（约 320KB 的粉丝长文人物志，覆盖到 2018）+ 维基百科原文 **`wiki-GARNiDELiA.txt` / `wiki-MARiA.txt`** + 整理对照稿 **`wiki-research.md`**（含发售日/tie-up 全表与若干「待核实」标注）。补内容时优先回查这些本地资料，公共资料（维基/官网）作为补充。
 
-数据现已覆盖**到 2025 年**（2019 单曲 REBEL FLAG → 2020《起死回生》→ 2021 移籍波丽佳音 +《うたものがたり》《Duality Code》→ 2022《Moments》+ 结婚 → 2023 乘风 + 多首中国合作 → 2024《TEN》+ 澳门十周年巡演 → 2025 精选/自传/无期限活动休止 + 事务所纠纷）。
+数据现已覆盖**到 2025 年**（早期 2003 童星出道 → 2005 原宿 BJ Girls/CHIX CHICKS → 2006—2008 动画歌与舞台剧 → 2019 单曲 REBEL FLAG → 2020《起死回生》→ 2021 移籍波丽佳音 +《うたものがたり》《Duality Code》→ 2022《Moments》+ 结婚 → 2023 乘风 + 多首中国合作 → 2024《TEN》+ 澳门十周年巡演 → 2025 精选/自传/无期限活动休止 + 事务所纠纷）。
 
 **注意 `info.txt`、`wiki-GARNiDELiA.txt` / `wiki-MARiA.txt`、以及 `素材/` 目录都在 `.gitignore` 里**——这些原始素材只存在于本地，不会推到 GitHub。整理稿 `wiki-research.md` 则纳入版本控制。如果在新机器上开发或在 CI 里需要这些原始素材，要单独同步过去。
 
 **逐年补充内容的工作流（更新模式，2026-06 定稿）**：三层结构对应 `years.js` 三处字段，Claude 与用户分工固定——
 
 1. **Claude 先建模板**：`素材/<年份>.txt`（本地、gitignore，handoff 草稿），图片由用户放进 `public/photos/<年份>/`（会提交、随构建部署）。
-2. **用户写「事件」**：在 txt 里逐条写该年发生的事件（每条一段，**空行分隔两个事件**），照片文件名写在所属事件文字后面，如 `（1.jpg,4.jpg）` 或 `(8.png)`——照片接到**那一条事件**的 `media.photos`，不是堆在年份上。
+2. **用户写「事件」**：在 txt 里逐条写该年发生的事件（每条一段，**空行分隔两个事件**），照片文件名写在所属事件文字后面，如 `（1.jpg,4.jpg）` 或 `(8.png)`——照片接到**那一条事件**的 `media.photos`。
+   - **照片描述**：文件名后接 `--描述` 即为该图注释，如 `(3.jpg--组合照片)`；多图共享一句描述写成 `18.jpg,19.jpg,20.jpg--开幕表演`。Claude 整理时转成 `{ src, caption }`。
+   - **年份级照片（与事件无关）**：用户把这类照片**放在该年 txt 的最下方**（不跟在任何事件段后），可带 `--描述`。Claude 整理进**年份对象的 `photos`**（不进任何 event），年份详情页底部「这一年的影像」展示。
 3. **Claude 整理进 `years.js`**：
    - **年份级**（时间轴 YearAxis 显示）：由 Claude **归纳** `title`（该年主要事件）和 `summary`（简介）。
    - **事件级**（年份详情 YearDetail 显示）：每条事件 → 一个 event 的 `title` + `body`（介绍）+ `tags`（标签挂在事件上，事件卡左下角显示，由 Claude 按内容自动提）。
-   - **媒体级**（条目详情 ItemDetail 显示）：照片/音乐/视频接到对应 event 的 `media.{photos/audio/video/links}`。
+   - **媒体级**（条目详情 ItemDetail 显示）：照片/音乐/视频接到对应 event 的 `media.{photos/audio/video/links}`；带 `--描述` 的照片转成 `{ src, caption }`。与事件无关的照片放进**年份对象的 `photos`**（年份详情页「这一年的影像」画廊）。
    - **忠于用户文本**：`body` 只用用户在 txt 里写的内容，**不补未考据的额外信息**（如身高/血型/本名等，除非用户写了）；txt 顶部 `#` 注释只是提示，**不作为内容来源**。
    - 照片所属年份以**事件实际发生年份**为准：若某事件被判定属于别的年份，照片也随之移到该年份的 `public/photos/<年份>/`，并删掉旧图。
 4. **推送时机**：**用户明确说推送时才 `git push`**；多年调整期间先本地 `npm run build` 自测、攒着，等用户统一发话再一起提交推送（减少 Vercel 部署次数）。`素材/<年份>.txt` 在 gitignore 里不会进仓库。
