@@ -15,7 +15,7 @@ export default function YearAxis({ years }) {
         })
         return (
           <motion.div
-            key={y.year}
+            key={y.slug ?? y.year}
             className={`year-row${y.highlight ? ' major' : ''}${hasRep ? '' : ' muted'}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export default function YearAxis({ years }) {
           >
             <div className={`year-num${y.label ? ' range' : ''}`}>{y.label || y.year}</div>
             <span className="year-dot" />
-            <Link to={`/biography/${y.year}`} className="year-card">
+            <Link to={`/biography/${y.slug ?? y.year}`} className="year-card">
               {y.highlight && <span className="year-major-badge">★ 重要一年</span>}
               <div className="year-card-title">
                 {hasRep ? y.title : '这一年的记录待补充'}

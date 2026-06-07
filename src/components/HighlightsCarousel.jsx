@@ -21,7 +21,7 @@ export default function HighlightsCarousel() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: i * 0.05 }}
           >
-            <Link to={`/biography/${h.year}`} className="highlight-link">
+            <Link to={`/biography/${h.slug ?? h.year}`} className="highlight-link">
               <div className="highlight-index">#{String(i + 1).padStart(2, '0')}</div>
               <div className="highlight-date">{h.year}</div>
               <div className="highlight-title">{h.title}</div>

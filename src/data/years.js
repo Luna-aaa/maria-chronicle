@@ -109,14 +109,14 @@ export const years = [
     summary: '原宿 BJ Girls / CHIX CHICKS 时期的零散影像合集。',
     events: [],
     photos: [
-      '/photos/2009/22.jpg',
-      '/photos/2009/23.jpg',
-      '/photos/2009/24.jpg',
-      '/photos/2009/25.jpg',
-      '/photos/2009/26.jpg',
-      '/photos/2009/27.jpg',
-      '/photos/2009/28.jpg',
-      '/photos/2009/29.jpg'
+      '/photos/2007-2009/22.jpg',
+      '/photos/2007-2009/23.jpg',
+      '/photos/2007-2009/24.jpg',
+      '/photos/2007-2009/25.jpg',
+      '/photos/2007-2009/26.jpg',
+      '/photos/2007-2009/27.jpg',
+      '/photos/2007-2009/28.jpg',
+      '/photos/2007-2009/29.jpg'
     ]
   },
   {
@@ -134,11 +134,26 @@ export const years = [
   {
     year: 2011,
     title: 'GARNiDELiA 动画歌起步',
-    summary: '首支电视动画 OP《COLOR》，并开始定期举办 LIVE。',
+    summary: '登台 niconico 大会议 FINAL，发行第二张同人专辑《Prayer》，并以动画《Freezing》OP《COLOR》踏入动画歌领域。',
     events: [
-      { id: '2011-1', date: '02-23', cat: 'music', sub: 'single', title: '动画《Freezing（冻结）》OP《COLOR》', body: 'GARNiDELiA 首次承担电视动画 OP 主唱。曲由 toku 作曲编曲，美依礼芽演唱，在主流出道前打开通往动画歌领域的大门。', tags: ['动画歌', 'Freezing'] },
-      { id: '2011-2', date: '05-01', cat: 'music', sub: 'album', title: '同人专辑《PRAYER》', body: '于 M3-2011 春颁布的第二张同人专辑。', tags: ['同人'] },
-      { id: '2011-3', date: '秋', cat: 'live', sub: 'concert', title: '开始定期举办演唱会', body: '从 2011 年秋开始坚持举办现场演出，正是这些 LIVE 让 Defstar Records（索尼旗下）的工作人员发掘到他们。', tags: ['LIVE', '生涯转折'] }
+      { id: '2011-4', date: '02-04 / 05', cat: 'live', sub: 'concert', title: 'niconico 大会议 2010-2011 全国巡演 FINAL', body: '举行「niconico 大会议 2010-2011 全国巡回演出 〜谢谢 100 万人〜 FINAL」。', tags: ['niconico大会议', 'LIVE'], media: { photos: [{ src: '/photos/2011/36.png', caption: '演出现场' }] } },
+      { id: '2011-1', date: '02-23', cat: 'music', sub: 'single', title: '动画《Freezing（冻结）》OP《COLOR》', body: '演唱电视动画《Freezing（冻结）》片头曲《COLOR》。', tags: ['动画歌', 'Freezing', 'COLOR'], media: { photos: [{ src: '/photos/2011/35.jpg', caption: '《Freezing》' }] } },
+      { id: '2011-2', date: '05-01', cat: 'music', sub: 'album', title: '第二张同人专辑《Prayer》', body: '随 GARNiDELiA 发行第二张同人专辑《Prayer》。', tags: ['同人', 'Prayer'], media: { photos: [{ src: '/photos/2011/34.jpg', caption: '《Prayer》封面' }] } }
+    ]
+  },
+  {
+    slug: '2010-2011',
+    label: '2010–2011',
+    title: 'GARNiDELiA 初期影像合辑',
+    summary: 'GARNiDELiA 成立前后、niconico 时代的零散影像合集。',
+    events: [],
+    photos: [
+      '/photos/2010-2011/37.jpg',
+      '/photos/2010-2011/38.jpg',
+      '/photos/2010-2011/39.jpg',
+      '/photos/2010-2011/40.jpg',
+      '/photos/2010-2011/41.jpg',
+      '/photos/2010-2011/42.jpg'
     ]
   },
   {

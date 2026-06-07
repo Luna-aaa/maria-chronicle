@@ -7,7 +7,6 @@ const MotionLink = motion(Link)
 
 export default function YearDetail() {
   const { year } = useParams()
-  const yNum = Number(year)
   const [filter, setFilter] = useState('all')
 
   // 切换年份时回到顶部 + 重置筛选
@@ -16,7 +15,7 @@ export default function YearDetail() {
     setFilter('all')
   }, [year])
 
-  const idx = years.findIndex(y => y.year === yNum)
+  const idx = years.findIndex(y => String(y.slug ?? y.year) === year)
   const data = idx >= 0 ? years[idx] : null
   const prev = idx > 0 ? years[idx - 1] : null
   const next = idx >= 0 && idx < years.length - 1 ? years[idx + 1] : null
@@ -119,12 +118,12 @@ export default function YearDetail() {
 
       <div className="year-nav">
         {prev ? (
-          <Link to={`/biography/${prev.year}`} className="year-nav-link prev">
+          <Link to={`/biography/${prev.slug ?? prev.year}`} className="year-nav-link prev">
             ← {prev.label || prev.year}{prev.title ? ` · ${prev.title}` : ''}
           </Link>
         ) : <span />}
         {next ? (
-          <Link to={`/biography/${next.year}`} className="year-nav-link next">
+          <Link to={`/biography/${next.slug ?? next.year}`} className="year-nav-link next">
             {next.label || next.year}{next.title ? ` · ${next.title}` : ''} →
           </Link>
         ) : <span />}
