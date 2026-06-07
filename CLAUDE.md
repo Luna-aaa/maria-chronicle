@@ -45,6 +45,7 @@ npm run preview    # 本地预览生产构建
     - `sub`（小类）必须是 `MAJORS[cat].subs` 的 key：音乐{`album`专辑 / `single`单曲 / `collab`合作曲}、演出{`concert`演唱会 / `festival`音乐节}；**舞见 / 综艺 / 经历均无小类**。
     - `tags` 卡片左下角标签（体系待逐步补充）；`media`（可选，`{ links?, audio?, video?, photos? }`）供 `/item/:id` 展示音乐/视频/照片。图片放在 **`public/photos/<年份>/`**（随构建部署）。`photos` 数组的**每个元素可为两种形态**：纯路径字符串 `'/photos/1992/1.jpg'`（无描述），或对象 `{ src:'/photos/2003/3.jpg', caption:'组合照片' }`（caption 在图片下方显示为注释）。统一用辅助函数 `normPhoto(p)` 归一为 `{ src, caption? }` 后再渲染，**不要直接读字符串/对象**。
   - 每个年份对象还可有 **`photos: [...]`（年份级照片，可选）** — 与任何 event **都无关**、单独成廊的照片，元素同样是「字符串或 `{src,caption}`」两种形态。在 `/biography/:year` 年份详情页底部以「这一年的影像」画廊展示（仅 `filter==='all'` 时显示），不进 `/item/:id`。用于「这年还有些零散合影/演出照但挂不到具体事件」的情况。
+  - **`label`（可选，跨年份/特殊标签）** — 覆盖时间轴与详情页顶部显示的年号文字，但**路由仍用数字 `year`**（`/biography/:year`）。用于「某年没有具体事件、只放一批跨年份合辑照片」的场景：如 `{ year:2009, label:'2007–2009', events:[], photos:[...] }`——轴上该行显示「2007–2009」、`year-num` 自动缩小字号（`.year-num.range`），foot 显示「影像 N / 查看影像 →」，详情页只渲染影像画廊不显示「补充中」空状态。`label` 必须保证 `year` 数字唯一且落在正确的数组位置（决定它在轴上的顺序）。
   - `events` **按时间顺序手写**，年份页/详情页按数组顺序渲染（不解析日期排序）。
   - 配色：`cat` 对应 `themes.css` 的 `--cat-XXX` 变量，`index.css` 里 `.cat-XXX { --c: var(--cat-XXX) }` 统一驱动 chip / 色标 / 卡片 cover / 图表。新增大类要同步这两处 + `MAJORS` + `WorksChart` 的 `CAT_ORDER`。
   - 辅助导出：`MAJORS`（分类体系）、`catList/primaryCat/worksCat`（多分类处理）、`highlightYears()`、`getAllItems()`（拍平为带 year 的条目）、`getItemById(id)`。

@@ -44,7 +44,7 @@ export default function YearDetail() {
       <Link to="/biography" className="year-back">← 返回时间轴</Link>
 
       <div className="year-detail-head">
-        <div className="year-detail-num">{data.year}</div>
+        <div className="year-detail-num">{data.label || data.year}</div>
         {data.title && <h1 className="year-detail-title">{data.title}</h1>}
         {data.summary && <p className="year-detail-summary">{data.summary}</p>}
       </div>
@@ -70,7 +70,7 @@ export default function YearDetail() {
       )}
 
       <div className="year-events">
-        {events.length === 0 && (
+        {events.length === 0 && !(data.photos && data.photos.length) && (
           <div className="year-empty">这一年的详细记录还在补充中。</div>
         )}
         {events.map((e, i) => (
@@ -105,7 +105,7 @@ export default function YearDetail() {
 
       {filter === 'all' && data.photos && data.photos.length > 0 && (
         <div className="year-gallery">
-          <h3 className="year-gallery-title">这一年的影像</h3>
+          <h3 className="year-gallery-title">{data.label ? '影像合辑' : '这一年的影像'}</h3>
           <div className="item-photos">
             {data.photos.map(normPhoto).map((p, i) => (
               <figure key={i} className="item-photo">
@@ -120,12 +120,12 @@ export default function YearDetail() {
       <div className="year-nav">
         {prev ? (
           <Link to={`/biography/${prev.year}`} className="year-nav-link prev">
-            ← {prev.year}{prev.title ? ` · ${prev.title}` : ''}
+            ← {prev.label || prev.year}{prev.title ? ` · ${prev.title}` : ''}
           </Link>
         ) : <span />}
         {next ? (
           <Link to={`/biography/${next.year}`} className="year-nav-link next">
-            {next.year}{next.title ? ` · ${next.title}` : ''} →
+            {next.label || next.year}{next.title ? ` · ${next.title}` : ''} →
           </Link>
         ) : <span />}
       </div>

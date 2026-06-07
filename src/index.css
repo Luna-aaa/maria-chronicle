@@ -451,6 +451,8 @@ img { max-width: 100%; display: block; }
   color: var(--text-soft);
   padding-top: 12px;
 }
+/* 跨年份合辑标签（如 2007–2009）：字号缩小以适配窄列 */
+.year-num.range { font-size: 13px; line-height: 1.3; padding-top: 16px; }
 .year-dot {
   position: absolute;
   left: 78px;

@@ -59,7 +59,7 @@ export const years = [
     title: '加入「原宿 BJ Girls」再出道',
     summary: '以最年少成员身份加入爵士声乐组合，并为动画《神様家族》献唱片头曲。',
     events: [
-      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '以 6 人爵士声乐组合「原宿 BJ Girls」（原宿BJガールズ）再出道，是组合中年纪最小的一员；之后组合改名为「CHIX CHICKS」。', tags: ['Chix Chicks', '再出道'], media: { photos: [{ src: '/photos/2005/8.png', caption: '组合照片' }] } },
+      { id: '2005-1', date: '2005 年', cat: 'life', title: '加入 6 人爵士声乐组合「原宿 BJ Girls」', body: '以 6 人爵士声乐组合「原宿 BJ Girls」（原宿BJガールズ）再出道，是组合中年纪最小的一员；之后组合改名为「CHIX CHICKS」。', tags: ['Chix Chicks', '再出道'], media: { photos: [{ src: '/photos/2005/31.jpg', caption: '组合照片' }, { src: '/photos/2005/8.png', caption: '组合照片' }] } },
       { id: '2005-2', date: '2005 年', cat: 'music', sub: 'single', title: '动画《神様家族》片头曲《Brand New Morning》', body: '为电视动画《神様家族》演唱片头曲《Brand New Morning》。', tags: ['动画歌', '神様家族', 'Brand New Morning'], media: { photos: [{ src: '/photos/2005/11.jpg', caption: '神様家族' }, { src: '/photos/2005/7.jpg', caption: '演唱现场' }] } }
     ]
   },
@@ -87,10 +87,11 @@ export const years = [
   },
   {
     year: 2008,
-    title: '舞台剧《心は孤独なアトム》首演',
-    summary: '参演舞台剧《心は孤独なアトム》首演，并随 CHIX CHICKS 持续演出。',
+    title: '舞台剧首演 · 宝可梦动画片尾曲',
+    summary: '参演舞台剧《心は孤独なアトム》首演，并献唱宝可梦动画片尾曲《风的信息》。',
     events: [
-      { id: '2008-1', date: '03-20', cat: 'live', title: '舞台剧《心は孤独なアトム》首演', body: '参演的舞台剧《心は孤独なアトム》首演。', tags: ['舞台剧', '心は孤独なアトム'], media: { photos: [{ src: '/photos/2008/12.png', caption: '演出照片' }] } }
+      { id: '2008-1', date: '03-20', cat: 'live', title: '舞台剧《心は孤独なアトム》首演', body: '参演的舞台剧《心は孤独なアトム》首演。', tags: ['舞台剧', '心は孤独なアトム'], media: { photos: [{ src: '/photos/2008/12.png', caption: '演出照片' }] } },
+      { id: '2008-2', date: '05-28', cat: 'music', sub: 'single', title: '动画《精灵宝可梦：钻石与珍珠》片尾曲《风的信息》', body: '演唱电视动画《精灵宝可梦：钻石与珍珠》片尾曲《风的信息》。', tags: ['动画歌', '宝可梦', '风的信息'], media: { photos: [{ src: '/photos/2008/21.jpg', caption: '《风的信息》单曲封面' }, { src: '/photos/2008/30.png', caption: '弹奏照片' }] } }
     ],
     photos: [
       { src: '/photos/2008/18.jpg', caption: 'CHIX CHICKS「音符と昆布」开幕表演' },
@@ -102,15 +103,32 @@ export const years = [
     ]
   },
   {
+    year: 2009,
+    label: '2007–2009',
+    title: '早期影像合辑',
+    summary: '原宿 BJ Girls / CHIX CHICKS 时期的零散影像合集。',
+    events: [],
+    photos: [
+      '/photos/2009/22.jpg',
+      '/photos/2009/23.jpg',
+      '/photos/2009/24.jpg',
+      '/photos/2009/25.jpg',
+      '/photos/2009/26.jpg',
+      '/photos/2009/27.jpg',
+      '/photos/2009/28.jpg',
+      '/photos/2009/29.jpg'
+    ]
+  },
+  {
     year: 2010,
     title: 'MARiA 诞生 · niconico 时代',
     summary: '以「MARiA」名义在 niconico 走红，并组成 GARNiDELiA。',
     highlight: true,
     events: [
-      { id: '2010-1', date: '04-29', cat: 'life', title: '首次以「MARiA」名义投稿 niconico', body: '上传翻唱 toku（とくP）原创 VOCALOID 曲《ARiA》的版本，投稿即登热门，迅速走红。艺名 MARiA = 本名首字母 M + 首支投稿曲 ARiA。', tags: ['MARiA', 'niconico'], highlight: true },
-      { id: '2010-2', date: '07-27', cat: 'life', title: 'CHIX CHICKS 解散 · 与「水桥舞」身份告别', body: '组合宣告解散，成员各自独立。她也结束了「水桥舞」名义的演艺活动。', tags: ['解散'] },
-      { id: '2010-3', date: '09-11', cat: 'life', title: '与 toku 组成「GARNiDELiA」', body: '与编曲家 toku（阿部尚徳）成立音乐组合 GARNiDELiA（ガルニデリア）。组合名意为「美依礼芽歌唱的地方」。', tags: ['GARNiDELiA', '组建'] },
-      { id: '2010-4', date: '12-31', cat: 'music', sub: 'album', title: '同人迷你专辑《ONE》', body: 'GARNiDELiA 首张作品，于 Comic Market 79 颁布。', tags: ['同人'] }
+      { id: '2010-1', date: '04 月', cat: 'life', title: '开始以「MARiA」名义活动 · 登陆 niconico', body: '开始以「MARiA」的名义活动，正式登陆视频网站 niconico。MARiA 之名源自旧艺名 Meiria 的首字母「M」，与在 niconico 上初投稿的歌名「ARiA」组合而成。第一个以 MARiA 名义发行的作品是《COLOR》；她在 niconico 动画发布了翻唱 toku（とく，阿部尚徳）的《ARiA》——《ARiA》是 toku-P 于 4 月 29 日投稿至 niconico 与 YouTube 的 VOCALOID 日文原创歌曲，MARiA 同日投稿了真人翻唱版。', tags: ['MARiA', 'niconico', 'ARiA'] },
+      { id: '2010-2', date: '07-27', cat: 'life', title: 'CHIX CHICKS 解散 · 开始个人 SOLO', body: '组合 CHIX CHICKS 解散；之后她开始个人 SOLO 活动。', tags: ['解散', 'SOLO'] },
+      { id: '2010-3', date: '09-11', cat: 'life', title: '与 toku 组成「GARNiDELiA」', body: 'MARiA 正式与 toku 组成 GARNiDELiA 组合（组合名意为「MARiA 歌唱的地方」），并在 2010—2011 年的 niconico 大会日本全国巡演 FINAL 中亮相。', tags: ['GARNiDELiA', '组建'], highlight: true, media: { photos: [{ src: '/photos/2010/32.jpg', caption: 'GARNiDELiA 合照' }] } },
+      { id: '2010-4', date: '12-31', cat: 'music', sub: 'album', title: '首张同人专辑《One》', body: '随 GARNiDELiA 发行首张同人专辑《One》。', tags: ['同人', 'One'], media: { photos: [{ src: '/photos/2010/33.jpg', caption: '《One》' }] } }
     ]
   },
   {

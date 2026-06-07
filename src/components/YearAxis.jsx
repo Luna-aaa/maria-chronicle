@@ -22,7 +22,7 @@ export default function YearAxis({ years }) {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.45, delay: 0.04 }}
           >
-            <div className="year-num">{y.year}</div>
+            <div className={`year-num${y.label ? ' range' : ''}`}>{y.label || y.year}</div>
             <span className="year-dot" />
             <Link to={`/biography/${y.year}`} className="year-card">
               {y.highlight && <span className="year-major-badge">★ 重要一年</span>}
@@ -37,8 +37,13 @@ export default function YearAxis({ years }) {
                       {CATEGORIES[c]?.label || c} {counts[c]}
                     </span>
                   ))}
+                  {Object.keys(counts).length === 0 && y.photos?.length > 0 && (
+                    <span className="year-cat-tag year-cat-tag-photo">影像 {y.photos.length}</span>
+                  )}
                 </span>
-                <span className="year-card-cta">展开这一年 →</span>
+                <span className="year-card-cta">
+                  {Object.keys(counts).length === 0 && y.photos?.length > 0 ? '查看影像 →' : '展开这一年 →'}
+                </span>
               </div>
             </Link>
           </motion.div>
