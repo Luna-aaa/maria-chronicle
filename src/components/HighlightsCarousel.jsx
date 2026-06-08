@@ -5,6 +5,7 @@ import { highlightYears } from '../data/years.js'
 
 export default function HighlightsCarousel() {
   const highlights = useMemo(highlightYears, [])
+  if (highlights.length === 0) return null
   return (
     <section className="highlights">
       <div className="highlights-head">

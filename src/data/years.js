@@ -123,11 +123,10 @@ export const years = [
     year: 2010,
     title: 'MARiA 诞生 · niconico 时代',
     summary: '以「MARiA」名义在 niconico 走红，并组成 GARNiDELiA。',
-    highlight: true,
     events: [
       { id: '2010-1', date: '04 月', cat: 'life', title: '开始以「MARiA」名义活动 · 登陆 niconico', body: '开始以「MARiA」的名义活动，正式登陆视频网站 niconico。MARiA 之名源自旧艺名 Meiria 的首字母「M」，与在 niconico 上初投稿的歌名「ARiA」组合而成。第一个以 MARiA 名义发行的作品是《COLOR》；她在 niconico 动画发布了翻唱 toku（とく，阿部尚徳）的《ARiA》——《ARiA》是 toku-P 于 4 月 29 日投稿至 niconico 与 YouTube 的 VOCALOID 日文原创歌曲，MARiA 同日投稿了真人翻唱版。', tags: ['MARiA', 'niconico', 'ARiA'] },
       { id: '2010-2', date: '07-27', cat: 'life', title: 'CHIX CHICKS 解散 · 开始个人 SOLO', body: '组合 CHIX CHICKS 解散；之后她开始个人 SOLO 活动。', tags: ['解散', 'SOLO'] },
-      { id: '2010-3', date: '09-11', cat: 'life', title: '与 toku 组成「GARNiDELiA」', body: 'MARiA 正式与 toku 组成 GARNiDELiA 组合（组合名意为「MARiA 歌唱的地方」），并在 2010—2011 年的 niconico 大会日本全国巡演 FINAL 中亮相。', tags: ['GARNiDELiA', '组建'], highlight: true, media: { photos: [{ src: '/photos/2010/32.jpg', caption: 'GARNiDELiA 合照' }] } },
+      { id: '2010-3', date: '09-11', cat: 'life', title: '与 toku 组成「GARNiDELiA」', body: 'MARiA 正式与 toku 组成 GARNiDELiA 组合（组合名意为「MARiA 歌唱的地方」，简称「G 团」），并在 2010—2011 年的 niconico 大会日本全国巡演 FINAL 中亮相。', tags: ['GARNiDELiA', '组建'], media: { photos: [{ src: '/photos/2010/32.jpg', caption: 'GARNiDELiA 合照' }] } },
       { id: '2010-4', date: '12-31', cat: 'music', sub: 'album', title: '首张同人专辑《One》', body: '随 GARNiDELiA 发行首张同人专辑《One》。', tags: ['同人', 'One'], media: { photos: [{ src: '/photos/2010/33.jpg', caption: '《One》' }] } }
     ]
   },
@@ -158,28 +157,44 @@ export const years = [
   },
   {
     year: 2012,
-    title: '舞见系列开启',
-    summary: '独立专辑发行，并与みうめ・217 开启「踊ってみた」舞见系列。',
+    title: '首次海外公演 · 个人首张同人专辑',
+    summary: '随 GARNiDELiA 首次海外公演登台上海，发行个人首张同人专辑《aMazing MusiQue PaRK》并与みうめ・仮面ライアー217 共创舞蹈《Girls》，年内 G 团再发第三张同人专辑。',
     events: [
-      { id: '2012-1', date: '07-25', cat: 'music', sub: 'album', title: '首张完整专辑《aMazing MusiQue PaRK》', body: 'niconico 时代代表作集成的独立专辑发行。', tags: ['独立专辑'] },
-      { id: '2012-2', date: '08-07', cat: 'dance', title: '与みうめ・仮面ライアー217 开启「踊ってみた」舞见系列', body: '为庆祝《aMazing MusiQue PaRK》发行而拍摄的舞蹈视频投稿后人气爆棚，三人组就此开启 GARNiDELiA「踊ってみた」舞见系列，陆续推出《Lamb.》《PiNK CAT》《極楽浄土》《桃源恋歌》等经典舞见。', tags: ['舞见', 'みうめ', '217'] }
+      { id: '2012-1', date: '05-13', cat: 'live', sub: 'festival', title: '首次海外公演 · 上海舞动漫音楽祭 ANIME ROCK CONVENTION', body: '随 GARNiDELiA 首次海外公演，于上海举行的舞动漫音楽祭 ~ANIME ROCK CONVENTION~ 演出。', tags: ['首次海外公演', '上海', 'ANIME ROCK CONVENTION'], media: { photos: [{ src: '/photos/2012/43.png', caption: '音楽祭采访' }, { src: '/photos/2012/44.png', caption: '音楽祭采访' }] } },
+      { id: '2012-2', date: '07-25', cat: ['music', 'dance'], sub: 'album', title: '个人首张同人专辑《aMazing MusiQue PaRK》 · 舞蹈《Girls》', body: '发布首张个人同人专辑《aMazing MusiQue PaRK》；为此与好友 Miume（みうめ）、仮面ライアー217（妮娜）共同创作了名为《Girls》的舞蹈。', tags: ['同人专辑', 'aMazing MusiQue PaRK', 'Girls', 'みうめ', '217'], media: { photos: [{ src: '/photos/2012/45.jpg', caption: '《aMazing MusiQue PaRK》' }, { src: '/photos/2012/46.png', caption: '《Girls》' }] } },
+      { id: '2012-3', date: '08-11', cat: 'music', sub: 'album', title: '第三张同人专辑《Pluslights-21248931-》', body: '随 GARNiDELiA 发行第三张同人专辑《Pluslights-21248931-》。', tags: ['同人', 'Pluslights'], media: { photos: [{ src: '/photos/2012/47.jpg', caption: '《Pluslights-21248931-》' }] } }
     ]
   },
   {
     year: 2013,
-    title: '翻唱专辑 · 结识 JIN',
-    summary: '通过翻唱《夜咄ディセイブ》开始与 JIN 合作。',
+    title: '密集演出 · 主流出道前奏',
+    summary: '全年密集出演各类 LIVE 与音乐节，推出第二张个人同人专辑《MabLE SYNDROMe》，并以收录于「リスアニ!」Vol.15 的《True High》为主流出道预热。',
     events: [
-      { id: '2013-1', date: '08-12', cat: 'music', sub: 'album', title: '翻唱专辑《MaBLE SYNDROMe》与 JIN 结缘', body: '通过翻唱《夜咄ディセイブ》开始与 JIN（自然之敌P）合作，常以特邀主唱参与 JIN 的演唱会与作品。', tags: ['翻唱', 'JIN'] }
+      { id: '2013-1', date: '04-23', cat: 'live', title: '「STARTING OVER」出演', body: '随 GARNiDELiA 出演「STARTING OVER」。', tags: ['LIVE', 'GARNiDELiA'] },
+      { id: '2013-2', date: '06-09', cat: 'live', sub: 'festival', title: '音乐节「SAKAE SP-RING 2013」出演', body: '随 GARNiDELiA 出演音乐节「SAKAE SP-RING 2013」。', tags: ['音乐节', 'SAKAE SP-RING'] },
+      { id: '2013-3', date: '08-12', cat: 'music', sub: 'album', title: '第二张个人同人专辑《MabLE SYNDROMe》', body: '推出第二张个人同人专辑《MabLE SYNDROMe》。', tags: ['同人专辑', 'MabLE SYNDROMe'], media: { photos: [{ src: '/photos/2013/48.jpg', caption: '《MabLE SYNDROMe》' }] } },
+      { id: '2013-4', date: '10-30', cat: 'music', sub: 'single', title: '《True High》预备出道（リスアニ! Vol.15 附录）', body: 'GARNiDELiA 以「リスアニ!」Vol.15 附录曲《True High》预备出道。', tags: ['True High', 'リスアニ', '预备出道'], media: { photos: ['/photos/2013/49.jpg'] } },
+      { id: '2013-5', date: '11-03', cat: 'live', sub: 'festival', title: '「超流APPEND FES.2013」出演', body: '随 GARNiDELiA 出演「超流APPEND FES.2013」。', tags: ['LIVE', '超流APPEND'] }
+    ],
+    photos: [
+      { src: '/photos/2013/59.png', caption: '《Girls》现场' },
+      '/photos/2013/50.jpg',
+      '/photos/2013/51.jpg',
+      '/photos/2013/52.jpg',
+      '/photos/2013/53.jpg',
+      '/photos/2013/54.jpg',
+      '/photos/2013/55.jpg',
+      '/photos/2013/56.jpg',
+      '/photos/2013/57.jpg',
+      '/photos/2013/58.jpg'
     ]
   },
   {
     year: 2014,
     title: '主流出道 · 一年三连发',
     summary: '索尼旗下正式出道，一年内三张单曲三部动画。',
-    highlight: true,
     events: [
-      { id: '2014-1', date: '03-05', cat: 'music', sub: 'single', title: '主流出道单曲《ambiguous》', body: '在索尼 Defstar Records 旗下正式出道。主打曲为电视动画《Kill la Kill（斩服少女）》第二期片头曲。Oricon 周榜最高第 15 位。', tags: ['主流出道', 'Kill la Kill'], highlight: true },
+      { id: '2014-1', date: '03-05', cat: 'music', sub: 'single', title: '主流出道单曲《ambiguous》', body: '在索尼 Defstar Records 旗下正式出道。主打曲为电视动画《Kill la Kill（斩服少女）》第二期片头曲。Oricon 周榜最高第 15 位。', tags: ['主流出道', 'Kill la Kill'] },
       { id: '2014-2', date: '07-30', cat: 'music', sub: 'single', title: '第二张单曲《grilletto》', body: '动画《魔法科高校的劣等生》后期开场曲，更具数字感的酷炫摇滚。iTunes 动画榜首位。', tags: ['魔法科'] },
       { id: '2014-3', date: '08 月', cat: 'live', sub: 'festival', title: '海外首演 + JIN 大结局活动', body: '8 月以 JIN 特邀嘉宾身份参演《机巧少女不会受伤》大结局活动（涩谷公会堂）；并在印尼参加 AFA14。', tags: ['海外', 'AFA'] },
       { id: '2014-4', date: '10-02', cat: 'live', sub: 'concert', title: '首次个人演唱会《stellacage》', body: '在涩谷 TSUTAYA O-WEST 举行第一场 stellacage，开启日后延续至今的「stellacage」系列演唱会品牌。', tags: ['stellacage', '首场'] },
@@ -207,10 +222,9 @@ export const years = [
     year: 2016,
     title: '极乐净土 · 中国出圈',
     summary: '一支和服舞蹈视频让她在中国一夜爆红。',
-    highlight: true,
     events: [
       { id: '2016-1', date: '04-13', cat: 'music', sub: 'single', title: '数字单曲《Burning Soul》', body: 'PC 游戏《SoulWorker》主题曲，G 团首次为游戏作品制作主题曲。', tags: ['游戏'] },
-      { id: '2016-2', date: '04-25', cat: 'dance', title: '舞见系列第四弹《極楽浄土》上传 niconico', body: 'みうめ・メイリア・217 三人和服舞蹈版投稿，MV 在中国 B 站等平台疯传，引爆华人圈出圈热潮，自此成为 MARiA 海外人气的最大引擎。', tags: ['極楽浄土', '舞见', '出圈'], highlight: true },
+      { id: '2016-2', date: '04-25', cat: 'dance', title: '舞见系列第四弹《極楽浄土》上传 niconico', body: 'みうめ・メイリア・217 三人和服舞蹈版投稿，MV 在中国 B 站等平台疯传，引爆华人圈出圈热潮，自此成为 MARiA 海外人气的最大引擎。', tags: ['極楽浄土', '舞见', '出圈'] },
       { id: '2016-3', date: '05-03', cat: 'live', sub: 'concert', title: 'stellacage vol.IV（东京 赤坂 BLITZ）', body: '现场首演《極楽浄土》，全场齐跳「净土舞」。', tags: ['stellacage'] },
       { id: '2016-4', date: '08-17', cat: 'music', sub: 'single', title: '第五张单曲《约束 -Promise code-》', body: '动画《Qualidea Code》片尾曲。专辑首次大量启用和风元素，配套曲收录《極楽浄土》正式 CD 化与和风民谣《紫苑》。', tags: ['約束', '和风'] },
       { id: '2016-5', date: '全年', cat: 'live', sub: 'festival', title: '海外活动密集 · 台湾 / 马来西亚 / 美国 / 德国 / 泰国 / 香港', body: '全年至少 11 场海外活动，「極楽浄土」效应让海外邀约持续涌入。', tags: ['海外'] },
@@ -223,11 +237,10 @@ export const years = [
     year: 2017,
     title: '首次巡演 · 武道馆梦',
     summary: '第一次正式巡回演唱会，并踏上武道馆舞台。',
-    highlight: true,
     events: [
       { id: '2017-1', date: '01-28', cat: 'live', sub: 'festival', title: 'リスアニ！LIVE 2017 武道馆登台', body: '在动画音乐界标志性的武道馆舞台上演出（拼盘形式）。', tags: ['武道馆', 'リスアニ'] },
       { id: '2017-2', date: '03 月', cat: 'live', sub: 'concert', title: '香港 / 新加坡 Anisong Fantasy Live 2017', body: 'Anisong Fantasy Live 香港（3/10）与新加坡（3/18）专场。', tags: ['亚洲'] },
-      { id: '2017-3', date: '04-16 起', cat: 'live', sub: 'concert', title: '首次正式巡演「stellacage TOUR 2017 ~Cry Out~」', body: '六场：东京 / 名古屋 / 大阪 / 福冈 / 仙台 + 上海。真正意义上的第一次巡回演唱会，上海场（5/20）为首次海外独立专场。', tags: ['巡演', '上海'], highlight: true },
+      { id: '2017-3', date: '04-16 起', cat: 'live', sub: 'concert', title: '首次正式巡演「stellacage TOUR 2017 ~Cry Out~」', body: '六场：东京 / 名古屋 / 大阪 / 福冈 / 仙台 + 上海。真正意义上的第一次巡回演唱会，上海场（5/20）为首次海外独立专场。', tags: ['巡演', '上海'] },
       { id: '2017-4', date: '05—06 月', cat: 'dance', title: '舞见系列第五弹《桃源恋歌》上传', body: '小美亲自表态：这是写给中国粉丝的歌。中华风格的舞曲与编舞，是对《極楽浄土》在中国走红后的回应。', tags: ['桃源恋歌', '中国粉丝'] },
       { id: '2017-5', date: '06-14', cat: 'music', sub: 'single', title: '第六张单曲《SPEED STAR》', body: '动画电影《劇場版 魔法科高校の劣等生 星を呼ぶ少女》主题曲。转至动漫向厂牌「SACRA MUSIC」后的首张专辑。', tags: ['SPEED STAR', 'SACRA MUSIC'] },
       { id: '2017-6', date: '07-23', cat: 'live', sub: 'festival', title: '上海 BILIBILI MACRO LINK / WORLD 2017', body: '现场粉丝一句「赛高！」让她瞬间回应，从此「赛高」成为最经典的咩文化符号之一。', tags: ['赛高', 'bilibili'] },
@@ -246,7 +259,7 @@ export const years = [
     events: [
       { id: '2018-1', date: '01-27', cat: 'live', sub: 'festival', title: '再登武道馆「リスアニ！LIVE 2018」', body: '武道馆再次回归。', tags: ['武道馆'] },
       { id: '2018-2', date: '01-31', cat: 'music', sub: 'single', title: '第九张单曲《Error》（生日发行）', body: '动画《BEATLESS》开场曲。完全 EDM 化的「不像动画歌的动画歌」。同碟收录生日歌《君が生まれた日》。', tags: ['Error', 'BEATLESS', '生日'] },
-      { id: '2018-3', date: '03-28', cat: 'music', sub: 'album', title: '第三张原创合辑《G.R.N.D.》', body: 'GARNiDELiA 自身的缩写，13 首歌。主打曲成为日本电视台节目片尾曲。', tags: ['G.R.N.D.', '合辑'], highlight: true },
+      { id: '2018-3', date: '03-28', cat: 'music', sub: 'album', title: '第三张原创合辑《G.R.N.D.》', body: 'GARNiDELiA 自身的缩写，13 首歌。主打曲成为日本电视台节目片尾曲。', tags: ['G.R.N.D.', '合辑'] },
       { id: '2018-4', date: '03 月', cat: 'dance', title: '舞见系列第七弹《红叶爱唄》', body: '《王者荣耀》公孙离主题曲，收录于《G.R.N.D.》，鹅厂合作的中华风舞见。', tags: ['王者荣耀', '舞见'] },
       { id: '2018-5', date: '04 月', cat: 'live', sub: 'concert', title: '巡演「stellacage Tour 2018」 大阪 / 爱知 / 东京 + 香港', body: '第二次年度巡演，4 场。东京站为中野サンプラザホール。', tags: ['巡演'] },
       { id: '2018-6', date: '04-21', cat: 'live', sub: 'festival', title: 'ANIMAX MUSIX 2018 Guangzhou', body: '广州登台。', tags: ['中国', '广州'] }
@@ -275,10 +288,9 @@ export const years = [
     year: 2021,
     title: '转籍波丽佳音 · 个人首专',
     summary: 'MARiA 发行出道后首张个人专辑《うたものがたり》。',
-    highlight: true,
     events: [
       { id: '2021-1', date: '03-22', cat: 'life', title: '环球音乐合约终止 · 转籍波丽佳音', body: 'GARNiDELiA 组合与二人 SOLO 活动一同移籍 Pony Canyon（波丽佳音）。', tags: ['波丽佳音'] },
-      { id: '2021-2', date: '05-26', cat: 'music', sub: 'album', title: 'MARiA 个人首张专辑《うたものがたり》', body: '出道以来首张个人名义专辑，收录 10 首情歌，词曲提供阵容含 山下穂尊、橋口洋平、じん、草野華余子、TAKUYA、山崎将义 等。', tags: ['うたものがたり', 'SOLO'], highlight: true },
+      { id: '2021-2', date: '05-26', cat: 'music', sub: 'album', title: 'MARiA 个人首张专辑《うたものがたり》', body: '出道以来首张个人名义专辑，收录 10 首情歌，词曲提供阵容含 山下穂尊、橋口洋平、じん、草野華余子、TAKUYA、山崎将义 等。', tags: ['うたものがたり', 'SOLO'] },
       { id: '2021-3', date: '09-17', cat: 'music', sub: 'single', title: '数字单曲《春がきたよ》', body: '日剧《反正你也逃不掉》片头曲。', tags: ['日剧'] },
       { id: '2021-4', date: '11-17', cat: 'music', sub: 'album', title: '第五张原创专辑《Duality Code》', body: '收录《オトメの心得》（动画《大正处女御伽话》OP）等曲。', tags: ['Duality Code'] }
     ]
@@ -299,12 +311,11 @@ export const years = [
     year: 2023,
     title: '乘风2023 · 现象级出圈',
     summary: '参加芒果 TV《乘风2023》，人气一度断层第一。',
-    highlight: true,
     events: [
       { id: '2023-1', date: '03-22', cat: 'music', sub: 'album', title: '翻唱集《GARNiDELiA COVER COLLECTiON》', body: '收录翻唱歌曲与 LIVE 影像。', tags: ['翻唱'] },
       { id: '2023-2', date: '04 月', cat: 'variety', title: '加入芒果 TV《乘风 2023》', body: '作为节目首位日本籍参赛者亮相。凭借真挚的中文学习态度、可爱的「小美」形象与舞台爆发力，迅速成为节目的最大流量担当。', tags: ['乘风2023', '出圈'] },
       { id: '2023-3', date: '04-20', cat: 'music', sub: 'single', title: '数字单曲《ONLY》', body: '动画《献祭公主与兽王》片尾曲。', tags: ['动画歌'] },
-      { id: '2023-4', date: '05—07 月', cat: 'variety', title: '节目期间人气一度断层第一 · 总决赛获第三名', body: '节目期间人气与得票数一度领跑全员，单人票数超过其余 32 位「姐姐」的总和；总决赛最终获得第三名，并由此获得大量在中国的演出机会。', tags: ['断层第一', '总决赛第三名'], highlight: true },
+      { id: '2023-4', date: '05—07 月', cat: 'variety', title: '节目期间人气一度断层第一 · 总决赛获第三名', body: '节目期间人气与得票数一度领跑全员，单人票数超过其余 32 位「姐姐」的总和；总决赛最终获得第三名，并由此获得大量在中国的演出机会。', tags: ['断层第一', '总决赛第三名'] },
       { id: '2023-5', date: '07-21', cat: 'variety', title: '乘风之夜 · 登上年度席位', body: '在节目「乘风之夜」与 Ella、谢娜、刘惜君、A-Lin、龚琳娜、贾静雯等共 11 人同登「乘风年度席位」。', tags: ['乘风之夜'] },
       { id: '2023-6', date: '07-26', cat: 'music', sub: 'collab', title: '与周深合唱《夏日妄想》', body: '《王者荣耀》2023 夏日主题曲。此后她持续承接中国影视、游戏主题曲，成为中日音乐交流的代表面孔之一。', tags: ['周深', '中国合作'] },
       { id: '2023-7', date: '07-29', cat: 'music', sub: 'single', title: '《MIRAI》发布 8 年后首登 MORA 榜首', body: '《乘风 2023》带来的流量令 2015 年的旧作《MIRAI》在日本 mora 平台首次登上榜首。', tags: ['MIRAI', 'mora'] },
@@ -318,11 +329,10 @@ export const years = [
     year: 2024,
     title: '出道十周年',
     summary: '第六张专辑《TEN》，十周年巡演由澳门启程。',
-    highlight: true,
     events: [
       { id: '2024-1', date: '01-17', cat: 'music', sub: 'album', title: '第六张原创专辑《TEN》', body: '号称耗时约两年打磨的原创专辑，收录《幻爱游戏》（动画《我家师傅没有尾巴》OP）等曲。', tags: ['TEN'] },
       { id: '2024-2', date: '08-02', cat: 'music', sub: 'single', title: '《只若初见》', body: '电视剧《四海重明》宿命曲。', tags: ['影视', '中国合作'] },
-      { id: '2024-3', date: '08-11', cat: 'live', sub: 'concert', title: '出道十周年巡演首站 · 澳门', body: '「GARNiDELiA 10th anniversary stellacage tour 2024 -Link The World-」十周年巡演由澳门站开启，串联中日及海外多地。', tags: ['十周年', '巡演', '澳门'], highlight: true },
+      { id: '2024-3', date: '08-11', cat: 'live', sub: 'concert', title: '出道十周年巡演首站 · 澳门', body: '「GARNiDELiA 10th anniversary stellacage tour 2024 -Link The World-」十周年巡演由澳门站开启，串联中日及海外多地。', tags: ['十周年', '巡演', '澳门'] },
       { id: '2024-4', date: '12-16', cat: 'music', sub: 'single', title: '《智子》', body: '收录于太合音乐发行的《三体》音乐专辑。', tags: ['三体', '中国合作'] },
       { id: '2024-5', date: '本年', cat: 'music', sub: 'single', title: '手游合作曲《猫の城》《スズラン》', body: '《猫之城》主题曲与《铃兰之剑》合作曲。', tags: ['游戏'] }
     ]
@@ -331,14 +341,13 @@ export const years = [
     year: 2025,
     title: '事务所纠纷 · 组合停摆',
     summary: '自传出版后，GARNiDELiA 宣布无限期停止活动。',
-    highlight: true,
     events: [
       { id: '2025-1', date: '01-11', cat: 'music', sub: 'single', title: '数字单曲《罪人》', body: '动画《魔域英雄传说》片头曲。', tags: ['动画歌'] },
       { id: '2025-2', date: '02-20', cat: 'music', sub: 'single', title: '《命运之风》', body: '《晶核》一周年主题曲日语翻唱版。', tags: ['游戏', '中国合作'] },
       { id: '2025-3', date: '02-26', cat: 'music', sub: 'album', title: '全时期精选《GRND THE BEST PROGRESS》', body: '横跨全时期的精选专辑，收录《极乐净土》《桃源恋歌》《响喜乱舞》等代表作的 [PROGRESS] 重制版。', tags: ['精选集', 'PROGRESS'] },
       { id: '2025-4', date: '03-12', cat: 'life', title: 'MARiA 首部自传随笔《I am MARiA》', body: '讲述自己的成长与在中国爆红的历程，并收录宫原梦画拍摄的照片。', tags: ['I am MARiA', '自传'] },
       { id: '2025-5', date: '08-12', cat: 'music', sub: 'single', title: '《爆爆派对》', body: '《冒险岛：枫之传说》2 周年主题曲。', tags: ['游戏', '中国合作'] },
-      { id: '2025-6', date: '09-02', cat: 'life', title: 'GARNiDELiA 宣布无限期停止活动', body: '官方网站突然发布无限期停止所有活动的公告，年内已确定的巡演全数取消。公告仅由 toku 一人署名，主唱 MARiA 并未参与。', tags: ['停止活动', '官网公告'], highlight: true },
+      { id: '2025-6', date: '09-02', cat: 'life', title: 'GARNiDELiA 宣布无限期停止活动', body: '官方网站突然发布无限期停止所有活动的公告，年内已确定的巡演全数取消。公告仅由 toku 一人署名，主唱 MARiA 并未参与。', tags: ['停止活动', '官网公告'] },
       { id: '2025-7', date: '09-02 · 同日', cat: 'life', title: 'MARiA 公开表态：「诶！？」', body: '在转发停止活动消息时，MARiA 仅回复一句「诶！？」表明事先并不知情，并向引起混乱的粉丝致歉。', tags: ['诶！？'] },
       { id: '2025-8', date: '09 月（随后）', cat: 'life', title: '长文公开事务所欠薪与霸凌', body: 'MARiA 发布长文，公开所属事务所 SUPER DIRECTION INC. 长期欠付演出报酬、部分工作完全未结算、并多次遭受社长言语霸凌的经历。她同时表示，今后不再以个人身份演唱 GARNiDELiA 时期的任何曲目。', tags: ['事务所纠纷', '欠薪'] },
       { id: '2025-9', date: '— 进行中 —', cat: 'life', title: '后续：解约与未来', body: '事件后续仍在发展。MARiA 解除事务所合约、开启全新阶段的活动方向是中日两地粉丝关注的焦点。', tags: ['进行中'] }

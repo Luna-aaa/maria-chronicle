@@ -38,7 +38,7 @@ npm run preview    # 本地预览生产构建
 所有内容都是手写的纯 JS 数组，**没有 CMS、没有 fetch、没有 markdown**：
 
 - **`src/data/years.js`（全站唯一数据源，核心）** — 生平与作品**共用同一份数据**（统一单源，避免双录）。「一年一个对象」的数组，`/biography` 年份轴、`/biography/:year` 年份详情、`/item/:id` 条目详情、`/works` 作品页**全都读它**。
-  - 每个年份对象：`{ year, title?, summary?, highlight?, events: [...] }`。`title` 为该年代表事件（轴上展示；为空则该年显示「待补充」并淡化）；`highlight: true` 标记「重要一年」——① 轴上 `.year-row.major` 特效；② 进入首页「命运节点」轮播（`highlightYears()`）。
+  - 每个年份对象：`{ year, title?, summary?, highlight?, events: [...] }`。`title` 为该年代表事件（轴上展示；为空则该年显示「待补充」并淡化）；`highlight: true` 标记「重要一年」——① 轴上 `.year-row.major` 特效；② 进入首页「命运节点」轮播（`highlightYears()`）。**当前状态（2026-06，逐年补内容期间）：所有 year/event 级 `highlight` 已暂时全部清空，待全部年份事件梳理完后由用户统一重新标注；在此期间首页「命运节点」轮播会自动隐藏（见 HighlightsCarousel）。补内容时不要随手加 `highlight`。**
   - 每个 event 既是生平节点也是作品条目：`{ id, date, cat, sub?, title, body?, tags?, highlight?, media? }`。
     - `id` **全站唯一**（约定 `'年份-序号'`，如 `'2016-2'`），是 `/item/:id` 详情页的路由键，**不要重复或随意改动**（会断链）。
     - `cat`（大类）是 `MAJORS` 的 key：`music 音乐 / dance 舞见 / live 演出 / variety 综艺 / life 经历`。**可为字符串或数组**——一条同时属于多个大类（如出道=`['life','music']`，既是经历里程碑又是出道曲）。统一用辅助函数处理：`catList(e)`（归一为数组）、`primaryCat(e)`（取 `cat[0]`，决定生平里的颜色/主色）、`worksCat(e)`（取首个非 `life` 大类，决定作品页里的颜色/归类）。新写组件涉及 `cat` 时务必走这三个函数，不要直接读 `e.cat`。
@@ -104,7 +104,7 @@ npm run preview    # 本地预览生产构建
 - `pages/YearDetail.jsx` — 年份详情页（路由 `/biography/:year`）：年号大标题 + 概述 + **分类筛选 chip** + 按时间排列的事件流（每条是 `<Link to="/item/:id">`，分类色标 + ★大事件 + 标签）+ **上/下一年导航** + 空状态。切换年份时 `window.scrollTo(0)` 并重置筛选。
 - `pages/ItemDetail.jsx` — **条目详情页（路由 `/item/:id`）**：生平里点事件、作品里点卡片都到这里（共享落点）。用 `getItemById` 取数，展示大类/小类 chip、日期、标题、正文、标签 + **媒体版位**（`media.audio/video/photos/links`，多为空时显示占位）。这是后续放音乐/视频/照片的地方。
 - `pages/Works.jsx` — 作品页：读 `getAllItems()`，**大类 Tab（`MAJORS`，但不含「经历」）+ 小类 chip 联动筛选**，卡片按 `cat` 着色、`<Link to="/item/:id">`，左下角标签。**作品页过滤掉纯经历（`cat` 仅为 `'life'`，如出生/结婚/签约/停摆），生平页不受影响**；同时属于其它大类的（如出道=经历+音乐）仍保留并按 `worksCat` 归类着色。`WorksChart` 同样规则、按 `worksCat` 统计，保持图表与列表一致。
-- `components/HighlightsCarousel.jsx` — 首页「命运节点」轮播。从 `years.js` 的 `highlightYears()` 取重要年份，每张卡 `<Link to="/biography/:year">` 直达年份详情（不再用 `scrollToEra` state）。
+- `components/HighlightsCarousel.jsx` — 首页「命运节点」轮播。从 `years.js` 的 `highlightYears()` 取重要年份，每张卡 `<Link to="/biography/:year">` 直达年份详情（不再用 `scrollToEra` state）。**`highlightYears()` 为空时整块返回 `null` 自动隐藏**（当前 highlight 全清期间首页不显示此区块，重新标注后自动恢复）。
 - `components/WorksChart.jsx` — 纯 SVG 堆叠条形图，无图表库依赖。读 `getAllItems()`（排除纯经历）按年份 × `worksCat`（大类）统计，配色用内联 `var(--cat-XXX)`。改大类需同步 `CAT_ORDER`。
 - `components/Timeline.jsx` / `components/TimelineNav.jsx` — 旧版生平时间线与章节导航，**已弃用**（无人 import），保留备份。
 
