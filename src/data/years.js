@@ -208,34 +208,42 @@ export const years = [
   },
   {
     year: 2015,
-    title: '全面活跃期',
-    summary: '原创合辑、首张民谣单曲、anisama 首登与全球海外巡演。',
+    title: '首张原创专辑《Linkage Ring》',
+    summary: '组合接连发行首张专辑、首张原创专辑《Linkage Ring》、第四张单曲《MIRAI》与首张精选辑《BiRTHiA》。',
     events: [
-      { id: '2015-1', date: '01-21', cat: 'music', sub: 'album', title: '第一张原创合辑《Linkage Ring》', body: '13 首歌，其中 7 首全新。Oricon 周榜最高第 11 位。', tags: ['Linkage Ring'] },
-      { id: '2015-2', date: '02-11', cat: 'live', sub: 'concert', title: 'stellacage vol.II（东京 LIQUIDROOM）', body: '现场公开下一张专辑将是「首张民谣」。', tags: ['stellacage'] },
-      { id: '2015-3', date: '05-13', cat: 'music', sub: 'single', title: '第四张单曲《MIRAI》', body: '动画《ガンスリンガー ストラトス》片尾曲，G 团首次正式尝试民谣编曲。后成为 MARiA 与粉丝双向奔赴的象征曲。', tags: ['MIRAI', '民谣'] },
-      { id: '2015-4', date: '06-01', cat: 'life', title: '唱片公司从 Defstar Records 转至 SME Records', body: '随 Defstar Records 厂牌废止，转至索尼旗下 SME Records 继续主流活动。', tags: ['唱片公司'] },
-      { id: '2015-5', date: '07 月 起', cat: 'live', sub: 'concert', title: '免费迷你巡演（茨城/广岛/兵库/福冈）', body: '为庆祝《BiRTHiA》发售开启的小规模路演。', tags: ['巡演'] },
-      { id: '2015-6', date: '08-18', cat: 'life', title: '开设官方粉丝俱乐部「galaxia」', body: '官方爱好者俱乐部成立（现已废止）。', tags: ['粉丝俱乐部'] },
-      { id: '2015-7', date: '08-26', cat: 'music', sub: 'album', title: '精选辑《BiRTHiA》', body: '收录独立音乐时代 15 首歌，全曲重录，含新曲《Birth》。', tags: ['精选辑'] },
-      { id: '2015-8', date: '08-29', cat: 'live', sub: 'festival', title: 'Animelo Summer Live 2015 -THE GATE-', body: '在埼玉超级竞技场首登日本年度最大动画音乐节 anisama 舞台。', tags: ['anisama'] },
-      { id: '2015-9', date: '11-07', cat: 'live', sub: 'concert', title: 'stellacage vol.III（东京 ToyosuPIT）', body: '本年 stellacage 系列首场万人级场地演出。', tags: ['stellacage'] },
-      { id: '2015-10', date: '全年', cat: 'live', sub: 'festival', title: '海外巡演 · 美国 / 香港 / 澳洲 / 印尼 / 新加坡', body: 'SakuraCon（美国）、Anison Dream Stage（香港）、SMASH!（澳洲）、AFAID（印尼）、AFA（新加坡）。开启横跨全球的海外活动节奏。', tags: ['海外巡演'] }
+      { id: '2015-1', date: '01-21', cat: 'music', sub: 'album', title: 'GARNiDELiA 首张专辑', body: '随 GARNiDELiA 发行组合第一张专辑，收录《ambiguous》《grilletto》《BLAZING》。', tags: ['专辑', 'ambiguous', 'grilletto', 'BLAZING'], media: { photos: ['/photos/2015/68.jpg'] } },
+      { id: '2015-2', date: '01-25', cat: 'music', sub: 'album', title: 'GARNiDELiA 首张原创专辑《Linkage Ring》', body: '随 GARNiDELiA 发布组合首张原创专辑《Linkage Ring》，收录《BLAZING》《オオカミ少女》等共 13 首歌曲。', tags: ['Linkage Ring', '原创专辑'], media: { photos: [{ src: '/photos/2015/69.jpg', caption: '《BLAZING》' }] } },
+      { id: '2015-3', date: '05-13', cat: 'music', sub: 'single', title: 'GARNiDELiA 第四张单曲《MIRAI》', body: '随 GARNiDELiA 发行组合第四张单曲《MIRAI》，为《双枪激斗（ガンスリンガー ストラトス）》片尾曲。', tags: ['MIRAI', '双枪激斗', '动画歌', '单曲'], media: { photos: [{ src: '/photos/2015/70.jpg', caption: '《MIRAI》' }] } },
+      { id: '2015-4', date: '08-26', cat: 'music', sub: 'album', title: 'GARNiDELiA 首张精选辑《BiRTHiA》', body: '随 GARNiDELiA 发布组合首张精选辑《BiRTHiA》。', tags: ['精选辑', 'BiRTHiA'], media: { photos: [{ src: '/photos/2015/71.jpg', caption: '《BiRTHiA》' }] } }
     ]
   },
   {
     year: 2016,
-    title: '极乐净土 · 中国出圈',
-    summary: '一支和服舞蹈视频让她在中国一夜爆红。',
+    title: '《极乐净土》中国出圈',
+    summary: '投稿舞蹈《极乐净土》在 B 站爆红出圈，连发《约束 -Promise code-》《clever》等单曲、加入乐队 GOUACHE，并发行第二张原创专辑《Violet Cry》。',
     events: [
-      { id: '2016-1', date: '04-13', cat: 'music', sub: 'single', title: '数字单曲《Burning Soul》', body: 'PC 游戏《SoulWorker》主题曲，G 团首次为游戏作品制作主题曲。', tags: ['游戏'] },
-      { id: '2016-2', date: '04-25', cat: 'dance', title: '舞见系列第四弹《極楽浄土》上传 niconico', body: 'みうめ・メイリア・217 三人和服舞蹈版投稿，MV 在中国 B 站等平台疯传，引爆华人圈出圈热潮，自此成为 MARiA 海外人气的最大引擎。', tags: ['極楽浄土', '舞见', '出圈'] },
-      { id: '2016-3', date: '05-03', cat: 'live', sub: 'concert', title: 'stellacage vol.IV（东京 赤坂 BLITZ）', body: '现场首演《極楽浄土》，全场齐跳「净土舞」。', tags: ['stellacage'] },
-      { id: '2016-4', date: '08-17', cat: 'music', sub: 'single', title: '第五张单曲《约束 -Promise code-》', body: '动画《Qualidea Code》片尾曲。专辑首次大量启用和风元素，配套曲收录《極楽浄土》正式 CD 化与和风民谣《紫苑》。', tags: ['約束', '和风'] },
-      { id: '2016-5', date: '全年', cat: 'live', sub: 'festival', title: '海外活动密集 · 台湾 / 马来西亚 / 美国 / 德国 / 泰国 / 香港', body: '全年至少 11 场海外活动，「極楽浄土」效应让海外邀约持续涌入。', tags: ['海外'] },
-      { id: '2016-6', date: '09-14', cat: 'music', sub: 'collab', title: '与 ClariS 合作曲《Clever》', body: '《Qualidea Code》第三片尾曲，由 GARNiDELiA 与 ClariS 共同演绎。', tags: ['ClariS', '合作'] },
-      { id: '2016-7', date: '12-14', cat: 'music', sub: 'album', title: '第二张原创合辑《Violet Cry》', body: '13 首歌（含 9 首新曲），主题为「释放各种情感」。与 Heavygrinder、カルメラ 均有合作曲。', tags: ['Violet Cry'] },
-      { id: '2016-8', date: '12-10 / 17', cat: 'live', sub: 'concert', title: 'stellacage vol.V（大阪 + 东京双场）', body: '系列首次跨城双场。', tags: ['stellacage'] }
+      { id: '2016-1', date: '01-30', cat: 'live', sub: 'concert', title: '台湾「GARNiDELiA & 八王子P LIVE 2016 in TAIPEI」', body: '到台湾参与「GARNiDELiA & 八王子P LIVE 2016 in TAIPEI」，在「ATT SHOW BOX 立方文创」举办。', tags: ['台湾', '八王子P', 'LIVE'] },
+      { id: '2016-2', date: '03-11', cat: 'music', sub: 'single', title: '游戏主题曲《Burning Soul》', body: '为 PC 游戏《灵魂行者（ソウルワーカー）》创作主题曲《Burning Soul》。', tags: ['Burning Soul', '游戏', '主题曲'], media: { photos: [{ src: '/photos/2016/72.jpg', caption: '《Burning Soul》' }] } },
+      { id: '2016-3', date: '04-25', cat: 'dance', title: '投稿舞蹈作品《极乐净土》', body: '投稿舞蹈作品《极乐净土》，B 站搬运视频点击破 600 万，中国国内有大量舞蹈翻跳和 MMD 视频，她也因此在 B 站受到更多关注。', tags: ['极乐净土', '舞见', '出圈', 'B站'], media: { photos: [{ src: '/photos/2016/73.png', caption: '《极乐净土》' }] } },
+      { id: '2016-4', date: '08-17', cat: 'music', sub: 'single', title: 'GARNiDELiA 第五张单曲《约束 -Promise code-》', body: '随 GARNiDELiA 发行组合第五张单曲《约束 -Promise code-》。', tags: ['约束', 'Promise code', '单曲'], media: { photos: [{ src: '/photos/2016/74.jpg', caption: '《约束 -Promise code-》' }] } },
+      { id: '2016-5', date: '09-14', cat: 'music', sub: 'collab', title: '与 ClariS 合作第六张单曲《clever》', body: '随 GARNiDELiA 与 ClariS 合作发行第六张单曲《clever》。', tags: ['clever', 'ClariS', '合作'], media: { photos: [{ src: '/photos/2016/75.jpg', caption: '《clever》' }] } },
+      { id: '2016-6', date: '11-03', cat: ['live', 'life'], sub: 'festival', title: 'Niconico 2016 超 Party 演唱 · 加入乐队 GOUACHE', body: '在 Niconico 2016 超 Party 参与演唱《吉原哀歌》；之后，宣布以主唱身份加入由 Jin 组建的乐队 GOUACHE。', tags: ['超Party', 'GOUACHE', '吉原哀歌'], media: { photos: [{ src: '/photos/2016/90.png', caption: '演唱现场' }] } },
+      { id: '2016-7', date: '11-04', cat: 'music', sub: 'single', title: 'GOUACHE 首张单曲《RED》', body: '随 GOUACHE 发行首张单曲《RED》，该曲亦是剧场版《阳炎 Daze》的主题曲。', tags: ['RED', 'GOUACHE', '阳炎Daze'], media: { photos: [{ src: '/photos/2016/76.jpg', caption: '《RED》' }] } },
+      { id: '2016-8', date: '12-03', cat: 'live', sub: 'festival', title: '台湾「LisAni! LIVE TAIWAN」', body: '随 GARNiDELiA 到台湾参与「LisAni! LIVE TAIWAN Supported by 战斗女子学园」，在「台北国际会议中心」举办。', tags: ['LisAni', '台湾'] },
+      { id: '2016-9', date: '12-14', cat: 'music', sub: 'album', title: 'GARNiDELiA 第二张原创专辑《Violet Cry》', body: '随 GARNiDELiA 发布第二张原创专辑《Violet Cry》，收录《极乐净土》《约束 -Promise code-》等共 13 首歌曲。', tags: ['Violet Cry', '原创专辑'], media: { photos: [{ src: '/photos/2016/77.jpg', caption: '《Violet Cry》' }] } }
+    ],
+    photos: [
+      { src: '/photos/2016/79.jpg', caption: 'GARNiDELiA 在美国旧金山 J-POP SUMMIT 表演及采访' },
+      { src: '/photos/2016/86.png', caption: 'GARNiDELiA 在美国旧金山 J-POP SUMMIT 表演及采访' },
+      { src: '/photos/2016/87.jpg', caption: 'GARNiDELiA 在美国旧金山 J-POP SUMMIT 表演及采访' },
+      { src: '/photos/2016/88.jpg', caption: 'GARNiDELiA 在美国旧金山 J-POP SUMMIT 表演及采访' },
+      { src: '/photos/2016/89.jpg', caption: 'GARNiDELiA 在美国旧金山 J-POP SUMMIT 表演及采访' },
+      '/photos/2016/80.jpg',
+      '/photos/2016/81.jpg',
+      '/photos/2016/82.jpg',
+      '/photos/2016/83.jpg',
+      '/photos/2016/84.jpg',
+      '/photos/2016/85.jpg'
     ]
   },
   {
