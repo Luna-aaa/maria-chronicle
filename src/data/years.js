@@ -161,7 +161,7 @@ export const years = [
     summary: '随 GARNiDELiA 首次海外公演登台上海，发行个人首张同人专辑《aMazing MusiQue PaRK》并与みうめ・仮面ライアー217 共创舞蹈《Girls》，年内 G 团再发第三张同人专辑。',
     events: [
       { id: '2012-1', date: '05-13', cat: 'live', sub: 'festival', title: '首次海外公演 · 上海舞动漫音楽祭 ANIME ROCK CONVENTION', body: '随 GARNiDELiA 首次海外公演，于上海举行的舞动漫音楽祭 ~ANIME ROCK CONVENTION~ 演出。', tags: ['首次海外公演', '上海', 'ANIME ROCK CONVENTION'], media: { photos: [{ src: '/photos/2012/43.png', caption: '音楽祭采访' }, { src: '/photos/2012/44.png', caption: '音楽祭采访' }] } },
-      { id: '2012-2', date: '07-25', cat: ['music', 'dance'], sub: 'album', title: '个人首张同人专辑《aMazing MusiQue PaRK》 · 舞蹈《Girls》', body: '发布首张个人同人专辑《aMazing MusiQue PaRK》；为此与好友 Miume（みうめ）、仮面ライアー217（妮娜）共同创作了名为《Girls》的舞蹈。', tags: ['同人专辑', 'aMazing MusiQue PaRK', 'Girls', 'みうめ', '217'], media: { photos: [{ src: '/photos/2012/45.jpg', caption: '《aMazing MusiQue PaRK》' }, { src: '/photos/2012/46.png', caption: '《Girls》' }] } },
+      { id: '2012-2', date: '07-25', cat: ['music', 'dance'], sub: 'album', title: '个人首张同人专辑《aMazing MusiQue PaRK》 · 舞蹈《Girls》', body: '发布首张个人同人专辑《aMazing MusiQue PaRK》，收录《相対性モノローグ》《気まぐれケットシー》等共 10 首歌曲；为此与好友 Miume（みうめ）、仮面ライアー217（妮娜）共同创作了名为《Girls》的舞蹈。', tags: ['同人专辑', 'aMazing MusiQue PaRK', 'Girls', 'みうめ', '217'], media: { photos: [{ src: '/photos/2012/45.jpg', caption: '《aMazing MusiQue PaRK》' }, { src: '/photos/2012/46.png', caption: '《Girls》' }] } },
       { id: '2012-3', date: '08-11', cat: 'music', sub: 'album', title: '第三张同人专辑《Pluslights-21248931-》', body: '随 GARNiDELiA 发行第三张同人专辑《Pluslights-21248931-》。', tags: ['同人', 'Pluslights'], media: { photos: [{ src: '/photos/2012/47.jpg', caption: '《Pluslights-21248931-》' }] } }
     ]
   },
@@ -172,7 +172,7 @@ export const years = [
     events: [
       { id: '2013-1', date: '04-23', cat: 'live', title: '「STARTING OVER」出演', body: '随 GARNiDELiA 出演「STARTING OVER」。', tags: ['LIVE', 'GARNiDELiA'] },
       { id: '2013-2', date: '06-09', cat: 'live', sub: 'festival', title: '音乐节「SAKAE SP-RING 2013」出演', body: '随 GARNiDELiA 出演音乐节「SAKAE SP-RING 2013」。', tags: ['音乐节', 'SAKAE SP-RING'] },
-      { id: '2013-3', date: '08-12', cat: 'music', sub: 'album', title: '第二张个人同人专辑《MabLE SYNDROMe》', body: '推出第二张个人同人专辑《MabLE SYNDROMe》。', tags: ['同人专辑', 'MabLE SYNDROMe'], media: { photos: [{ src: '/photos/2013/48.jpg', caption: '《MabLE SYNDROMe》' }] } },
+      { id: '2013-3', date: '08-12', cat: 'music', sub: 'album', title: '第二张个人同人专辑《MabLE SYNDROMe》', body: '推出第二张个人同人专辑《MabLE SYNDROMe》，收录《夜咄ディセイブ》《脳漿炸裂ガール》等共 10 首歌曲。', tags: ['同人专辑', 'MabLE SYNDROMe'], media: { photos: [{ src: '/photos/2013/48.jpg', caption: '《MabLE SYNDROMe》' }] } },
       { id: '2013-4', date: '10-30', cat: 'music', sub: 'single', title: '《True High》预备出道（リスアニ! Vol.15 附录）', body: 'GARNiDELiA 以「リスアニ!」Vol.15 附录曲《True High》预备出道。', tags: ['True High', 'リスアニ', '预备出道'], media: { photos: ['/photos/2013/49.jpg'] } },
       { id: '2013-5', date: '11-03', cat: 'live', sub: 'festival', title: '「超流APPEND FES.2013」出演', body: '随 GARNiDELiA 出演「超流APPEND FES.2013」。', tags: ['LIVE', '超流APPEND'] }
     ],
@@ -191,14 +191,19 @@ export const years = [
   },
   {
     year: 2014,
-    title: '主流出道 · 一年三连发',
-    summary: '索尼旗下正式出道，一年内三张单曲三部动画。',
+    title: '组合主流出道 · 一年三连单',
+    summary: 'GARNiDELiA 以《ambiguous》开启组合单曲发行，一年内连发《ambiguous》《grilletto》《BLAZING》三张动画片头曲单曲，并献声じん的《daze》。',
     events: [
-      { id: '2014-1', date: '03-05', cat: 'music', sub: 'single', title: '主流出道单曲《ambiguous》', body: '在索尼 Defstar Records 旗下正式出道。主打曲为电视动画《Kill la Kill（斩服少女）》第二期片头曲。Oricon 周榜最高第 15 位。', tags: ['主流出道', 'Kill la Kill'] },
-      { id: '2014-2', date: '07-30', cat: 'music', sub: 'single', title: '第二张单曲《grilletto》', body: '动画《魔法科高校的劣等生》后期开场曲，更具数字感的酷炫摇滚。iTunes 动画榜首位。', tags: ['魔法科'] },
-      { id: '2014-3', date: '08 月', cat: 'live', sub: 'festival', title: '海外首演 + JIN 大结局活动', body: '8 月以 JIN 特邀嘉宾身份参演《机巧少女不会受伤》大结局活动（涩谷公会堂）；并在印尼参加 AFA14。', tags: ['海外', 'AFA'] },
-      { id: '2014-4', date: '10-02', cat: 'live', sub: 'concert', title: '首次个人演唱会《stellacage》', body: '在涩谷 TSUTAYA O-WEST 举行第一场 stellacage，开启日后延续至今的「stellacage」系列演唱会品牌。', tags: ['stellacage', '首场'] },
-      { id: '2014-5', date: '10-29', cat: 'music', sub: 'single', title: '第三张单曲《BLAZING》', body: '富野由悠季亲自指名的合作——动画《高达 G 复国运动》开场曲。Oricon 日榜首次进入前十。', tags: ['BLAZING', '高达'] }
+      { id: '2014-1', date: '03-01 / 02', cat: 'live', title: '「1st PLACE 10-11th CELEBRATION LIVE」出演', body: '随 GARNiDELiA 出演「1st PLACE 10-11th CELEBRATION LIVE」。', tags: ['LIVE', '1st PLACE', 'GARNiDELiA'] },
+      { id: '2014-2', date: '03-05', cat: 'music', sub: 'single', title: 'GARNiDELiA 首张单曲《ambiguous》', body: '随 GARNiDELiA 发行组合首张单曲《ambiguous》，担任 TV 动画《KILL la KILL（斩服少女）》片头曲。', tags: ['ambiguous', 'KILL la KILL', '动画歌', '组合首张单曲'], media: { photos: [{ src: '/photos/2014/60.jpg', caption: '《ambiguous》' }, { src: '/photos/2014/63.jpg', caption: '《ambiguous》' }] } },
+      { id: '2014-3', date: '06-18', cat: 'music', sub: 'collab', title: '演唱作品《daze》发行', body: '演唱作品《daze》发行。', tags: ['daze', '合作曲'] },
+      { id: '2014-4', date: '07-30', cat: 'music', sub: 'single', title: 'GARNiDELiA 第二张单曲《grilletto》', body: '随 GARNiDELiA 发行组合第二张单曲《grilletto》，为 TV 动画《魔法科高校的劣等生》片头曲。', tags: ['grilletto', '魔法科高校的劣等生', '动画歌', '单曲'], media: { photos: [{ src: '/photos/2014/61.jpg', caption: '《grilletto》' }, { src: '/photos/2014/64.jpg', caption: '《grilletto》' }] } },
+      { id: '2014-5', date: '10-29', cat: 'music', sub: 'single', title: 'GARNiDELiA 第三张单曲《BLAZING》', body: '随 GARNiDELiA 发行组合第三张单曲《BLAZING》，为动画《高达 G 复国运动》片头曲。', tags: ['BLAZING', '高达G复国运动', '动画歌', '单曲'], media: { photos: [{ src: '/photos/2014/62.jpg', caption: '《BLAZING》' }] } }
+    ],
+    photos: [
+      { src: '/photos/2014/65.png', caption: '2014 ANIMAX 演唱《only my railgun》' },
+      { src: '/photos/2014/66.png', caption: '2014 ANIMAX 演唱《only my railgun》' },
+      { src: '/photos/2014/67.png', caption: '2014【Lamb】现场' }
     ]
   },
   {
