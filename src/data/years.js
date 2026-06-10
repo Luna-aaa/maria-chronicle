@@ -310,7 +310,7 @@ export const years = [
     title: '原创专辑《起死回生》',
     summary: '签约环球音乐集团后，随 GARNiDELiA 发行第四张原创专辑《起死回生》，并参加 HALLOWEEN MiRACLE WONDER PARTY 2020。',
     events: [
-      { id: '2020-1', date: '10-30~31', cat: 'live', sub: 'festival', title: 'HALLOWEEN MiRACLE WONDER PARTY 2020', body: '参加 Presents HALLOWEEN MiRACLE WONDER PARTY 2020。', tags: ['万圣节', 'PARTY'], media: { photos: ['/photos/2020/127.jpg', '/photos/2020/128.jpg', '/photos/2020/130.jpg', '/photos/2020/131.jpg', '/photos/2020/132.jpg', '/photos/2020/133.jpg', '/photos/2020/134.jpg'] } },
+      { id: '2020-1', date: '10-30~31', cat: 'live', sub: 'festival', title: 'HALLOWEEN MiRACLE WONDER PARTY 2020', body: '参加 Presents HALLOWEEN MiRACLE WONDER PARTY 2020。', tags: ['万圣节', 'PARTY'], media: { photos: ['/photos/2020/127.jpg', '/photos/2020/128.jpg', '/photos/2020/129.jpg', '/photos/2020/130.jpg', '/photos/2020/131.jpg', '/photos/2020/132.jpg', '/photos/2020/133.jpg'] } },
       { id: '2020-2', date: '11-25', cat: 'music', sub: 'album', title: 'GARNiDELiA 第四张原创专辑《起死回生》', body: '随 GARNiDELiA 发布第四张原创专辑《起死回生》，是签约「环球音乐集团」后发行的第一张唱片，收录《宵闇胡蝶》《怪物の夢》等共 11 首歌曲。', tags: ['起死回生', '原创专辑', '环球音乐'], media: { photos: [{ src: '/photos/2020/125.jpg', caption: '《起死回生》' }, { src: '/photos/2020/126.jpg', caption: '《起死回生》' }] } }
     ]
   },
