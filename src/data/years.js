@@ -248,53 +248,70 @@ export const years = [
   },
   {
     year: 2017,
-    title: '首次巡演 · 武道馆梦',
-    summary: '第一次正式巡回演唱会，并踏上武道馆舞台。',
+    title: '移籍 SACRA MUSIC · 首登中国专场',
+    summary: '由 SME Records 移籍至索尼动漫向新厂牌 SACRA MUSIC；在上海举办中国首次 Live 见面会与演唱会，连发《SPEED STAR》《Désir》《Aikotoba》三张动画单曲，并赴台北举办亚洲巡演专场。',
     events: [
-      { id: '2017-1', date: '01-28', cat: 'live', sub: 'festival', title: 'リスアニ！LIVE 2017 武道馆登台', body: '在动画音乐界标志性的武道馆舞台上演出（拼盘形式）。', tags: ['武道馆', 'リスアニ'] },
-      { id: '2017-2', date: '03 月', cat: 'live', sub: 'concert', title: '香港 / 新加坡 Anisong Fantasy Live 2017', body: 'Anisong Fantasy Live 香港（3/10）与新加坡（3/18）专场。', tags: ['亚洲'] },
-      { id: '2017-3', date: '04-16 起', cat: 'live', sub: 'concert', title: '首次正式巡演「stellacage TOUR 2017 ~Cry Out~」', body: '六场：东京 / 名古屋 / 大阪 / 福冈 / 仙台 + 上海。真正意义上的第一次巡回演唱会，上海场（5/20）为首次海外独立专场。', tags: ['巡演', '上海'] },
-      { id: '2017-4', date: '05—06 月', cat: 'dance', title: '舞见系列第五弹《桃源恋歌》上传', body: '小美亲自表态：这是写给中国粉丝的歌。中华风格的舞曲与编舞，是对《極楽浄土》在中国走红后的回应。', tags: ['桃源恋歌', '中国粉丝'] },
-      { id: '2017-5', date: '06-14', cat: 'music', sub: 'single', title: '第六张单曲《SPEED STAR》', body: '动画电影《劇場版 魔法科高校の劣等生 星を呼ぶ少女》主题曲。转至动漫向厂牌「SACRA MUSIC」后的首张专辑。', tags: ['SPEED STAR', 'SACRA MUSIC'] },
-      { id: '2017-6', date: '07-23', cat: 'live', sub: 'festival', title: '上海 BILIBILI MACRO LINK / WORLD 2017', body: '现场粉丝一句「赛高！」让她瞬间回应，从此「赛高」成为最经典的咩文化符号之一。', tags: ['赛高', 'bilibili'] },
-      { id: '2017-7', date: '07-30', cat: 'live', sub: 'festival', title: 'Fate/Grand Order Fes 2017（幕张）', body: '作为《Fate/Apocrypha》片尾曲歌手登台 FGO 大型粉丝活动。', tags: ['Fate'] },
-      { id: '2017-8', date: '08-23', cat: 'music', sub: 'single', title: '第七张单曲《Désir》', body: '动画《Fate/Apocrypha》片尾曲。突出歌声本身、减弱数字感的「转折期」之作。', tags: ['Désir', 'Fate'] },
-      { id: '2017-9', date: '10-01', cat: 'live', sub: 'concert', title: 'Zepp Tokyo 单独演唱会', body: '舞台规格再上一档。', tags: ['Zepp'] },
-      { id: '2017-10', date: '10 月 起', cat: 'live', sub: 'concert', title: '亚洲巡演「stellacage Asia Tour 2017」', body: '北京 / 成都 / 台湾 / 深圳 4 场，全年合计 10 场巡演。', tags: ['亚洲巡演', '中国大陆'] },
-      { id: '2017-11', date: '11-01', cat: 'music', sub: 'single', title: '第八张单曲《アイコトバ》', body: '动画《アニメガタリズ》开场曲——首次尝试明亮大调流行舞曲。', tags: ['アイコトバ'] },
-      { id: '2017-12', date: '11 月', cat: 'dance', title: '舞见系列第六弹《Hysteric Bullet（枪娘）》', body: '腾讯网络动画《枪娘》主题曲，《アイコトバ》配套曲，中国玩家熟知的舞见之一。', tags: ['枪娘', '舞见'] }
+      { id: '2017-1', date: '04 月', cat: 'life', title: '移籍 SACRA MUSIC', body: '由原先 SME Records 移转至同为索尼旗下、为动漫歌手开设的新品牌 SACRA MUSIC。', tags: ['SACRA MUSIC', '厂牌', '移籍'] },
+      { id: '2017-2', date: '05-20', cat: 'live', sub: 'concert', title: '上海·中国首次 Live 见面会与演唱会', body: '随 GARNiDELiA 在上海市举办了中国第一次 Live 见面会和演唱会。', tags: ['上海', '中国', '见面会'] },
+      { id: '2017-3', date: '06-14', cat: 'music', sub: 'single', title: 'GARNiDELiA 第六张单曲《SPEED STAR》', body: '随 GARNiDELiA 发行组合第六张单曲《SPEED STAR》，为剧场版《魔法科高中的劣等生 呼唤繁星的少女》主题曲。', tags: ['SPEED STAR', '魔法科高中', '动画歌', '单曲'], media: { photos: [{ src: '/photos/2017/96.jpg', caption: '《SPEED STAR》' }] } },
+      { id: '2017-4', date: '07-23', cat: 'live', sub: 'festival', title: '上海 Bilibili Macro Link（BML）', body: '参加上海 Bilibili Macro Link（BML）。', tags: ['BML', 'bilibili', '上海'], media: { photos: ['/photos/2017/91.jpg', '/photos/2017/92.jpg'] } },
+      { id: '2017-5', date: '08-23', cat: 'music', sub: 'single', title: 'GARNiDELiA 第七张单曲《Désir》', body: '随 GARNiDELiA 发行组合第七张单曲《Désir》，为《Fate/Apocrypha》片尾曲。', tags: ['Désir', 'Fate/Apocrypha', '动画歌', '单曲'], media: { photos: [{ src: '/photos/2017/97.jpg', caption: '《Désir》' }] } },
+      { id: '2017-6', date: '10-14', cat: 'live', sub: 'concert', title: '台湾「GARNiDELiA stellacage Asia Tour 2017 in Taipei」', body: '到台湾举办个人团体演唱会「-GARNiDELiA stellacage Asia Tour 2017 in Taipei-」，在「花漾 HANA 展演空间」举办。', tags: ['台湾', 'stellacage', 'Asia Tour'], media: { photos: ['/photos/2017/93.jpg', '/photos/2017/94.png', '/photos/2017/95.png'] } },
+      { id: '2017-7', date: '11-01', cat: 'music', sub: 'single', title: 'GARNiDELiA 第八张单曲《Aikotoba》', body: '随 GARNiDELiA 发行组合第八张单曲《Aikotoba》，为动画《同好会》片头曲。', tags: ['Aikotoba', '同好会', '动画歌', '单曲'], media: { photos: [{ src: '/photos/2017/98.jpg', caption: '《Aikotoba》' }, { src: '/photos/2017/99.jpg', caption: '《Aikotoba》' }] } }
     ]
   },
   {
     year: 2018,
-    title: '集大成 · G.R.N.D.',
-    summary: '第三张原创合辑发行，再登武道馆。',
+    title: '《G.R.N.D.》· 精选辑《响喜乱舞》',
+    summary: '随 GARNiDELiA 发行第九张单曲《Error》、第三张原创专辑《G.R.N.D.》与汇集舞见作品的第二张精选辑《响喜乱舞》，并赴广州、新加坡等地参演。',
     events: [
-      { id: '2018-1', date: '01-27', cat: 'live', sub: 'festival', title: '再登武道馆「リスアニ！LIVE 2018」', body: '武道馆再次回归。', tags: ['武道馆'] },
-      { id: '2018-2', date: '01-31', cat: 'music', sub: 'single', title: '第九张单曲《Error》（生日发行）', body: '动画《BEATLESS》开场曲。完全 EDM 化的「不像动画歌的动画歌」。同碟收录生日歌《君が生まれた日》。', tags: ['Error', 'BEATLESS', '生日'] },
-      { id: '2018-3', date: '03-28', cat: 'music', sub: 'album', title: '第三张原创合辑《G.R.N.D.》', body: 'GARNiDELiA 自身的缩写，13 首歌。主打曲成为日本电视台节目片尾曲。', tags: ['G.R.N.D.', '合辑'] },
-      { id: '2018-4', date: '03 月', cat: 'dance', title: '舞见系列第七弹《红叶爱唄》', body: '《王者荣耀》公孙离主题曲，收录于《G.R.N.D.》，鹅厂合作的中华风舞见。', tags: ['王者荣耀', '舞见'] },
-      { id: '2018-5', date: '04 月', cat: 'live', sub: 'concert', title: '巡演「stellacage Tour 2018」 大阪 / 爱知 / 东京 + 香港', body: '第二次年度巡演，4 场。东京站为中野サンプラザホール。', tags: ['巡演'] },
-      { id: '2018-6', date: '04-21', cat: 'live', sub: 'festival', title: 'ANIMAX MUSIX 2018 Guangzhou', body: '广州登台。', tags: ['中国', '广州'] }
+      { id: '2018-1', date: '01-31', cat: 'music', sub: 'single', title: 'GARNiDELiA 第九张单曲《Error》', body: '随 GARNiDELiA 发行组合第九张单曲《Error》，为 TV 动画《BEATLESS（没有心跳的少女）》片头曲。', tags: ['Error', 'BEATLESS', '动画歌', '单曲'], media: { photos: [{ src: '/photos/2018/102.jpg', caption: '《Error》' }, { src: '/photos/2018/103.jpg', caption: '《Error》' }] } },
+      { id: '2018-2', date: '03-28', cat: 'music', sub: 'album', title: 'GARNiDELiA 第三张原创专辑《G.R.N.D.》', body: '随 GARNiDELiA 发布第三张原创专辑《G.R.N.D.》。', tags: ['G.R.N.D.', '原创专辑'], media: { photos: [{ src: '/photos/2018/104.jpg', caption: '《G.R.N.D.》' }] } },
+      { id: '2018-3', date: '04-21', cat: 'live', sub: 'festival', title: 'ANIMAX MUSIX 2018（广州）', body: '参加 ANIMAX MUSIX 2018（广州）。', tags: ['ANIMAX MUSIX', '广州', '中国'] },
+      { id: '2018-4', date: '07-22', cat: 'live', sub: 'festival', title: '上海「BILIBILI MACRO LINK 2018」', body: '参加「BILIBILI MACRO LINK 2018」。', tags: ['BML', 'bilibili'] },
+      { id: '2018-5', date: '09-26', cat: 'music', sub: 'album', title: 'GARNiDELiA 第二张精选辑《响喜乱舞》', body: '随 GARNiDELiA 发布组合第二张精选辑《响喜乱舞》，收录《极乐净土》《桃源恋歌》等共 10 首歌曲，分别对应 8 个舞见作品和 2 个合作舞见作品。', tags: ['响喜乱舞', '精选辑', '舞见'], media: { photos: [{ src: '/photos/2018/105.jpg', caption: '《响喜乱舞》' }] } },
+      { id: '2018-6', date: '12-04', cat: 'live', sub: 'festival', title: '新加坡 RED CARPET C3AFASG 2018', body: '随 GARNiDELiA 参加新加坡 RED CARPET C3AFASG 2018。', tags: ['新加坡', 'C3AFA'], media: { photos: ['/photos/2018/100.jpg', '/photos/2018/101.jpg'] } }
+    ],
+    photos: [
+      '/photos/2018/106.jpg',
+      '/photos/2018/107.jpg',
+      '/photos/2018/108.jpg',
+      '/photos/2018/109.jpg',
+      '/photos/2018/110.jpg',
+      '/photos/2018/111.jpg',
+      '/photos/2018/112.jpg',
+      '/photos/2018/113.jpg',
+      '/photos/2018/114.jpg'
     ]
   },
   {
     year: 2019,
-    title: '厂牌动荡 · 个人活动期',
-    summary: '最后一张正式单曲，年底约满离开 SACRA MUSIC。',
+    title: '《REBEL FLAG》· 约满离开 SACRA MUSIC',
+    summary: '随 GARNiDELiA 发行第十张单曲《REBEL FLAG》，赴台举办「响喜乱舞」亚洲巡演专场；8 月与 SACRA MUSIC 契约期满解约，年底发行第三张精选辑《GARNiDELiA BEST》。',
     events: [
-      { id: '2019-1', date: '01-12 / 03-13', cat: 'music', sub: 'single', title: '第十张单曲《REBEL FLAG》', body: '动画《魔法少女特殊战明日香》片尾曲。这也是 GARNiDELiA 至今为止的最后一张正式单曲专辑。', tags: ['REBEL FLAG'] },
-      { id: '2019-2', date: '08-28', cat: 'life', title: '与 SACRA MUSIC 合约月底到期', body: '索尼旗下动漫向厂牌 SACRA MUSIC 的合约结束，进入厂牌动荡期。', tags: ['厂牌'] },
-      { id: '2019-3', date: '12-04', cat: 'music', sub: 'album', title: '第二张精选集《GARNiDELiA BEST》', body: 'SACRA MUSIC 时代的收尾精选集。', tags: ['精选集'] }
+      { id: '2019-1', date: '03-13', cat: 'music', sub: 'single', title: 'GARNiDELiA 第十张单曲《REBEL FLAG》', body: '随 GARNiDELiA 发行组合第十张单曲《REBEL FLAG》，为《魔法少女特殊战明日香》片尾曲。', tags: ['REBEL FLAG', '魔法少女特殊战明日香', '动画歌', '单曲'], media: { photos: [{ src: '/photos/2019/115.jpg', caption: '《REBEL FLAG》' }, { src: '/photos/2019/116.jpg', caption: '《REBEL FLAG》' }] } },
+      { id: '2019-2', date: '06-01', cat: 'live', sub: 'concert', title: '台湾「stellacage Asia Tour 2019 "响喜乱舞" in Taipei」', body: '亚巡到台湾举办个人团体演唱会「stellacage Asia Tour 2019 "响喜乱舞" in Taipei」，在「永丰 Legacy Taipei 音乐展演空间」举办。', tags: ['台湾', 'stellacage', '响喜乱舞'] },
+      { id: '2019-3', date: '07-20', cat: 'live', sub: 'festival', title: '上海「BILIBILI MACRO LINK 2019」', body: '参加「BILIBILI MACRO LINK 2019」（上海·梅赛德斯-奔驰文化中心）。', tags: ['BML', 'bilibili', '上海'] },
+      { id: '2019-4', date: '08-31', cat: 'life', title: '契约期满·解除与 SACRA MUSIC 合作关系', body: '契约已满，解除与 SACRA MUSIC 的合作关系。', tags: ['SACRA MUSIC', '厂牌', '解约'] },
+      { id: '2019-5', date: '12-04', cat: 'music', sub: 'album', title: 'GARNiDELiA 第三张精选辑《GARNiDELiA BEST》', body: '随 GARNiDELiA 发布组合第三张精选辑《GARNiDELiA BEST》。', tags: ['GARNiDELiA BEST', '精选辑'], media: { photos: [{ src: '/photos/2019/117.jpg', caption: '《GARNiDELiA BEST》' }] } }
+    ],
+    photos: [
+      { src: '/photos/2019/118.jpg', caption: '万圣节 PARTY 2019' },
+      { src: '/photos/2019/119.jpg', caption: '万圣节 PARTY 2019' },
+      { src: '/photos/2019/120.jpg', caption: '万圣节 PARTY 2019' },
+      { src: '/photos/2019/121.jpg', caption: 'stellacage Asia Tour 2019「響喜乱舞」' },
+      { src: '/photos/2019/122.jpg', caption: 'stellacage Asia Tour 2019「響喜乱舞」' },
+      { src: '/photos/2019/123.jpg', caption: 'SACRA MUSIC 2019 现场' },
+      { src: '/photos/2019/124.jpg', caption: 'SACRA MUSIC 2019 现场' }
     ]
   },
   {
     year: 2020,
-    title: '签约环球音乐',
-    summary: '移籍环球，发行第四张原创专辑《起死回生》。',
+    title: '原创专辑《起死回生》',
+    summary: '签约环球音乐集团后，随 GARNiDELiA 发行第四张原创专辑《起死回生》，并参加 HALLOWEEN MiRACLE WONDER PARTY 2020。',
     events: [
-      { id: '2020-1', date: '06-29', cat: 'music', sub: 'single', title: '移籍日本环球音乐 · 数字单曲《Star Trail》', body: '正式签约日本环球音乐（Universal Music Japan），发行新厂牌首支数字单曲。', tags: ['环球音乐', 'Star Trail'] },
-      { id: '2020-2', date: '11-25', cat: 'music', sub: 'album', title: '第四张原创专辑《起死回生》', body: '签约环球音乐后的首张原创专辑，组合时隔约两年的全新作品。', tags: ['起死回生'] }
+      { id: '2020-1', date: '10-30~31', cat: 'live', sub: 'festival', title: 'HALLOWEEN MiRACLE WONDER PARTY 2020', body: '参加 Presents HALLOWEEN MiRACLE WONDER PARTY 2020。', tags: ['万圣节', 'PARTY'], media: { photos: ['/photos/2020/127.jpg', '/photos/2020/128.jpg', '/photos/2020/130.jpg', '/photos/2020/131.jpg', '/photos/2020/132.jpg', '/photos/2020/133.jpg', '/photos/2020/134.jpg'] } },
+      { id: '2020-2', date: '11-25', cat: 'music', sub: 'album', title: 'GARNiDELiA 第四张原创专辑《起死回生》', body: '随 GARNiDELiA 发布第四张原创专辑《起死回生》，是签约「环球音乐集团」后发行的第一张唱片，收录《宵闇胡蝶》《怪物の夢》等共 11 首歌曲。', tags: ['起死回生', '原创专辑', '环球音乐'], media: { photos: [{ src: '/photos/2020/125.jpg', caption: '《起死回生》' }, { src: '/photos/2020/126.jpg', caption: '《起死回生》' }] } }
     ]
   },
   {
