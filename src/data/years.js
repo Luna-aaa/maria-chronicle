@@ -316,13 +316,25 @@ export const years = [
   },
   {
     year: 2021,
-    title: '转籍波丽佳音 · 个人首专',
-    summary: 'MARiA 发行出道后首张个人专辑《うたものがたり》。',
+    title: '移籍 PONY CANYON · 个人专辑《うたものがたり》',
+    summary: '3 月宣布 MARiA／toku／GARNiDELiA 移籍「PONY CANYON」（波丽佳音）；5 月发行个人专辑《うたものがたり》；9 月随 GARNiDELiA 发行数字单曲《春がきたよ》；11 月发行第五张原创专辑《Duality Code》。',
     events: [
-      { id: '2021-1', date: '03-22', cat: 'life', title: '环球音乐合约终止 · 转籍波丽佳音', body: 'GARNiDELiA 组合与二人 SOLO 活动一同移籍 Pony Canyon（波丽佳音）。', tags: ['波丽佳音'] },
-      { id: '2021-2', date: '05-26', cat: 'music', sub: 'album', title: 'MARiA 个人首张专辑《うたものがたり》', body: '出道以来首张个人名义专辑，收录 10 首情歌，词曲提供阵容含 山下穂尊、橋口洋平、じん、草野華余子、TAKUYA、山崎将义 等。', tags: ['うたものがたり', 'SOLO'] },
-      { id: '2021-3', date: '09-17', cat: 'music', sub: 'single', title: '数字单曲《春がきたよ》', body: '日剧《反正你也逃不掉》片头曲。', tags: ['日剧'] },
-      { id: '2021-4', date: '11-17', cat: 'music', sub: 'album', title: '第五张原创专辑《Duality Code》', body: '收录《オトメの心得》（动画《大正处女御伽话》OP）等曲。', tags: ['Duality Code'] }
+      { id: '2021-1', date: '03-21', cat: 'life', title: '宣布个人专辑《うたものがたり》· 移籍 PONY CANYON', body: '宣布将推出个人专辑《うたものがたり》，同时 MARiA／toku／GARNiDELiA 都将移籍至「PONY CANYON」。', tags: ['移籍', 'PONY CANYON', 'うたものがたり'] },
+      { id: '2021-2', date: '05-26', cat: 'music', sub: 'album', title: '第 3 张个人音乐专辑《うたものがたり》', body: '发行第 3 张个人音乐专辑《うたものがたり》，收录了包括《憐哀感情》《ガラスの鐘》等在内的 10 首歌曲。', tags: ['うたものがたり', '个人专辑'], media: { photos: [{ src: '/photos/2021/134.jpg', caption: '《うたものがたり》' }] } },
+      { id: '2021-3', date: '09-17', cat: 'music', sub: 'single', title: 'GARNiDELiA 数字单曲《春がきたよ》', body: '随 GARNiDELiA 发行数字单曲《春がきたよ》，为日本电视剧《反正你也逃不掉》的片头曲。', tags: ['春がきたよ', '反正你也逃不掉', '日剧', '单曲'], media: { photos: [{ src: '/photos/2021/135.jpg', caption: '《春がきたよ》' }] } },
+      { id: '2021-4', date: '11-17', cat: 'music', sub: 'album', title: 'GARNiDELiA 第五张原创专辑《Duality Code》', body: '随 GARNiDELiA 发布第五张原创专辑《Duality Code》，收录曲《オトメの心得》为动画《大正处女御伽话》片头曲，「きゃにめ限定盘」收录 Live 演唱会。', tags: ['Duality Code', '原创专辑', '大正处女御伽话'], media: { photos: [{ src: '/photos/2021/136.jpg', caption: '《Duality Code》' }, { src: '/photos/2021/137.jpg', caption: '《大正处女御伽话》' }] } }
+    ],
+    photos: [
+      { src: '/photos/2021/138.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      { src: '/photos/2021/139.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      { src: '/photos/2021/140.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      { src: '/photos/2021/141.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      { src: '/photos/2021/142.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      { src: '/photos/2021/143.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      { src: '/photos/2021/144.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      { src: '/photos/2021/145.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      { src: '/photos/2021/146.jpg', caption: 'GARNiDELiA stellacage 2021 steps&claps DAYS2' },
+      '/photos/2021/147.jpg'
     ]
   },
   {
