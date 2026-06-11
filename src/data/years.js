@@ -339,14 +339,13 @@ export const years = [
   },
   {
     year: 2022,
-    title: '结婚 · 进入新阶段',
-    summary: '与摇滚乐手 ぽにきんぐだむ 结婚。',
+    title: '个人专辑《Moments》· 结婚',
+    summary: '发行第 4 张个人音乐专辑《Moments》；舞见系列迎来最终章《讴歌烂漫》；10 月举办万圣节线上 Live；11 月与摇滚乐队吉他手 ぽにきんぐだむ 结婚。',
     events: [
-      { id: '2022-1', date: '03-04', cat: 'music', sub: 'single', title: '数字单曲《オトメの心得》', body: '动画《大正处女御伽话》片头曲。', tags: ['动画歌'] },
-      { id: '2022-2', date: '06-22', cat: 'music', sub: 'album', title: 'MARiA 第二张个人专辑《Moments》', body: '继《うたものがたり》后的第二张个人名义专辑。', tags: ['Moments', 'SOLO'] },
-      { id: '2022-3', date: '09 月', cat: 'music', sub: 'single', title: '数字单曲《蒼天》', body: 'Switch 游戏主题曲。', tags: ['游戏'] },
-      { id: '2022-4', date: '10-16', cat: 'music', sub: 'single', title: 'MARiA《Trust On Me -Theme of E.T.E-》', body: '手游《代号：艾塔（艾塔纪元）》主题歌，MARiA 个人名义。', tags: ['游戏', 'SOLO'] },
-      { id: '2022-5', date: '11-01', cat: 'life', title: '公开与摇滚乐手「ぽにきんぐだむ」结婚', body: 'MARiA 通过 Twitter 公开与乐队「オメでたい頭でなにより」吉他手 ぽにきんぐだむ 的婚讯，受到中日歌迷广泛祝福。', tags: ['婚讯', '私生活'] }
+      { id: '2022-1', date: '06-22', cat: 'music', sub: 'album', title: '第 4 张个人音乐专辑《Moments》', body: '推出第 4 张个人音乐专辑《Moments》，收录了包括《君といたい》《カフェラテのうた》等在内的 10 首歌曲。', tags: ['Moments', '个人专辑'], media: { photos: [{ src: '/photos/2022/148.jpg', caption: '《Moments》' }] } },
+      { id: '2022-2', date: '10-19', cat: 'dance', title: '舞见系列最终章《讴歌烂漫》', body: '发布舞见系列的最终章《讴歌烂漫》。', tags: ['讴歌烂漫', '舞见', '最终章'], media: { photos: [{ src: '/photos/2022/149.jpg', caption: '《讴歌烂漫》' }] } },
+      { id: '2022-3', date: '10 月', cat: 'live', sub: 'festival', title: 'HALLOWEEN MiRACLE WONDER PARTY 2022 - ZAIKO LIVE', body: '举办 GARNiDELiA Presents HALLOWEEN MiRACLE WONDER PARTY 2022 - ZAIKO LIVE。', tags: ['万圣节', 'PARTY', 'ZAIKO'] },
+      { id: '2022-4', date: '11-01', cat: 'life', title: '与摇滚乐队吉他手「ぽにきんぐだむ」结婚', body: '与摇滚乐队「オメでたい頭でなにより」的吉他手 ぽにきんぐだむ 结婚。', tags: ['结婚', '私生活'], media: { photos: ['/photos/2022/150.jpg', '/photos/2022/151.jpg', '/photos/2022/152.jpg', '/photos/2022/153.jpg'] } }
     ]
   },
   {
