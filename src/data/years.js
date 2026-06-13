@@ -350,21 +350,16 @@ export const years = [
   },
   {
     year: 2023,
-    title: '乘风2023 · 现象级出圈',
-    summary: '参加芒果 TV《乘风2023》，人气一度断层第一。',
+    title: '《乘风2023》竞演 · 世界巡演 Re:CoNNeCT',
+    summary: '随 GARNiDELiA 发行组合第 4 张精选辑《GARNiDELiA COVER COLLECTiON》与数字单曲《ONLY》；作为竞演嘉宾参加芒果 TV《乘风2023》并演唱主题曲《风之所向》；展开世界巡演「stellacage 2023 -stella ship- Re:CoNNeCT」，并参加湖南卫视《不设限毕业礼》。',
     events: [
-      { id: '2023-1', date: '03-22', cat: 'music', sub: 'album', title: '翻唱集《GARNiDELiA COVER COLLECTiON》', body: '收录翻唱歌曲与 LIVE 影像。', tags: ['翻唱'] },
-      { id: '2023-2', date: '04 月', cat: 'variety', title: '加入芒果 TV《乘风 2023》', body: '作为节目首位日本籍参赛者亮相。凭借真挚的中文学习态度、可爱的「小美」形象与舞台爆发力，迅速成为节目的最大流量担当。', tags: ['乘风2023', '出圈'] },
-      { id: '2023-3', date: '04-20', cat: 'music', sub: 'single', title: '数字单曲《ONLY》', body: '动画《献祭公主与兽王》片尾曲。', tags: ['动画歌'] },
-      { id: '2023-4', date: '05—07 月', cat: 'variety', title: '节目期间人气一度断层第一 · 总决赛获第三名', body: '节目期间人气与得票数一度领跑全员，单人票数超过其余 32 位「姐姐」的总和；总决赛最终获得第三名，并由此获得大量在中国的演出机会。', tags: ['断层第一', '总决赛第三名'] },
-      { id: '2023-5', date: '07-21', cat: 'variety', title: '乘风之夜 · 登上年度席位', body: '在节目「乘风之夜」与 Ella、谢娜、刘惜君、A-Lin、龚琳娜、贾静雯等共 11 人同登「乘风年度席位」。', tags: ['乘风之夜'] },
-      { id: '2023-6', date: '07-26', cat: 'music', sub: 'collab', title: '与周深合唱《夏日妄想》', body: '《王者荣耀》2023 夏日主题曲。此后她持续承接中国影视、游戏主题曲，成为中日音乐交流的代表面孔之一。', tags: ['周深', '中国合作'] },
-      { id: '2023-7', date: '07-29', cat: 'music', sub: 'single', title: '《MIRAI》发布 8 年后首登 MORA 榜首', body: '《乘风 2023》带来的流量令 2015 年的旧作《MIRAI》在日本 mora 平台首次登上榜首。', tags: ['MIRAI', 'mora'] },
-      { id: '2023-8', date: '08-14', cat: 'live', sub: 'concert', title: '迄今最大演唱会 · 粉丝齐唱《MIRAI》', body: '全场粉丝合唱《MIRAI》献给她，「双向奔赴」成为这一年最常提及的关键词。', tags: ['演唱会'] },
-      { id: '2023-9', date: '09-28', cat: 'live', sub: 'concert', title: '北京《stellacage 2023 -stella ship- Re:CoNNeCT》', body: '中国巡演开启，全年含 OP/ED 共约 25 场，分布在中国多座城市。', tags: ['中国巡演'] },
-      { id: '2023-10', date: '10-02', cat: 'music', sub: 'single', title: '数字单曲《Future Wing》', body: '《原神》三周年应援曲。', tags: ['原神', '游戏'] },
-      { id: '2023-11', date: '10-19', cat: 'music', sub: 'single', title: '数字单曲《暁桜》', body: '《阴阳师》七周年纪念曲。', tags: ['阴阳师', '游戏'] }
-    ]
+      { id: '2023-1', date: '03-22', cat: 'music', sub: 'album', title: '组合第 4 张精选辑《GARNiDELiA COVER COLLECTiON》', body: '随 GARNiDELiA 发布组合第 4 张精选辑《GARNiDELiA COVER COLLECTiON》，收录翻唱歌曲与 LIVE 影像。', tags: ['翻唱', '精选辑'], media: { photos: [{ src: '/photos/2023/156.jpg', caption: '《GARNiDELiA COVER COLLECTiON》' }] } },
+      { id: '2023-2', date: '04-20', cat: 'music', sub: 'single', title: '数字单曲《ONLY》', body: '随 GARNiDELiA 发行数字单曲《ONLY》，为电视动画《祭品公主与兽之王》片尾曲。', tags: ['动画歌'], media: { photos: [{ src: '/photos/2023/157.jpg', caption: '《ONLY》' }] } },
+      { id: '2023-3', date: '05-05', cat: 'variety', title: '作为竞演嘉宾参加《乘风2023》', body: '作为竞演嘉宾参加的芒果 TV 女性励志成长音乐节目《乘风2023》播出，并参与演唱了主题曲《风之所向》。', tags: ['乘风2023', '风之所向'] },
+      { id: '2023-4', date: '05-20', cat: 'live', sub: 'concert', title: '世界巡演《stellacage 2023 -stella ship- Re:CoNNeCT》台北站', body: '世界巡回演唱会「GARNiDELiA stellacage 2023 -stella ship- Re:CoNNeCT」在台湾「Zepp New Taipei」举办。', tags: ['巡演', 'stellacage', '台北'] },
+      { id: '2023-5', date: '07-16', cat: 'variety', title: '参加湖南卫视《不设限毕业礼》晚会', body: '参加湖南卫视《不设限毕业礼》晚会。', tags: ['湖南卫视', '晚会'] }
+    ],
+    photos: ['/photos/2023/154.jpg', '/photos/2023/155.jpg']
   },
   {
     year: 2024,
